@@ -1,18 +1,23 @@
 <?php
 
+use App\Livewire\Admin\Home as AdminHome;
+
+use App\Livewire\Dash\Home as DashHome;
+
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+Route::group([
+    'prefix' => 'admin'
+], function () {
 
-Route::get('/', function () {
-    return view('welcome');
+    Route::get('', AdminHome::class)->name('admin.home');
+
+});
+
+Route::group([
+    'prefix' => 'dash'
+], function () {
+
+    Route::get('', DashHome::class)->name('dash.home');
+
 });
