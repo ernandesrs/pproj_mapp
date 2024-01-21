@@ -70,15 +70,17 @@
         resizeHandler() {
             if (window.innerWidth <= this.lgWidth && !this.isMobile) {
                 this.isMobile = true;
+                this.asideHiddenNow();
             } else if (window.innerWidth > this.lgWidth && this.isMobile) {
                 this.isMobile = false;
+                this.asideShowNow();
             }
         }
     }"
     x-on:resize.window="resizeHandler">
 
     <div
-        class="bg-admin-light-normal w-full h-screen">
+        class="bg-admin-light-normal w-full h-screen lg:grid lg:grid-cols-12">
 
         <div
             x-ref="asideBackdrop"
@@ -89,7 +91,8 @@
             x-transition:leave="transition ease-in duration-200"
             x-transition:leave-start="opacity-100"
             x-transition:leave-end="opacity-0"
-            class="w-full h-screen bg-black bg-opacity-35 fixed top-0 left-0 z-40" style="display: none"></div>
+            class="w-full h-screen bg-black bg-opacity-35 fixed lg:hidden top-0 left-0 z-40" style="display: none">
+        </div>
 
         <aside
             x-show="asideShow"
@@ -99,7 +102,7 @@
             x-transition:leave="transition ease-in duration-100"
             x-transition:leave-start="translate-x-0"
             x-transition:leave-end="-translate-x-full"
-            class="bg-admin-dark-normal shadow-lg flex flex-col fixed z-50 top-0 left-0 w-10/12 sm:w-80 h-screen py-6 text-admin-light-dark"
+            class="bg-admin-dark-normal lg:col-span-3 xl:col-span-2 shadow-lg flex flex-col fixed lg:relative z-50 lg:z-auto top-0 left-0 w-10/12 sm:w-80 lg:w-auto h-screen py-6 text-admin-light-dark"
             style="display: none;">
 
             {{-- aside head --}}
@@ -113,9 +116,9 @@
 
         </aside>
 
-        <div class="">
+        <div :class="{ 'lg:col-span-9 xl:col-span-10': asideShow && !isMobile, 'lg:col-span-12': !asideShow && !isMobile }">
             <div class="w-full flex justify-end">
-                <button x-on:click="asideToggleNow">Mostra o buit</button>
+                <button x-on:click="asideToggleNow">MENU</button>
             </div>
             {{ $slot }}
         </div>
