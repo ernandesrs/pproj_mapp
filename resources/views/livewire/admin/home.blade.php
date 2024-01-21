@@ -1,3 +1,3 @@
 <div class="text-admin">
-    ADMIN HOME
+    <h1>ADMIN HOME</h1>
 </div>

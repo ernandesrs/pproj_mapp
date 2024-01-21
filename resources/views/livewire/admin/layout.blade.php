@@ -11,9 +11,11 @@
     @vite(['resources/css/admin/app.css', 'resources/js/admin/app.js'])
 </head>
 
-<body>
+<body class="bg-admin-light-normal w-full h-screen grid grid-cols-12 p-2 overflow-x-hidden">
 
-    {{ $slot }}
+    @include('livewire.admin.includes.aside')
+
+    @include('livewire.admin.includes.content')
 
     @livewireScriptConfig
 
