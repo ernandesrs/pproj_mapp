@@ -126,7 +126,7 @@
             </header>
 
             {{-- main --}}
-            <main class="flex-1 overflow-y-auto" style="max-height: calc(100vh - 4rem)">
+            <main class="flex-1 flex overflow-y-auto" style="max-height: calc(100vh - 4rem)">
                 {{ $slot }}
             </main>
 
