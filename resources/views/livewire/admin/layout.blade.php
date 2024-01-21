@@ -83,10 +83,22 @@
         <div
             x-ref="asideBackdrop"
             x-show="asideBackdrop"
+            x-transition:enter="transition ease-out duration-200"
+            x-transition:enter-start="opacity-0"
+            x-transition:enter-end="opacity-100"
+            x-transition:leave="transition ease-in duration-200"
+            x-transition:leave-start="opacity-100"
+            x-transition:leave-end="opacity-0"
             class="w-full h-screen bg-black bg-opacity-35 fixed top-0 left-0 z-40" style="display: none"></div>
 
         <aside
             x-show="asideShow"
+            x-transition:enter="transition ease-out duration-200"
+            x-transition:enter-start="-translate-x-full"
+            x-transition:enter-end="translate-x-0"
+            x-transition:leave="transition ease-in duration-100"
+            x-transition:leave-start="translate-x-0"
+            x-transition:leave-end="-translate-x-full"
             class="bg-admin-dark-normal shadow-lg flex flex-col fixed z-50 top-0 left-0 w-10/12 sm:w-80 h-screen py-6 text-admin-light-dark"
             style="display: none;">
 
