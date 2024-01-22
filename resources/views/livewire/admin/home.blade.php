@@ -1,5 +1,11 @@
 <x-admin.layout.page
-    title="Overview">
+    title="Overview"
+    :breadcrumbs="[
+        [
+            'label' => 'Overview',
+            'href' => route('admin.home'),
+        ],
+    ]">
 
     <div>
         <p>
