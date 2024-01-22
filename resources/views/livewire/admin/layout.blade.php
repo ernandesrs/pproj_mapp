@@ -121,7 +121,12 @@
             {{-- header --}}
             <header class="bg-admin-light-light">
                 <div class="container w-full flex items-center h-16">
-                    <button x-on:click="asideToggleNow">MENU</button>
+                    <button
+                        x-on:click="asideToggleNow"
+                        class="text-3xl">
+                        <x-admin.icon x-show="asideShow" name="filter-left" />
+                        <x-admin.icon x-show="!asideShow" name="filter-right" />
+                    </button>
                 </div>
             </header>
 
