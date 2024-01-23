@@ -1,6 +1,7 @@
 <?php
 
 use App\Livewire\Admin\Home as AdminHome;
+use App\Livewire\Admin\Page as AdminPage;
 
 use App\Livewire\Dash\Home as DashHome;
 
@@ -11,6 +12,7 @@ Route::group([
 ], function () {
 
     Route::get('', AdminHome::class)->name('admin.home');
+    Route::get('/page', AdminPage::class)->name('admin.page');
 
 });
 

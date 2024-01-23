@@ -2,6 +2,7 @@
     'title' => null,
     'breadcrumbs' => [],
     'actions' => [],
+    'uncontained' => false,
 ])
 
 @php
@@ -12,7 +13,7 @@
             [
                 'label' => 'Home',
                 'href' => route('admin.home'),
-                'disabled' => true,
+                'disabled' => false,
             ],
             ...$breadcrumbs,
         ];
@@ -88,7 +89,7 @@
 
     {{-- content --}}
     <div class="container mt-6 flex-1 flex">
-        <div class="bg-admin-light-light dark:bg-admin-dark-normal flex-1 p-6 rounded">
+        <div class="{{ $uncontained ? '' : 'bg-admin-light-light dark:bg-admin-dark-normal p-6' }} flex-1 rounded">
             {{ $slot }}
         </div>
     </div>
