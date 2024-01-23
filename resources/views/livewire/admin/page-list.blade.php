@@ -24,7 +24,7 @@
             @foreach ($list as $listItem)
                 <x-admin.list.table.tr>
                     <x-admin.list.table.td>
-                        <input type="checkbox" name="" class="w-5 h-5">
+                        <x-admin.list.check-item />
                     </x-admin.list.table.td>
                     <x-admin.list.table.td>
                         {{ $listItem->first_name }} {{ $listItem->last_name }}

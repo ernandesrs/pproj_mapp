@@ -1,5 +1,5 @@
 <table
-    class="w-full table-auto bg-admin-light-light bg-opacity-50 hover:border-collapse border border-admin-light-dark border-opacity-25 rounded">
+    class="w-full table-auto bg-admin-light-light dark:bg-admin-dark-normal bg-opacity-50 dark:bg-opacity-25 rounded">
     <thead>
         {{ $thead }}
     </thead>
