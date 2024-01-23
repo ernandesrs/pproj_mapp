@@ -1,26 +1,7 @@
 @props([
     'title' => null,
     'breadcrumbs' => [],
-    'actions' => [
-        [
-            'text' => 'Create',
-            'title' => 'New item',
-            'href' => '#',
-            'icon' => 'plus-lg',
-        ],
-        [
-            'text' => 'Edit',
-            'title' => 'Edit item',
-            'href' => '#',
-            'icon' => 'pencil',
-        ],
-        [
-            'text' => 'Delete',
-            'title' => 'Delete item',
-            'href' => '#',
-            'icon' => 'trash',
-        ],
-    ],
+    'actions' => [],
 ])
 
 @php
@@ -77,27 +58,30 @@
 
             {{-- actions --}}
             <div class="ml-auto">
-                <div class="flex
+                @if (count($actions))
+                    <div
+                        class="flex
                  items-center bg-admin-light-light dark:bg-admin-dark-normal dark:bg-opacity-50 p-1 rounded overflow-hidden">
 
-                    @foreach ($actions as $action)
-                        <a
-                            wire:navigate
-                            href="{{ $action['href'] }}"
-                            title="{{ $action['title'] ?? $action['text'] }}"
-                            class="text-admin-font-light-light text-opacity-75 dark:text-admin-font-dark-normal hover:text-admin-font-light-normal dark:hover:text-admin-font-dark-light hover:bg-admin-light-normal hover:bg-opacity-50 dark:hover:bg-admin-dark-normal dark:hover:bg-opacity-75 duration-300 px-4 py-2 rounded">
-                            @isset($action['icon'])
-                                <x-admin.icon name="{{ $action['icon'] }}" />
-                            @endisset
-                            @isset($action['text'])
-                                <span class="ml-1">
-                                    {{ $action['text'] }}
-                                </span>
-                            @endisset
-                        </a>
-                    @endforeach
+                        @foreach ($actions as $action)
+                            <a
+                                wire:navigate
+                                href="{{ $action['href'] }}"
+                                title="{{ $action['title'] ?? $action['text'] }}"
+                                class="text-admin-font-light-light text-opacity-75 dark:text-admin-font-dark-normal hover:text-admin-font-light-normal dark:hover:text-admin-font-dark-light hover:bg-admin-light-normal hover:bg-opacity-50 dark:hover:bg-admin-dark-normal dark:hover:bg-opacity-75 duration-300 px-4 py-2 rounded">
+                                @isset($action['icon'])
+                                    <x-admin.icon name="{{ $action['icon'] }}" />
+                                @endisset
+                                @isset($action['text'])
+                                    <span class="ml-1">
+                                        {{ $action['text'] }}
+                                    </span>
+                                @endisset
+                            </a>
+                        @endforeach
 
-                </div>
+                    </div>
+                @endif
             </div>
         </div>
     @endif
