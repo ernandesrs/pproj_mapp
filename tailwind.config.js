@@ -2,6 +2,7 @@ const colors = require('tailwindcss/colors');
 
 /** @type {import('tailwindcss').Config} */
 export default {
+    darkMode: ['class', '[data-mode="dark"]'],
     content: [
         "./resources/**/*.blade.php",
         "./resources/**/*.js",
@@ -47,6 +48,21 @@ export default {
                         'normal': colors.red[500],
                         'dark': colors.red[700],
                     },
+
+                    'font': {
+                        'light': {
+                            'light': colors.gray[500],
+                            'normal': colors.gray[600],
+                            'dark': colors.gray[700],
+                            'muted': colors.gray[400]
+                        },
+                        'dark': {
+                            'light': colors.gray[200],
+                            'normal': colors.gray[300],
+                            'dark': colors.gray[400],
+                            'muted': colors.gray[600]
+                        }
+                    }
                 }
             }
         },

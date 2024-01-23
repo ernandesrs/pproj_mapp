@@ -35,7 +35,7 @@
                         @for ($i = 0; $i < count($breadcrumbs); $i++)
                             <a
                                 wire:navigate
-                                class="py-2 text-admin-primary-light hover:text-admin-primary-normal duration-300 {{ $breadcrumbs[$i]['disabled'] ?? false ? 'pointer-events-none' : '' }}"
+                                class="py-2 {{ $breadcrumbs[$i]['disabled'] ?? false ? 'disabled' : '' }}"
                                 href="{{ $breadcrumbs[$i]['href'] }}"
                                 title="{{ $breadcrumbs[$i]['title'] ?? $breadcrumbs[$i]['label'] }}">
                                 {{ $breadcrumbs[$i]['label'] }}
@@ -43,7 +43,7 @@
 
                             @isset($breadcrumbs[$i + 1])
                                 <a
-                                    class="px-1 pointer-events-none text-admin-light-dark" href="#">
+                                    class="px-1 pointer-events-none text-admin-light-dark dark:text-admin-light-dark" href="#">
                                     »
                                 </a>
                             @endisset
@@ -56,7 +56,7 @@
 
     {{-- content --}}
     <div class="container mt-6 flex-1 flex">
-        <div class="bg-admin-light-light flex-1 p-6 rounded">
+        <div class="bg-admin-light-light dark:bg-admin-dark-normal flex-1 p-6 rounded">
             {{ $slot }}
         </div>
     </div>

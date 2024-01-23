@@ -9,3 +9,11 @@
 .container {
     @apply mx-auto px-6;
 }
+
+a {
+    @apply text-admin-primary-light dark:text-admin-primary-normal hover:text-admin-primary-normal dark:hover:text-admin-primary-light duration-300;
+}
+
+a.disabled {
+    @apply opacity-90 pointer-events-none;
+}

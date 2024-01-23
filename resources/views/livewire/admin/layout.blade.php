@@ -16,9 +16,11 @@
         isMobile: true,
         asideBackdrop: false,
         asideShow: false,
+        theme: null,
 
         init() {
             this.resizeHandler();
+            this.theme = window['adminTheme'].getTheme();
         },
 
         /**
@@ -64,6 +66,15 @@
 
         /**
          *
+         * THEME METHODS
+         *
+         **/
+        themeToggleNow() {
+            this.theme = window['adminTheme'].toggle();
+        },
+
+        /**
+         *
          * GENERAL METHODS
          *
          **/
@@ -80,7 +91,7 @@
     x-on:resize.window="resizeHandler">
 
     <div
-        class="bg-admin-light-normal w-full h-screen flex">
+        class="bg-admin-light-normal dark:bg-admin-dark-light text-admin-font-light-normal dark:text-admin-font-dark-normal w-full h-screen flex">
 
         <div
             x-ref="asideBackdrop"
@@ -102,7 +113,7 @@
             x-transition:leave="transition ease-in duration-100"
             x-transition:leave-start="translate-x-0"
             x-transition:leave-end="-translate-x-full"
-            class="bg-admin-dark-normal shadow-lg flex flex-col fixed lg:relative z-50 lg:z-auto top-0 left-0 w-10/12 sm:w-80 lg:w-72 h-screen py-6 text-admin-light-dark"
+            class="bg-admin-dark-normal dark:bg-admin-dark-dark shadow-lg flex flex-col fixed lg:relative z-50 lg:z-auto top-0 left-0 w-10/12 sm:w-80 lg:w-72 h-screen py-6 text-admin-light-dark"
             style="display: none;">
 
             {{-- aside head --}}
@@ -119,14 +130,35 @@
         <div class="flex flex-col flex-1">
 
             {{-- header --}}
-            <header class="bg-admin-light-light">
+            <header class="bg-admin-light-light dark:bg-admin-dark-normal">
                 <div class="container w-full flex items-center h-16">
-                    <button
-                        x-on:click="asideToggleNow"
-                        class="text-3xl">
-                        <x-admin.icon x-show="asideShow" name="filter-left" />
-                        <x-admin.icon x-show="!asideShow" name="filter-right" />
-                    </button>
+
+                    {{-- header start --}}
+                    <div>
+                        <button
+                            x-on:click="asideToggleNow"
+                            class="text-3xl">
+                            <x-admin.icon x-show="asideShow" name="filter-left" />
+                            <x-admin.icon x-show="!asideShow" name="filter-right" />
+                        </button>
+                    </div>
+
+                    {{-- header middle --}}
+                    <div></div>
+
+                    {{-- header end --}}
+                    <div class="ml-auto">
+
+                        {{-- theme toggler --}}
+                        <button
+                            x-on:click="themeToggleNow"
+                            class="py-2 px-3">
+                            <x-admin.icon x-show="theme == 'dark'" name="sun-fill"
+                                class="text-2xl" style="display: none;" />
+                            <x-admin.icon x-show="theme == 'light'" name="moon-fill"
+                                class="text-xl" style="display: none;" />
+                        </button>
+                    </div>
                 </div>
             </header>
 

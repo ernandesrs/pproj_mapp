@@ -2,4 +2,4 @@
     'name' => null,
 ])
 
-<i class="bi bi-{{ $name }} pointer-events-none" {{ $attributes }}></i>
+<i {{ $attributes->merge(['class' => 'bi bi-' . $name . ' pointer-events-none']) }} {{ $attributes }}></i>
