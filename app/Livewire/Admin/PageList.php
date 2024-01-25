@@ -20,7 +20,7 @@ class PageList extends Component
                     'disabled' => true
                 ]
             ],
-            'list' => \App\Models\User::query()->paginate(3)
+            'list' => \App\Models\User::query()->paginate(15)
         ])->layout('livewire.admin.layout');
     }
 }

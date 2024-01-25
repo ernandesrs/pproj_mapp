@@ -8,7 +8,7 @@
                 class="h-full px-6 py-3 outline-none w-full bg-transparent dark:bg-admin-dark-light">
             <button
                 class="bg-admin-light-normal dark:bg-admin-dark-normal dark:opacity-75 h-full px-5 py-3 flex items-center">
-                <x-admin.icon name="search" /> <span class="ml-4">Search</span>
+                <x-admin.icon name="search" /> <span class="ml-4">{{ __('admin/worlds.search') }}</span>
             </button>
         </div>
     </div>
