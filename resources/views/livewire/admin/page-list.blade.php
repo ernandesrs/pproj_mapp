@@ -1,7 +1,8 @@
 <x-admin.layout.page-list
     title="{{ $title ?? null }}"
     :breadcrumbs="$breadcrumbs ?? []"
-    :actions="$actions ?? []">
+    :actions="$actions ?? []"
+    :list="$list">
 
     <x-admin.list.table.table>
         <x-slot name="thead">
