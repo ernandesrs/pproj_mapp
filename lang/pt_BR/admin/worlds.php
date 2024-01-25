@@ -2,5 +2,7 @@
 
 return [
     'search' => 'Buscar',
-    'searching' => 'Buscando'
+    'searching' => 'Buscando',
+    'filter' => 'Filtrar',
+    'filtering' => 'Filtrando',
 ];
