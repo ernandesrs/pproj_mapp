@@ -19,9 +19,9 @@
             </div>
         </div>
 
-        {{-- search --}}
         <div
             class="col-span-12 flex items-center w-full rounded border border-admin-light-dark dark:border-admin-dark-normal border-opacity-25 dark:border-opacity-75 overflow-hidden">
+            {{-- search --}}
             <input
                 type="search"
                 class="h-full px-6 py-2 outline-none w-full bg-transparent dark:bg-admin-dark-light">
@@ -29,9 +29,10 @@
                 class="bg-admin-light-normal dark:bg-admin-dark-normal dark:opacity-75 h-full px-5 py-2 flex items-center">
                 <x-admin.icon name="search" /> <span class="ml-4">{{ __('admin/worlds.filter') }}</span>
             </button>
+
             <button
                 x-on:click="showFilter = !showFilter"
-                class="bg-admin-light-normal dark:bg-admin-dark-normal dark:opacity-75 h-full px-5 py-2 flex items-center border-l border-admin-light-dark dark:border-admin-dark-normal border-opacity-25 dark:border-opacity-75">
+                class="bg-admin-light-normal dark:bg-admin-dark-normal dark:opacity-75 h-full px-5 py-2 flex items-center border-l border-admin-light-dark border-opacity-25 dark:border-admin-dark-dark dark:border-opacity-40">
                 <x-admin.icon x-show="showFilter" name="x-lg" />
                 <x-admin.icon x-show="!showFilter" name="funnel-fill" />
             </button>
