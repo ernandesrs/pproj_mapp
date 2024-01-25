@@ -127,7 +127,7 @@
 
         </aside>
 
-        <div class="flex flex-col flex-1">
+        <div class="flex flex-col flex-1 pb-3">
 
             {{-- header --}}
             <header class="bg-admin-light-light dark:bg-admin-dark-normal">

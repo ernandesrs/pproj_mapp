@@ -1,4 +1,8 @@
-<x-admin.layout.page title="{{ $title }}" :breadcrumbs="$breadcrumbs" :actions="$actions" uncontained>
+<x-admin.layout.page
+    title="{{ $title }}"
+    :breadcrumbs="$breadcrumbs"
+    :actions="$actions"
+    uncontained>
     {{-- header --}}
     <div
         class="bg-admin-light-light dark:bg-admin-dark-normal bg-opacity-50 dark:bg-opacity-25 border border-b-0 border-admin-light-dark border-opacity-25 dark:border-admin-dark-dark dark:border-opacity-25 py-4 px-4 rounded-tl rounded-tr">
