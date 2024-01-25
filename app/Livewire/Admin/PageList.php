@@ -20,7 +20,19 @@ class PageList extends Component
                     'disabled' => true
                 ]
             ],
-            'list' => \App\Models\User::query()->paginate(15)
+            'list' => \App\Models\User::query()->paginate(15),
+            'actions' => [
+                [
+                    'text' => 'New item',
+                    'icon' => 'plus-lg',
+                    'href' => '#'
+                ],
+                [
+                    'text' => 'Lorem sit',
+                    'icon' => 'arrow-up',
+                    'href' => '#'
+                ]
+            ]
         ])->layout('livewire.admin.layout');
     }
 }
