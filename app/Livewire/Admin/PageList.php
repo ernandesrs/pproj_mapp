@@ -2,19 +2,23 @@
 
 namespace App\Livewire\Admin;
 
-use App\Livewire\Helpers\Traits\AsPage;
+use App\Livewire\Helpers\Traits\AsListPage;
 use Livewire\Component;
 use Livewire\WithPagination;
 
 class PageList extends Component
 {
-    use WithPagination, AsPage;
+    use WithPagination, AsListPage;
 
     public function render()
     {
-        return view('livewire..admin.page-list', [
-            'list' => \App\Models\User::query()->paginate(15)
-        ])->layout('livewire.admin.layout')->title($this->getLayoutTitle());
+        return view('livewire..admin.page-list')
+            ->layout('livewire.admin.layout')->title($this->getLayoutTitle());
+    }
+
+    public function getModelClass()
+    {
+        return \App\Models\User::class;
     }
 
     public function getPageTitle()

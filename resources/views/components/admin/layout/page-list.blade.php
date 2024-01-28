@@ -19,7 +19,7 @@
     {{ $slot }}
 
     {{-- pagination --}}
-    @if ($list)
-        <x-admin.list.pagination :list="$list" />
+    @if ($this->getPageList())
+        <x-admin.list.pagination :list="$this->getPageList()" />
     @endif
 </x-admin.layout.page>

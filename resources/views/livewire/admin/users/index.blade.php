@@ -1,5 +1,4 @@
-<x-admin.layout.page-list
-    :list="$list">
+<x-admin.layout.page-list>
 
     <x-admin.list.table.table>
         <x-slot name="thead">
@@ -19,7 +18,7 @@
         </x-slot>
 
         <x-slot name="tbody">
-            @foreach ($list as $listItem)
+            @foreach ($this->getPageList() as $listItem)
                 <x-admin.list.table.tr>
                     <x-admin.list.table.td>
                         <x-admin.list.check-item />

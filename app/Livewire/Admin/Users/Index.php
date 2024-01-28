@@ -2,18 +2,23 @@
 
 namespace App\Livewire\Admin\Users;
 
-use App\Livewire\Helpers\Traits\AsPage;
+use App\Livewire\Helpers\Traits\AsListPage;
 use Livewire\Component;
 
 class Index extends Component
 {
-    use AsPage;
+    use AsListPage;
 
     public function render()
     {
-        return view('livewire..admin.users.index', [
-            'list' => \App\Models\User::query()->paginate(15)
-        ])->layout('livewire.admin.layout')->title($this->getLayoutTitle());
+        return view('livewire..admin.users.index')
+            ->layout('livewire.admin.layout')
+            ->title($this->getLayoutTitle());
+    }
+
+    public function getModelClass()
+    {
+        return \App\Models\User::class;
     }
 
     public function getPageTitle()
