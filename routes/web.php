@@ -16,6 +16,19 @@ Route::group([
     Route::get('/page', AdminPage::class)->name('admin.page');
     Route::get('/page-list', AdminPageList::class)->name('admin.pageList');
 
+    /**
+     *
+     *
+     * USERS
+     *
+     *
+     */
+    Route::group(['prefix' => 'users'], function () {
+
+        Route::get('/', \App\Livewire\Admin\Users\Index::class)->name('admin.users.index');
+
+    });
+
 });
 
 Route::group([

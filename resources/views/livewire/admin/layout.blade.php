@@ -143,9 +143,9 @@
                             'text' => __('admin/layout.users'),
                             'title' => __('admin/layout.users'),
                             'icon' => 'people-fill',
-                            'activeIn' => [],
+                            'activeIn' => ['admin.users.index'],
                             'route' => [
-                                'name' => 'admin.home',
+                                'name' => 'admin.users.index',
                                 'params' => [],
                             ],
                         ],
