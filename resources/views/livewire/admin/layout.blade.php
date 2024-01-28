@@ -118,6 +118,9 @@
 
             {{-- aside head --}}
             <div class="px-6">
+                <span class="inline-block font-medium text-2xl cursor-default uppercase">
+                    <span class="text-admin-light-dark">{{ config('app.name') }}</span><span class="font-bold text-admin-primary-normal">ADMIN</span>
+                </span>
             </div>
 
             {{-- aside main --}}
