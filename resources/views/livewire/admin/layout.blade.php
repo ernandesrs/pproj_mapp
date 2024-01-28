@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{ config('app.name') }} - Admin</title>
+    <title>{{ config('app.name') }} Admin - {{ $title ?? '' }}</title>
 
     @vite(['resources/js/admin/app.js', 'resources/css/admin/app.css'])
 </head>
@@ -119,7 +119,8 @@
             {{-- aside head --}}
             <div class="px-6">
                 <span class="inline-block font-medium text-2xl cursor-default uppercase">
-                    <span class="text-admin-light-dark">{{ config('app.name') }}</span><span class="font-bold text-admin-primary-normal">ADMIN</span>
+                    <span class="text-admin-light-dark">{{ config('app.name') }}</span><span
+                        class="font-bold text-admin-primary-normal">ADMIN</span>
                 </span>
             </div>
 
@@ -153,21 +154,25 @@
                             'text' => __('admin/layout.grouping'),
                             'title' => __('admin/layout.grouping'),
                             'icon' => 'grid-fill',
-                            'activeIn' => [],
+                            'activeIn' => ['admin.page', 'admin.pageList'],
                             'items' => [
                                 [
-                                    'text' => __('Subitem #1'),
-                                    'title' => __('Subitem #1'),
+                                    'text' => __('Page example'),
                                     'icon' => 'arrow-right',
-                                    'activeIn' => [],
-                                    'route' => [],
+                                    'activeIn' => ['admin.page'],
+                                    'route' => [
+                                        'name' => 'admin.page',
+                                        'params' => [],
+                                    ],
                                 ],
                                 [
-                                    'text' => __('Subitem #2'),
-                                    'title' => __('Subitem #2'),
+                                    'text' => __('Page list'),
                                     'icon' => 'arrow-right',
-                                    'activeIn' => [],
-                                    'route' => [],
+                                    'activeIn' => ['admin.pageList'],
+                                    'route' => [
+                                        'name' => 'admin.pageList',
+                                        'params' => [],
+                                    ],
                                 ],
                                 [
                                     'text' => __('Subitem #3'),

@@ -1,6 +1,4 @@
-<x-admin.layout.page
-    title="{{ $title }}"
-    :breadcrumbs="$breadcrumbs">
+<x-admin.layout.page>
 
     <div>
         <h1 class="text-xl font-semibold mb-2">Contained page example</h1>

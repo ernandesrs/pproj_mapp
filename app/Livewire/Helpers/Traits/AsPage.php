@@ -24,4 +24,14 @@ trait AsPage
      * @return array
      */
     abstract function getPageActions();
+
+    /**
+     * Layout title
+     *
+     * @return null|string
+     */
+    function getLayoutTitle()
+    {
+        return count($this->getPageBreadcrumbs()) ? implode(' » ', array_map(fn($i) => $i['label'], $this->getPageBreadcrumbs())) : $this->getPageTitle();
+    }
 }

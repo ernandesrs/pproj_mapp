@@ -1,7 +1,7 @@
 @props([
-    'title' => null,
-    'breadcrumbs' => [],
-    'actions' => [],
+    'title' => $title ?? $this->getPageTitle(),
+    'breadcrumbs' => $breadcrumbs ?? $this->getPageBreadcrumbs(),
+    'actions' => $actions ?? $this->getPageActions(),
     'uncontained' => false,
 ])
 

@@ -12,11 +12,8 @@ class Index extends Component
     public function render()
     {
         return view('livewire..admin.users.index', [
-            'title' => $this->getPageTitle(),
-            'breadcrumbs' => $this->getPageBreadcrumbs(),
-            'list' => \App\Models\User::query()->paginate(15),
-            'actions' => $this->getPageActions()
-        ])->layout('livewire.admin.layout');
+            'list' => \App\Models\User::query()->paginate(15)
+        ])->layout('livewire.admin.layout')->title($this->getLayoutTitle());
     }
 
     public function getPageTitle()
