@@ -124,11 +124,11 @@
             <div class="flex-1 flex flex-col overflow-y-auto mt-6 px-6">
 
                 <x-admin.layout.aside-inner-group
-                    title="{{ __('Administrative') }}"
+                    title="{{ __('admin/layout.administrative') }}"
                     :navigation="[
                         [
-                            'text' => __('Overview'),
-                            'title' => __('Overview'),
+                            'text' => __('admin/layout.overview'),
+                            'title' => __('admin/layout.overview'),
                             'icon' => 'pie-chart-fill',
                             'activeIn' => ['admin.home'],
                             'route' => [
@@ -137,8 +137,8 @@
                             ],
                         ],
                         [
-                            'text' => __('Users'),
-                            'title' => __('Users'),
+                            'text' => __('admin/layout.users'),
+                            'title' => __('admin/layout.users'),
                             'icon' => 'people-fill',
                             'activeIn' => [],
                             'route' => [
@@ -147,8 +147,8 @@
                             ],
                         ],
                         [
-                            'text' => __('Grouping'),
-                            'title' => __('Grouping'),
+                            'text' => __('admin/layout.grouping'),
+                            'title' => __('admin/layout.grouping'),
                             'icon' => 'grid-fill',
                             'activeIn' => [],
                             'items' => [
@@ -179,22 +179,22 @@
 
                 <x-admin.layout.aside-inner-group
                     class="mt-auto"
-                    title="{{ __('Others') }}"
+                    title="{{ __('admin/layout.others') }}"
                     :navigation="[
                         [
-                            'text' => __('Settings'),
+                            'text' => __('admin/layout.settings'),
                             'icon' => 'gear-fill',
                             'activeIn' => [],
                             'route' => [],
                         ],
                         [
-                            'text' => __('Profile'),
+                            'text' => __('admin/layout.profile'),
                             'icon' => 'person-fill',
                             'activeIn' => [],
                             'route' => [],
                         ],
                         [
-                            'text' => __('Logout'),
+                            'text' => __('admin/layout.logout'),
                             'icon' => 'door-closed-fill',
                             'activeIn' => [],
                             'route' => [],
