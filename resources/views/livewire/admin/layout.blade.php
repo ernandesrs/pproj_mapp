@@ -118,11 +118,88 @@
 
             {{-- aside head --}}
             <div class="px-6">
-                LOREM TITLE
             </div>
 
             {{-- aside main --}}
-            <div class="flex-1 overflow-y-auto mt-6 px-6">
+            <div class="flex-1 flex flex-col overflow-y-auto mt-6 px-6">
+
+                <x-admin.layout.aside-inner-group
+                    title="{{ __('Administrative') }}"
+                    :navigation="[
+                        [
+                            'text' => __('Overview'),
+                            'title' => __('Overview'),
+                            'icon' => 'pie-chart-fill',
+                            'activeIn' => ['admin.home'],
+                            'route' => [
+                                'name' => 'admin.home',
+                                'params' => [],
+                            ],
+                        ],
+                        [
+                            'text' => __('Users'),
+                            'title' => __('Users'),
+                            'icon' => 'people-fill',
+                            'activeIn' => [],
+                            'route' => [
+                                'name' => 'admin.home',
+                                'params' => [],
+                            ],
+                        ],
+                        [
+                            'text' => __('Grouping'),
+                            'title' => __('Grouping'),
+                            'icon' => 'grid-fill',
+                            'activeIn' => [],
+                            'items' => [
+                                [
+                                    'text' => __('Subitem #1'),
+                                    'title' => __('Subitem #1'),
+                                    'icon' => 'arrow-right',
+                                    'activeIn' => [],
+                                    'route' => [],
+                                ],
+                                [
+                                    'text' => __('Subitem #2'),
+                                    'title' => __('Subitem #2'),
+                                    'icon' => 'arrow-right',
+                                    'activeIn' => [],
+                                    'route' => [],
+                                ],
+                                [
+                                    'text' => __('Subitem #3'),
+                                    'title' => __('Subitem #3'),
+                                    'icon' => 'arrow-right',
+                                    'activeIn' => [],
+                                    'route' => [],
+                                ],
+                            ],
+                        ],
+                    ]" />
+
+                <x-admin.layout.aside-inner-group
+                    class="mt-auto"
+                    title="{{ __('Others') }}"
+                    :navigation="[
+                        [
+                            'text' => __('Settings'),
+                            'icon' => 'gear-fill',
+                            'activeIn' => [],
+                            'route' => [],
+                        ],
+                        [
+                            'text' => __('Profile'),
+                            'icon' => 'person-fill',
+                            'activeIn' => [],
+                            'route' => [],
+                        ],
+                        [
+                            'text' => __('Logout'),
+                            'icon' => 'door-closed-fill',
+                            'activeIn' => [],
+                            'route' => [],
+                        ],
+                    ]" />
             </div>
 
         </aside>
