@@ -47,7 +47,8 @@ trait AsListPage
         $modelInstance = new($this->getModelClass())();
 
         if (!empty($this->search)) {
-            $modelInstance = $modelInstance->whereRaw("MATCH(first_name,last_name,username,email) AGAINST(? IN BOOLEAN MODE)", [$this->search]);
+            $modelInstance = $modelInstance
+                ->whereRaw("MATCH(" . implode(',', $modelInstance::searchableFields) . ") AGAINST(? IN BOOLEAN MODE)", [$this->search]);
         }
 
         return $modelInstance;
