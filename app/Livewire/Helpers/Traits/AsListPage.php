@@ -30,28 +30,26 @@ trait AsListPage
      */
     function getPageList()
     {
-        return $this->filter()->paginate(15);
+        return $this->filter();
     }
 
     /**
      * Apply filter
      *
-     * @return \Illuminate\Database\Eloquent\Model|\Illuminate\Database\Eloquent\Builder
+     * @return \Illuminate\Database\Eloquent\Model
      */
     function filter()
     {
-        if (!$this->isFiltering()) {
-            return (new($this->getModelClass())());
-        }
-
         $modelInstance = new($this->getModelClass())();
 
-        if (!empty($this->search)) {
-            $modelInstance = $modelInstance
-                ->whereRaw("MATCH(" . implode(',', $modelInstance::searchableFields) . ") AGAINST(? IN BOOLEAN MODE)", [$this->search]);
+        if ($this->isFiltering()) {
+            if (!empty($this->search)) {
+                $modelInstance = $modelInstance
+                    ->whereRaw("MATCH(" . implode(',', $modelInstance::searchableFields) . ") AGAINST(? IN BOOLEAN MODE)", [$this->search]);
+            }
         }
 
-        return $modelInstance;
+        return $modelInstance->paginate(15);
     }
 
     /**
