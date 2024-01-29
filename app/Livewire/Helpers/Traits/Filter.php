@@ -2,8 +2,18 @@
 
 namespace App\Livewire\Helpers\Traits;
 
+use Livewire\Attributes\Url;
+
 trait Filter
 {
+    /**
+     * Search
+     *
+     * @var string
+     */
+    #[Url(except: '')]
+    public string $search = '';
+
     /**
      * Add searchable fields
      *

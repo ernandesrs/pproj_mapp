@@ -2,19 +2,9 @@
 
 namespace App\Livewire\Helpers\Traits;
 
-use Livewire\Attributes\Url;
-
 trait AsListPage
 {
     use AsPage, Filter;
-
-    /**
-     * Search
-     *
-     * @var string
-     */
-    #[Url(except: '')]
-    public string $search = '';
 
     /**
      * Model class
