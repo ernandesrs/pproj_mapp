@@ -16,6 +16,11 @@ class Index extends Component
             ->title($this->getLayoutTitle());
     }
 
+    public function searchableFields()
+    {
+        return \App\Models\User::searchableFields;
+    }
+
     public function getModelClass()
     {
         return \App\Models\User::class;

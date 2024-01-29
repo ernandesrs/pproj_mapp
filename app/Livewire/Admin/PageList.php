@@ -16,6 +16,11 @@ class PageList extends Component
             ->layout('livewire.admin.layout')->title($this->getLayoutTitle());
     }
 
+    public function searchableFields()
+    {
+        return [];
+    }
+
     public function getModelClass()
     {
         return \App\Models\User::class;
