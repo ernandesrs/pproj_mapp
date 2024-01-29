@@ -16,6 +16,9 @@ return new class extends Migration {
             $table->string('last_name', 50);
             $table->string('username', 25);
             $table->string('email')->unique();
+
+            $table->fullText(['first_name', 'last_name', 'username', 'email'], 'fulltext_index');
+
             $table->string('gender', 1)->default('n');
             $table->string('avatar')->nullable()->default(null);
             $table->timestamp('email_verified_at')->nullable();

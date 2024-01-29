@@ -11,7 +11,7 @@ class Home extends Component
 
     public function render()
     {
-        return view('livewire..admin.home')->layout('livewire.admin.layout')->title($this->getLayoutTitle());
+        return view('livewire..admin.home')->layout('livewire.admin.layout')->title(__('admin/layout.overview'));
     }
 
     function getPageTitle()
