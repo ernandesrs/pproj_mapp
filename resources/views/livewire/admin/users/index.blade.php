@@ -5,13 +5,13 @@
             <x-admin.list.table.tr>
                 <x-admin.list.table.th></x-admin.list.table.th>
                 <x-admin.list.table.th>
-                    Name
+                    {{ __('admin/worlds.name') }}
                 </x-admin.list.table.th>
                 <x-admin.list.table.th>
-                    Username
+                    {{ __('admin/worlds.username') }}
                 </x-admin.list.table.th>
                 <x-admin.list.table.th>
-                    Email
+                    {{ __('admin/worlds.email') }}
                 </x-admin.list.table.th>
                 <x-admin.list.table.th></x-admin.list.table.th>
             </x-admin.list.table.tr>

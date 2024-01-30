@@ -46,7 +46,7 @@ class Index extends Component
     {
         return [
             [
-                'text' => 'New user',
+                'text' => __('admin/worlds.new') . ' ' . __('admin/worlds.user'),
                 'icon' => 'plus-lg',
                 'href' => '#'
             ]
