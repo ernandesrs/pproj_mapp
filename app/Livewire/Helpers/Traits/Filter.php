@@ -15,6 +15,22 @@ trait Filter
     public string $search = '';
 
     /**
+     * Order by created at
+     *
+     * @var string
+     */
+    #[Url(except: '')]
+    public string $orderBy_created_at = '';
+
+    /**
+     * Order by updated at
+     *
+     * @var string
+     */
+    #[Url(except: '')]
+    public string $orderBy_updated_at = '';
+
+    /**
      * Add searchable fields
      *
      * @return null|array
@@ -37,7 +53,27 @@ trait Filter
             }
         }
 
-        return $modelInstance->paginate(15);
+        $modelInstance = $this->sort($modelInstance);
+
+        return $modelInstance;
+    }
+
+    private function sort($modelInstance)
+    {
+        if (!$this->isFilterable()) {
+            return $modelInstance;
+        }
+
+        $sortableFields = ['created_at', 'updated_at'];
+
+        foreach ($sortableFields as $sf) {
+            $prop = 'orderBy_' . $sf;
+            if (isset($this->$prop) && !empty($this->$prop) && in_array($this->$prop, ['asc', 'desc'])) {
+                $modelInstance = $modelInstance->orderBy($sf, $this->$prop);
+            }
+        }
+
+        return $modelInstance;
     }
 
     /**
@@ -57,7 +93,7 @@ trait Filter
      */
     public function isFilterable()
     {
-        return false;
+        return true;
     }
 
     /**

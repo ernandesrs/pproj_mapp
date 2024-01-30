@@ -14,5 +14,17 @@ return [
     'password' => 'Senha',
     'confirm' => 'Confirmar',
     'new' => 'Novo',
-    'user' => 'Usuário'
+    'user' => 'Usuário',
+    'more' => 'Mais',
+    'order' => 'Ordenar',
+    'order_alt' => 'Ordem',
+    'by' => 'Por',
+    'newest' => 'Recente',
+    'oldest' => 'Antigo',
+    'created_at' => 'Criado em',
+    'updated_at' => 'Atualizado em',
+    'create_date' => 'Data de criação',
+    'update_date' => 'Data de atualização',
+    'asc' => 'Crescente',
+    'desc' => 'Decrescente'
 ];

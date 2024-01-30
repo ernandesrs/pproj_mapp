@@ -20,6 +20,6 @@ trait AsListPage
      */
     function getPageList()
     {
-        return $this->filter();
+        return $this->filter()->paginate(15);
     }
 }
