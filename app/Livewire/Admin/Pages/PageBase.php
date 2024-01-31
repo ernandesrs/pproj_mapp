@@ -1,0 +1,74 @@
+<?php
+
+namespace App\Livewire\Admin\Pages;
+
+use Livewire\Component;
+
+abstract class PageBase extends Component
+{
+    /**
+     * The view content
+     * Enter the view path from .../livewire/admin/
+     *
+     * @var string
+     */
+    public $viewContent = '';
+
+    public $uncontained = false;
+
+    function mount()
+    {
+        $fails = [];
+
+        if (empty($this->viewContent)) {
+            $fails[] = 'Needs a value to public propertie "viewContent"';
+        }
+
+        if (count($fails)) {
+            throw new \Exception(implode(',', $fails));
+        }
+    }
+
+    /**
+     * Render
+     *
+     * @return  \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function render()
+    {
+        return view('livewire..admin.pages.page-base')
+            ->layout('livewire.admin.layout')
+            ->title($this->getLayoutTitle());
+    }
+
+    /**
+     * Page title
+     *
+     * @return null|string
+     */
+    abstract function getPageTitle();
+
+    /**
+     * Page breadcrumbs
+     *
+     * @return array
+     */
+    abstract function getPageBreadcrumbs();
+
+    /**
+     * Page actions
+     *
+     * @return array
+     */
+    abstract function getPageActions();
+
+    /**
+     * Layout title
+     *
+     * @return null|string
+     */
+    function getLayoutTitle()
+    {
+        return count($this->getPageBreadcrumbs()) ? implode(' » ', array_map(fn($i) => $i['label'], $this->getPageBreadcrumbs())) : $this->getPageTitle();
+    }
+}

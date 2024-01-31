@@ -2,18 +2,11 @@
 
 namespace App\Livewire\Admin;
 
-use App\Livewire\Helpers\Traits\AsPage;
-use Livewire\Component;
+use App\Livewire\Admin\Pages\PageBase;
 
-class Page extends Component
+class Page extends PageBase
 {
-    use AsPage;
-
-    public function render()
-    {
-        return view('livewire..admin.page')
-            ->layout('livewire.admin.layout')->title($this->getLayoutTitle());
-    }
+    public $viewContent = 'page';
 
     function getPageTitle()
     {
