@@ -5,7 +5,7 @@
     <x-slot name="thead">
 
         <x-admin.list.table.tr>
-            @foreach ($this->tableColumnData() as $column)
+            @foreach ($this->getTableColumnData() as $column)
                 <x-admin.list.table.th>{{ $column['label'] }}</x-admin.list.table.th>
             @endforeach
         </x-admin.list.table.tr>
@@ -17,9 +17,16 @@
 
         @foreach ($this->getPageList() as $listItem)
             <x-admin.list.table.tr>
-                @foreach ($this->tableColumnData() as $column)
+                @foreach ($this->getTableColumnData() as $column)
                     <x-admin.list.table.td>
-                        {{ $column['callback']($listItem) }}
+                        @if (isset($column['callback']))
+                            {{ $column['callback']($listItem) }}
+                        @elseif(isset($column['actions']) && $column['actions'])
+                            <x-admin.list.actions
+                                :show="$column['actions']['show'] ?? false"
+                                :edit="$column['actions']['edit'] ?? false"
+                                :delete="$column['actions']['delete'] ?? false" />
+                        @endif
                     </x-admin.list.table.td>
                 @endforeach
             </x-admin.list.table.tr>

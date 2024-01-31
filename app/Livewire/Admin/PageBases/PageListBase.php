@@ -74,4 +74,28 @@ abstract class PageListBase extends PageBase
     {
         return [];
     }
+
+    function showListItemActions()
+    {
+        return true;
+    }
+
+    function getTableColumnData()
+    {
+        $arr = $this->tableColumnData();
+
+        if ($this->showListItemActions()) {
+            $arr = [
+                ...$arr,
+                [
+                    'label' => '',
+                    'actions' => [
+                        'delete' => true
+                    ]
+                ],
+            ];
+        }
+
+        return $arr;
+    }
 }
