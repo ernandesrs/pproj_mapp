@@ -6,6 +6,8 @@ use Livewire\Component;
 
 abstract class PageBase extends Component
 {
+    protected $fails = [];
+
     /**
      * The view content
      * Enter the view path from .../livewire/admin/
@@ -29,14 +31,12 @@ abstract class PageBase extends Component
      */
     function mount()
     {
-        $fails = [];
-
         if (empty($this->viewContent)) {
-            $fails[] = 'Needs a value to public propertie "viewContent"';
+            $this->fails[] = 'Needs a value to public propertie "viewContent"';
         }
 
-        if (count($fails)) {
-            throw new \Exception(implode(',', $fails));
+        if (count($this->fails)) {
+            throw new \Exception(implode(' | ', $this->fails));
         }
     }
 

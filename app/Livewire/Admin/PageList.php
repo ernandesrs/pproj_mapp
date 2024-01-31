@@ -2,29 +2,12 @@
 
 namespace App\Livewire\Admin;
 
-use App\Livewire\Helpers\Traits\AsListPage;
-use Livewire\Component;
-use Livewire\WithPagination;
+use App\Livewire\Admin\Pages\PageListBase;
+use App\Models\User;
 
-class PageList extends Component
+class PageList extends PageListBase
 {
-    use WithPagination, AsListPage;
-
-    public function render()
-    {
-        return view('livewire..admin.page-list')
-            ->layout('livewire.admin.layout')->title($this->getLayoutTitle());
-    }
-
-    public function searchableFields()
-    {
-        return [];
-    }
-
-    public function getModelClass()
-    {
-        return \App\Models\User::class;
-    }
+    public $modelClass = User::class;
 
     public function getPageTitle()
     {
