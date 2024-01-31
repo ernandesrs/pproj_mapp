@@ -50,4 +50,28 @@ abstract class PageListBase extends PageBase
             ->query()
             ->paginate(15);
     }
+
+    /**
+     *
+     *
+     * TABLE METHODS
+     *
+     *
+     */
+
+    /**
+     * Define the table columns data
+     *
+     * Each item in the array must be an array with the following characteristics:
+     * [
+     *      'label' => 'Name',
+     *      'callback' => fn($item) => $item->name,
+     * ]
+     *
+     * @return array
+     */
+    function tableColumnData()
+    {
+        return [];
+    }
 }

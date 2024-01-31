@@ -40,4 +40,26 @@ class PageList extends PageListBase
             ]
         ];
     }
+
+    function tableColumnData()
+    {
+        return [
+            [
+                'label' => __('admin/worlds.name'),
+                'callback' => fn($item) => $item->first_name . ' ' . $item->last_name,
+            ],
+            [
+                'label' => __('admin/worlds.username'),
+                'callback' => fn($item) => $item->username,
+            ],
+            [
+                'label' => __('admin/worlds.email'),
+                'callback' => fn($item) => $item->email,
+            ],
+            [
+                'label' => __('admin/worlds.create_date'),
+                'callback' => fn($item) => $item->created_at,
+            ]
+        ];
+    }
 }
