@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Admin\Pages;
+namespace App\Livewire\Admin\PageBases;
 
 use Livewire\Component;
 
@@ -47,7 +47,7 @@ abstract class PageBase extends Component
      */
     public function render()
     {
-        return view('livewire..admin.pages.page-base')
+        return view('livewire..admin.page-bases.page-base')
             ->layout('livewire.admin.layout')
             ->title($this->getLayoutTitle());
     }

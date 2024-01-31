@@ -2,7 +2,7 @@
 
 namespace App\Livewire\Admin;
 
-use App\Livewire\Admin\Pages\PageBase;
+use App\Livewire\Admin\PageBases\PageBase;
 
 class Page extends PageBase
 {

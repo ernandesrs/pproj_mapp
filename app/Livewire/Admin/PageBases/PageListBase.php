@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Admin\Pages;
+namespace App\Livewire\Admin\PageBases;
 
 abstract class PageListBase extends PageBase
 {
@@ -9,7 +9,14 @@ abstract class PageListBase extends PageBase
      *
      * @var string
      */
-    public $viewContent = 'pages.page-list-base';
+    public $viewContent = 'page-bases.page-list-base';
+
+    /**
+     * Uncontained
+     *
+     * @var bool
+     */
+    public $uncontained = true;
 
     /**
      * Model class

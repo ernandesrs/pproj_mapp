@@ -2,7 +2,7 @@
 
 namespace App\Livewire\Admin;
 
-use App\Livewire\Admin\Pages\PageListBase;
+use App\Livewire\Admin\PageBases\PageListBase;
 use App\Models\User;
 
 class PageList extends PageListBase
