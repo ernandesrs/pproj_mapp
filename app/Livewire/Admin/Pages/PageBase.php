@@ -14,8 +14,19 @@ abstract class PageBase extends Component
      */
     public $viewContent = '';
 
+    /**
+     * Uncontained
+     * When true, page not contains background color and padding
+     *
+     * @var bool
+     */
     public $uncontained = false;
 
+    /**
+     * Mount
+     *
+     * @return void
+     */
     function mount()
     {
         $fails = [];
