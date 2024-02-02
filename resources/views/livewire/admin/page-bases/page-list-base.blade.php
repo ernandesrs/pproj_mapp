@@ -25,3 +25,6 @@
     </x-slot>
 
 </x-admin.list.table.table>
+
+<x-admin.list.pagination
+    :list="$this->getPageList()" />

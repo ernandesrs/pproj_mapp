@@ -3,9 +3,12 @@
 namespace App\Livewire\Admin\PageBases;
 
 use Livewire\Attributes\On;
+use Livewire\WithPagination;
 
 abstract class PageListBase extends PageBase
 {
+    use WithPagination;
+
     /**
      * View content
      *
