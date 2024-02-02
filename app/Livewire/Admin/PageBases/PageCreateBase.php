@@ -27,6 +27,16 @@ abstract class PageCreateBase extends PageBase
     }
 
     /**
+     * Save
+     *
+     * @return void
+     */
+    function save()
+    {
+        dump('save');
+    }
+
+    /**
      * Render
      *
      * @return  \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View

@@ -1,3 +1,6 @@
-<div>
-    {{-- Success is as dangerous as failure. --}}
-</div>
+<x-admin.form.base
+    action="save"
+    submit-text="{{ __('admin/worlds.register') }}"
+    submitting-text="{{ __('admin/worlds.registering') }}">
+
+</x-admin.form.base>

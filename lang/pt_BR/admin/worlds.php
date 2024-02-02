@@ -29,5 +29,13 @@ return [
     'desc' => 'Decrescente',
     'edit' => 'Editar',
     'show' => 'Mostrar',
-    'see' => 'Ver'
+    'see' => 'Ver',
+    'submit' => 'Enviar',
+    'submitting' => 'Enviando',
+    'save' => 'Salvar',
+    'saving' => 'Salvando',
+    'register' => 'Cadastrar',
+    'registering' => 'Cadastrando',
+    'update' => 'Atualizar',
+    'updating' => 'Atualizando',
 ];
