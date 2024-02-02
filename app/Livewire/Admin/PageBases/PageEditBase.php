@@ -21,10 +21,40 @@ abstract class PageEditBase extends PageBase
     {
         if (empty($this->model)) {
             $this->fails[] = 'Needs a value to public propertie model';
+        } else {
+            $this->modelClass = $this->model::class;
         }
 
         return parent::mount();
     }
+
+    /**
+     * Route name to list items
+     *
+     * @return string
+     */
+    abstract function listRouteName();
+
+    /**
+     * Route name to show item
+     *
+     * @return string
+     */
+    abstract function showRouteName();
+
+    /**
+     * Route name to create item
+     *
+     * @return string
+     */
+    abstract function createRouteName();
+
+    /**
+     * Route name to edit item
+     *
+     * @return string
+     */
+    abstract function editRouteName();
 
     /**
      * Render

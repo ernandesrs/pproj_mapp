@@ -59,36 +59,6 @@ abstract class PageListBase extends PageBase
     abstract function tableColumnData();
 
     /**
-     * Must return a valid route name to display the item. If null the button will not be displayed.
-     *
-     * @return null|string
-     */
-    function actionShow()
-    {
-        return null;
-    }
-
-    /**
-     * Must return a valid route name to edit the item. If null the button will not be displayed.
-     *
-     * @return null|string
-     */
-    function actionEdit()
-    {
-        return null;
-    }
-
-    /**
-     * Defines whether or not to show the delete button by returning true or false
-     *
-     * @return bool
-     */
-    function actionDelete()
-    {
-        return false;
-    }
-
-    /**
      *
      *
      * * * CRUD METHODS
@@ -169,17 +139,6 @@ abstract class PageListBase extends PageBase
     {
         return $this->filter()
             ->paginate(15);
-    }
-
-    /**
-     * Get model as route param name
-     *
-     * @return string
-     */
-    function getModelAsParamNameToRoute()
-    {
-        $modelClassArr = explode('\\', $this->modelClass);
-        return strtolower(end($modelClassArr));
     }
 
     /**

@@ -6,6 +6,8 @@ use Livewire\Component;
 
 abstract class PageBase extends Component
 {
+    use BaseTrait;
+
     /**
      * Fails
      *
@@ -28,6 +30,13 @@ abstract class PageBase extends Component
      * @var bool
      */
     public $uncontained = false;
+
+    /**
+     * Model class
+     *
+     * @var null|string
+     */
+    public $modelClass = null;
 
     /**
      * Mount

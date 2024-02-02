@@ -53,4 +53,24 @@ class Edit extends PageEditBase
     {
         return __('admin/worlds.edit') . ' ' . __('admin/worlds.user');
     }
+
+    function createRouteName()
+    {
+        return 'admin.users.create';
+    }
+
+    function editRouteName()
+    {
+        return 'admin.users.edit';
+    }
+
+    function listRouteName()
+    {
+        return 'admin.users.index';
+    }
+
+    function showRouteName()
+    {
+        return 'admin.users.show';
+    }
 }
