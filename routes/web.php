@@ -14,6 +14,11 @@ Route::group([
 
     Route::get('login', \App\Livewire\Auth\Login::class)->name('auth.login')
         ->middleware('guest');
+    Route::get('logout', function () {
+        \Auth::logout();
+
+        return redirect()->route('auth.logout');
+    })->name('auth.logout')->middleware('auth');
 
 });
 

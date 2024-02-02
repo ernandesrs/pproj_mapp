@@ -205,7 +205,10 @@
                             'text' => __('admin/layout.logout'),
                             'icon' => 'door-closed-fill',
                             'activeIn' => [],
-                            'route' => [],
+                            'route' => [
+                                'name' => 'auth.logout',
+                                'params' => [],
+                            ],
                         ],
                     ]" />
             </div>
