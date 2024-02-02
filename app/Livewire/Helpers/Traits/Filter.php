@@ -7,6 +7,21 @@ use Livewire\Attributes\Url;
 trait Filter
 {
     /**
+     * Default sortable fields
+     *
+     * @var array
+     */
+    public array $defaultSortableFields = ['created_at', 'updated_at'];
+
+    /**
+     * Shwo filter fields
+     *
+     * @var bool
+     */
+    #[Url(except: false)]
+    public bool $showFilterFields = false;
+
+    /**
      * Search
      *
      * @var string
@@ -70,9 +85,7 @@ trait Filter
             return $modelInstance;
         }
 
-        $sortableFields = ['created_at', 'updated_at'];
-
-        foreach ($sortableFields as $sf) {
+        foreach ($this->defaultSortableFields as $sf) {
             $prop = 'orderBy_' . $sf;
             if (isset($this->$prop) && !empty($this->$prop) && in_array($this->$prop, ['asc', 'desc'])) {
                 $modelInstance = $modelInstance->orderBy($sf, $this->$prop);
@@ -80,6 +93,16 @@ trait Filter
         }
 
         return $modelInstance;
+    }
+
+    /**
+     * Show/hidden filter fields
+     *
+     * @return void
+     */
+    public function filterFieldsToggle()
+    {
+        $this->showFilterFields = !$this->showFilterFields;
     }
 
     /**
