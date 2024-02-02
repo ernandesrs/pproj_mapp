@@ -235,7 +235,7 @@
                     <div></div>
 
                     {{-- header end --}}
-                    <div class="ml-auto">
+                    <div class="ml-auto flex items-center gap-x-6">
 
                         {{-- theme toggler --}}
                         <button
@@ -245,6 +245,16 @@
                                 class="text-2xl" style="display: none;" />
                             <x-admin.icon x-show="theme == 'light'" name="moon-fill"
                                 class="text-xl" style="display: none;" />
+                        </button>
+
+                        {{-- profile --}}
+                        <button class="flex items-center gap-2 py-4">
+                            {{-- username --}}
+                            <span
+                                class="font-medium text-sm">{{ substr(ucfirst(strtolower(\Auth::user()->username)), 0, 10) }}{{ strlen(\Auth::user()->username) > 10 ? '...' : '' }}</span>
+
+                            {{-- avatar --}}
+                            <img class="w-10 rounded-full" src="{{ \Auth::user()->avatar }}" alt="">
                         </button>
                     </div>
                 </div>
