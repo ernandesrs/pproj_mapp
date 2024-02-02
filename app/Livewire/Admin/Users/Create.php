@@ -2,11 +2,14 @@
 
 namespace App\Livewire\Admin\Users;
 
-use App\Livewire\Admin\PageBases\PageBase;
+use App\Livewire\Admin\PageBases\PageCreateBase;
+use App\Models\User;
 
-class Create extends PageBase
+class Create extends PageCreateBase
 {
     public $viewContent = 'users.create';
+
+    public $modelClass = User::class;
 
     function getPageActions()
     {

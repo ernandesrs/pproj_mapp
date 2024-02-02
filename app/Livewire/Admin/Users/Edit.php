@@ -2,18 +2,23 @@
 
 namespace App\Livewire\Admin\Users;
 
-use App\Livewire\Admin\PageBases\PageBase;
+use App\Livewire\Admin\PageBases\PageEditBase;
 use App\Models\User;
 
-class Edit extends PageBase
+class Edit extends PageEditBase
 {
     public $viewContent = 'users.edit';
 
+    /**
+     * User
+     *
+     * @var User
+     */
     public $user = null;
 
     function mount(...$user)
     {
-        $this->user = User::where('id', $user)->firstOrFail();
+        $this->model = $this->user = User::where('id', $user)->firstOrFail();
 
         return parent::mount();
     }

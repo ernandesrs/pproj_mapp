@@ -6,6 +6,11 @@ use Livewire\Component;
 
 abstract class PageBase extends Component
 {
+    /**
+     * Fails
+     *
+     * @var array
+     */
     protected $fails = [];
 
     /**
