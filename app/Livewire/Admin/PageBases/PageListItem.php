@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Livewire\Admin\PageBases\List;
+namespace App\Livewire\Admin\PageBases;
 
 use Illuminate\Database\Eloquent\Model;
 use Livewire\Component;
 
-class ListItem extends Component
+class PageListItem extends Component
 {
     public Model $item;
 
@@ -18,7 +18,7 @@ class ListItem extends Component
      */
     public function render()
     {
-        return view('livewire..admin.page-bases.list.list-item');
+        return view('livewire..admin.page-bases.page-list-item');
     }
 
     /**

@@ -16,7 +16,7 @@
     <x-slot name="tbody">
 
         @foreach ($this->getPageList() as $listItem)
-            <livewire:admin.page-bases.list.list-item
+            <livewire:admin.page-bases.page-list-item
                 :key="$listItem->id"
                 :item="$listItem"
                 :columns="$this->getTableColumnData()" />
