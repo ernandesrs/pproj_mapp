@@ -9,7 +9,17 @@ use App\Livewire\Dash\Home as DashHome;
 use Illuminate\Support\Facades\Route;
 
 Route::group([
-    'prefix' => 'admin'
+    'prefix' => 'auth',
+], function () {
+
+    Route::get('login', \App\Livewire\Auth\Login::class)->name('auth.login')
+        ->middleware('guest');
+
+});
+
+Route::group([
+    'prefix' => 'admin',
+    'middleware' => ['auth']
 ], function () {
 
     Route::get('', AdminHome::class)->name('admin.home');
