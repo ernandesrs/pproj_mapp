@@ -4,6 +4,7 @@ namespace App\Livewire\Admin\Users;
 
 use App\Livewire\Admin\PageBases\PageEditBase;
 use App\Models\User;
+use Illuminate\Validation\Rule;
 
 class Edit extends PageEditBase
 {
@@ -21,6 +22,22 @@ class Edit extends PageEditBase
         $this->model = $this->user = User::where('id', $user)->firstOrFail();
 
         return parent::mount();
+    }
+
+    /**
+     * Rules
+     *
+     * @return array
+     */
+    function rules()
+    {
+        return [
+            'data.first_name' => ['required', 'max:25'],
+            'data.last_name' => ['required', 'max:50'],
+            'data.username' => ['required', 'max:25'],
+            'data.gender' => ['required', Rule::in(['n', 'm', 'f'])],
+            'data.password' => ['nullable', 'confirmed', 'max:255'],
+        ];
     }
 
     function getPageActions()

@@ -12,21 +12,11 @@ abstract class PageEditBase extends PageBase
     public $model = null;
 
     /**
-     * Mount
+     * Data
      *
-     * @param mixed ...$vars
-     * @return void
+     * @var array
      */
-    function mount(...$vars)
-    {
-        if (empty($this->model)) {
-            $this->fails[] = 'Needs a value to public propertie model';
-        } else {
-            $this->modelClass = $this->model::class;
-        }
-
-        return parent::mount();
-    }
+    public $data = [];
 
     /**
      * Route name to list items
@@ -57,6 +47,25 @@ abstract class PageEditBase extends PageBase
     abstract function editRouteName();
 
     /**
+     * Mount
+     *
+     * @param mixed ...$vars
+     * @return void
+     */
+    function mount(...$vars)
+    {
+        if (empty($this->model)) {
+            $this->fails[] = 'Needs a value to public propertie model';
+        } else {
+            $this->modelClass = $this->model::class;
+
+            $this->data = $this->model->toArray();
+        }
+
+        return parent::mount();
+    }
+
+    /**
      * Render
      *
      * @return  \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
@@ -66,5 +75,17 @@ abstract class PageEditBase extends PageBase
         return view('livewire..admin.page-bases.page-edit-base')
             ->layout('livewire.admin.layout')
             ->title($this->getLayoutTitle());
+    }
+
+    /**
+     * Update model
+     *
+     * @return void
+     */
+    function save()
+    {
+        $validated = $this->validate();
+
+        $this->model->update($validated['data']);
     }
 }

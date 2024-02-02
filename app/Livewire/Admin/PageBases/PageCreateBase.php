@@ -12,21 +12,6 @@ abstract class PageCreateBase extends PageBase
     public $data = [];
 
     /**
-     * Mount
-     *
-     * @param mixed ...$vars
-     * @return void
-     */
-    function mount(...$vars)
-    {
-        if (empty($this->modelClass)) {
-            $this->fails[] = 'Needs a value to public propertie modeClass';
-        }
-
-        return parent::mount();
-    }
-
-    /**
      * Route name to list items
      *
      * @return string
@@ -55,6 +40,33 @@ abstract class PageCreateBase extends PageBase
     abstract function editRouteName();
 
     /**
+     * Mount
+     *
+     * @param mixed ...$vars
+     * @return void
+     */
+    function mount(...$vars)
+    {
+        if (empty($this->modelClass)) {
+            $this->fails[] = 'Needs a value to public propertie modeClass';
+        }
+
+        return parent::mount();
+    }
+
+    /**
+     * Render
+     *
+     * @return  \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function render()
+    {
+        return view('livewire..admin.page-bases.page-create-base')
+            ->layout('livewire.admin.layout')
+            ->title($this->getLayoutTitle());
+    }
+
+    /**
      * Save
      *
      * @return void
@@ -69,19 +81,8 @@ abstract class PageCreateBase extends PageBase
             route(
                 $this->editRouteName(),
                 [$this->getModelAsParamNameToRoute() => $created->id]
-            )
+            ),
+            true
         );
-    }
-
-    /**
-     * Render
-     *
-     * @return  \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
-     */
-    public function render()
-    {
-        return view('livewire..admin.page-bases.page-create-base')
-            ->layout('livewire.admin.layout')
-            ->title($this->getLayoutTitle());
     }
 }
