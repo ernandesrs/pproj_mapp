@@ -62,4 +62,19 @@ class PageList extends PageListBase
             ]
         ];
     }
+
+    function actionShow()
+    {
+        return null;
+    }
+
+    function actionEdit()
+    {
+        return null;
+    }
+
+    function actionDelete()
+    {
+        return true;
+    }
 }

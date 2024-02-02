@@ -7,12 +7,22 @@ use Livewire\Component;
 
 class PageListItem extends Component
 {
+    /**
+     * Model item instance
+     *
+     * @var Model
+     */
     public Model $item;
 
-    public null|array|string $columns;
+    /**
+     * Item columns
+     *
+     * @var array
+     */
+    public array $columns;
 
     /**
-     * Undocumented function
+     * Render
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
@@ -24,10 +34,30 @@ class PageListItem extends Component
     /**
      *
      *
-     * Actions
+     * * * ITEM ACTIONS
      *
      *
      */
+
+    /**
+     * List item show
+     *
+     * @return void
+     */
+    function show()
+    {
+        $this->dispatch('showPageItem', id: $this->item->id);
+    }
+
+    /**
+     * List item edit
+     *
+     * @return void
+     */
+    function edit()
+    {
+        $this->dispatch('editPageItem', id: $this->item->id);
+    }
 
     /**
      * List item delete
@@ -39,6 +69,13 @@ class PageListItem extends Component
         $this->dispatch('deletePageItem', id: $this->item->id);
     }
 
+    /**
+     *
+     *
+     * * * ITEM COLUMNS
+     *
+     *
+     */
 
     /**
      * Get columns
