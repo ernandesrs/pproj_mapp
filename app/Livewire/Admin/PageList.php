@@ -65,7 +65,7 @@ class PageList extends PageListBase
 
     function actionShow()
     {
-        return null;
+        return 'null';
     }
 
     function actionEdit()

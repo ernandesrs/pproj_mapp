@@ -102,7 +102,7 @@ abstract class PageListBase extends PageBase
     #[On('showPageItem')]
     function show(int $id)
     {
-        dump('show', $id);
+        $this->redirect(route($this->actionShow(), [$this->getModelAsParamNameToRoute() => $id]), true);
     }
 
     /**
@@ -115,7 +115,7 @@ abstract class PageListBase extends PageBase
     #[On('editPageItem')]
     function edit(int $id)
     {
-        dump('edit', $id);
+        $this->redirect(route($this->actionEdit(), [$this->getModelAsParamNameToRoute() => $id]), true);
     }
 
     /**
@@ -144,7 +144,6 @@ abstract class PageListBase extends PageBase
      *
      */
 
-
     /**
      * Model instance
      *
@@ -167,6 +166,17 @@ abstract class PageListBase extends PageBase
         return $this->getModelInstance()
             ->query()
             ->paginate(15);
+    }
+
+    /**
+     * Get model as route param name
+     *
+     * @return string
+     */
+    function getModelAsParamNameToRoute()
+    {
+        $modelClassArr = explode('\\', $this->modelClass);
+        return strtolower(end($modelClassArr));
     }
 
     /**
