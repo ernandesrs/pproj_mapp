@@ -46,19 +46,19 @@ class PageList extends PageListBase
         return [
             [
                 'label' => __('admin/worlds.name'),
-                'callback' => fn($item) => $item->first_name . ' ' . $item->last_name,
+                'key' => ['first_name', 'last_name'],
             ],
             [
                 'label' => __('admin/worlds.username'),
-                'callback' => fn($item) => $item->username,
+                'key' => 'username',
             ],
             [
                 'label' => __('admin/worlds.email'),
-                'callback' => fn($item) => $item->email,
+                'key' => 'email',
             ],
             [
                 'label' => __('admin/worlds.create_date'),
-                'callback' => fn($item) => $item->created_at,
+                'key' => 'created_at',
             ]
         ];
     }

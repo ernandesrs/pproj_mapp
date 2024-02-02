@@ -2,6 +2,8 @@
 
 namespace App\Livewire\Admin\PageBases;
 
+use Livewire\Attributes\On;
+
 abstract class PageListBase extends PageBase
 {
     /**
@@ -40,15 +42,59 @@ abstract class PageListBase extends PageBase
     }
 
     /**
+     *
+     *
+     * CRUD METHODS
+     *
+     *
+     */
+
+    /**
+     * Delete one item
+     *
+     * @param mixed $id
+     *
+     * @return void
+     */
+    #[On('deletePageItem')]
+    function deleteOne($id)
+    {
+        /**
+         * @var \Illuminate\Database\Eloquent\Model
+         */
+        $model = $this->getModelInstance()->where('id', $id)->firstOrFail();
+
+        $model->delete();
+    }
+
+    /**
+     *
+     *
+     * GENERAL METHODS
+     *
+     *
+     */
+
+    /**
      * List model instance
      *
-     * @return \Illuminate\Database\Eloquent\Model
+     * @return \Illuminate\Database\Eloquent\Model|\Illuminate\Database\Eloquent\Builder|\Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
     function getPageList()
     {
-        return (new $this->modelClass())
+        return $this->getModelInstance()
             ->query()
             ->paginate(15);
+    }
+
+    /**
+     * Model instance
+     *
+     * @return \Illuminate\Database\Eloquent\Model
+     */
+    function getModelInstance()
+    {
+        return new $this->modelClass();
     }
 
     /**
@@ -65,7 +111,7 @@ abstract class PageListBase extends PageBase
      * Each item in the array must be an array with the following characteristics:
      * [
      *      'label' => 'Name',
-     *      'callback' => fn($item) => $item->name,
+     *      'key' => ['first_name','last_name'],
      * ]
      *
      * @return array

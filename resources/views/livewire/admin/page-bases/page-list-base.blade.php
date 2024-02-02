@@ -16,20 +16,10 @@
     <x-slot name="tbody">
 
         @foreach ($this->getPageList() as $listItem)
-            <x-admin.list.table.tr>
-                @foreach ($this->getTableColumnData() as $column)
-                    <x-admin.list.table.td>
-                        @if (isset($column['callback']))
-                            {{ $column['callback']($listItem) }}
-                        @elseif(isset($column['actions']) && $column['actions'])
-                            <x-admin.list.actions
-                                :show="$column['actions']['show'] ?? false"
-                                :edit="$column['actions']['edit'] ?? false"
-                                :delete="$column['actions']['delete'] ?? false" />
-                        @endif
-                    </x-admin.list.table.td>
-                @endforeach
-            </x-admin.list.table.tr>
+            <livewire:admin.page-bases.list.list-item
+                :key="$listItem->id"
+                :item="$listItem"
+                :columns="$this->getTableColumnData()" />
         @endforeach
 
     </x-slot>
