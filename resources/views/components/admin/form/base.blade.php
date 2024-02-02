@@ -1,18 +1,18 @@
 @props([
     'action' => 'save',
     'submittingText' => __('admin/worlds.submitting'),
-    'submitText' => __('admin/worlds.submit'),
+    'submitText' => __('admin/worlds.submit')
 ])
 
 <form
     wire:submit="{{ $action }}">
     {{-- fields --}}
-    <div class="border p-3">
+    <div>
         {{ $slot }}
     </div>
 
     {{-- submit --}}
-    <div class="flex justify-center border p-3">
+    <div class="flex justify-center mt-6">
         <button
             wire:loading.attr="disabled"
             wire:loading.class="animate-pulse"

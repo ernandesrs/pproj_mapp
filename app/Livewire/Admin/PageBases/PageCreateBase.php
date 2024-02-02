@@ -12,6 +12,13 @@ abstract class PageCreateBase extends PageBase
     public $modelClass = null;
 
     /**
+     * Data
+     *
+     * @var array
+     */
+    public $data = [];
+
+    /**
      * Mount
      *
      * @param mixed ...$vars
@@ -33,7 +40,8 @@ abstract class PageCreateBase extends PageBase
      */
     function save()
     {
-        dump('save');
+        $this->validate();
+        dump('create.save', $this->data);
     }
 
     /**
