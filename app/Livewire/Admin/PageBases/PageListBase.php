@@ -36,7 +36,7 @@ abstract class PageListBase extends PageBase
      *
      * @return void
      */
-    function mount()
+    function mount(...$vars)
     {
         if (empty($this->modelClass)) {
             $this->fails[] = 'Needs a value to public propertie "modelClass"';

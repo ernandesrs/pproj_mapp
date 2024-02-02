@@ -41,7 +41,7 @@ class Index extends PageListBase
         return [
             [
                 'text' => __('admin/worlds.new') . ' ' . __('admin/worlds.user'),
-                'href' => '#',
+                'href' => route('admin.users.create'),
                 'icon' => 'plus-lg'
             ]
         ];
@@ -61,6 +61,11 @@ class Index extends PageListBase
     function getPageTitle()
     {
         return __('admin/layout.users');
+    }
+
+    function actionEdit()
+    {
+        return 'admin.users.edit';
     }
 
     function actionDelete()

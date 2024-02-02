@@ -26,5 +26,8 @@ return [
     'create_date' => 'Data de criação',
     'update_date' => 'Data de atualização',
     'asc' => 'Crescente',
-    'desc' => 'Decrescente'
+    'desc' => 'Decrescente',
+    'edit' => 'Editar',
+    'show' => 'Mostrar',
+    'see' => 'Ver'
 ];

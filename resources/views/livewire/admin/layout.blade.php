@@ -144,7 +144,7 @@
                             'text' => __('admin/layout.users'),
                             'title' => __('admin/layout.users'),
                             'icon' => 'people-fill',
-                            'activeIn' => ['admin.users.index'],
+                            'activeIn' => ['admin.users.index', 'admin.users.create', 'admin.users.edit'],
                             'route' => [
                                 'name' => 'admin.users.index',
                                 'params' => [],

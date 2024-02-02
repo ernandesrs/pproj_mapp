@@ -29,7 +29,7 @@ abstract class PageBase extends Component
      *
      * @return void
      */
-    function mount()
+    function mount(...$vars)
     {
         if (empty($this->viewContent)) {
             $this->fails[] = 'Needs a value to public propertie "viewContent"';
