@@ -9,6 +9,11 @@ class PageList extends PageListBase
 {
     public $modelClass = User::class;
 
+    function searchableFields()
+    {
+        return ['first_name', 'last_name', 'username', 'email'];
+    }
+
     public function getPageTitle()
     {
         return __('admin/layout.users');

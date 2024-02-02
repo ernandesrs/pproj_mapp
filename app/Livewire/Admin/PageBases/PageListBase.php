@@ -2,12 +2,13 @@
 
 namespace App\Livewire\Admin\PageBases;
 
+use App\Livewire\Helpers\Traits\Filter;
 use Livewire\Attributes\On;
 use Livewire\WithPagination;
 
 abstract class PageListBase extends PageBase
 {
-    use WithPagination;
+    use WithPagination, Filter;
 
     /**
      * View content
@@ -166,8 +167,7 @@ abstract class PageListBase extends PageBase
      */
     function getPageList()
     {
-        return $this->getModelInstance()
-            ->query()
+        return $this->filter()
             ->paginate(15);
     }
 

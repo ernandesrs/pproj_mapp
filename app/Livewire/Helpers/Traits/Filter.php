@@ -44,9 +44,9 @@ trait Filter
      */
     function filter()
     {
-        $modelInstance = new($this->getModelClass())();
+        $modelInstance = $this->getModelInstance();
 
-        if ($this->isFiltering() && $this->searchableFields()) {
+        if ($this->searchableFields()) {
             if (!empty($this->search)) {
                 $modelInstance = $modelInstance
                     ->whereRaw("MATCH(" . implode(',', $this->searchableFields()) . ") AGAINST(? IN BOOLEAN MODE)", [$this->search]);
@@ -58,6 +58,12 @@ trait Filter
         return $modelInstance;
     }
 
+    /**
+     * Sort
+     *
+     * @param \Illuminate\Database\Eloquent\Model $modelInstance
+     * @return \Illuminate\Database\Eloquent\Model
+     */
     private function sort($modelInstance)
     {
         if (!$this->isFilterable()) {
@@ -94,15 +100,5 @@ trait Filter
     public function isFilterable()
     {
         return true;
-    }
-
-    /**
-     * Check if this request is a filtering
-     *
-     * @return bool
-     */
-    private function isFiltering()
-    {
-        return !empty($this->search);
     }
 }
