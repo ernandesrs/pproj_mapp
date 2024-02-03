@@ -61,6 +61,8 @@ abstract class PageCreateBase extends PageBase
      */
     public function render()
     {
+        $this->authorize('create', $this->modelClass);
+
         return view('livewire..admin.page-bases.page-create-base')
             ->layout('livewire.admin.layout')
             ->title($this->getLayoutTitle());
@@ -73,6 +75,8 @@ abstract class PageCreateBase extends PageBase
      */
     function save()
     {
+        $this->authorize('create', $this->modelClass);
+
         $validated = $this->validate();
 
         $created = (new $this->modelClass())::create($validated['data']);

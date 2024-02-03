@@ -44,7 +44,7 @@
             <livewire:admin.page-bases.page-list-item
                 :key="$listItem->id"
                 :item="$listItem"
-                :columns="$this->getTableColumnData()" />
+                :columns="$this->getTableColumnData($listItem)" />
         @endforeach
 
     </x-slot>

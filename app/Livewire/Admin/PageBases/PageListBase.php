@@ -3,6 +3,7 @@
 namespace App\Livewire\Admin\PageBases;
 
 use App\Livewire\Helpers\Traits\Filter;
+use Illuminate\Database\Eloquent\Model;
 use Livewire\Attributes\On;
 use Livewire\WithPagination;
 
@@ -32,6 +33,19 @@ abstract class PageListBase extends PageBase
     public $modelClass = '';
 
     /**
+     * Define the table columns data
+     *
+     * Each item in the array must be an array with the following characteristics:
+     * [
+     *      'label' => 'Name',
+     *      'key' => ['first_name','last_name'],
+     * ]
+     *
+     * @return array
+     */
+    abstract function tableColumnData();
+
+    /**
      * Mount
      *
      * @return void
@@ -46,17 +60,16 @@ abstract class PageListBase extends PageBase
     }
 
     /**
-     * Define the table columns data
+     * Render
      *
-     * Each item in the array must be an array with the following characteristics:
-     * [
-     *      'label' => 'Name',
-     *      'key' => ['first_name','last_name'],
-     * ]
-     *
-     * @return array
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    abstract function tableColumnData();
+    function render()
+    {
+        $this->authorize('viewAny', $this->modelClass);
+
+        return parent::render();
+    }
 
     /**
      *
@@ -107,6 +120,8 @@ abstract class PageListBase extends PageBase
          */
         $model = $this->getModelInstance($id)->firstOrFail();
 
+        $this->authorize('delete', $model);
+
         $model->delete();
     }
 
@@ -154,7 +169,7 @@ abstract class PageListBase extends PageBase
      *
      * @return array
      */
-    function getTableColumnData()
+    function getTableColumnData(?Model $model = null)
     {
         $arr = $this->tableColumnData();
 
@@ -164,9 +179,9 @@ abstract class PageListBase extends PageBase
                 [
                     'label' => '',
                     'actions' => [
-                        'show' => $this->actionShow() ? true : false,
-                        'edit' => $this->actionEdit() ?? false,
-                        'delete' => $this->actionDelete(),
+                        'show' => $this->actionShow() ? \Auth::user()->can('view', $model) : false,
+                        'edit' => $this->actionEdit() ? \Auth::user()->can('update', $model) : false,
+                        'delete' => $this->actionDelete() ? \Auth::user()->can('delete', $model) : false,
                     ]
                 ],
             ];

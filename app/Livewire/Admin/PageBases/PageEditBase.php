@@ -72,6 +72,8 @@ abstract class PageEditBase extends PageBase
      */
     public function render()
     {
+        $this->authorize('update', $this->model);
+
         return view('livewire..admin.page-bases.page-edit-base')
             ->layout('livewire.admin.layout')
             ->title($this->getLayoutTitle());
@@ -84,6 +86,8 @@ abstract class PageEditBase extends PageBase
      */
     function save()
     {
+        $this->authorize('update', $this->model);
+
         $validated = $this->validate();
 
         $this->model->update($validated['data']);
