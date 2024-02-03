@@ -79,7 +79,7 @@ class AppDev extends Command
             'last_name' => 'Admin',
             'username' => 'superadmin',
             'email' => $data['email'],
-            'password' => \Hash::make($data['password']),
+            'password' => $data['password'],
             'gender' => 'n'
         ]);
     }

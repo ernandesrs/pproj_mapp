@@ -26,6 +26,16 @@ trait BaseTrait
     }
 
     /**
+     * Must return a valid route name to create a new item.
+     *
+     * @return null|string
+     */
+    function actionCreate()
+    {
+        return null;
+    }
+
+    /**
      * Must return a valid route name to edit the item. If null the button will not be displayed.
      *
      * @return null|string

@@ -145,6 +145,7 @@
                             'title' => __('admin/layout.users'),
                             'icon' => 'people-fill',
                             'activeIn' => ['admin.users.index', 'admin.users.create', 'admin.users.edit'],
+                            'show' => \Auth::user()->can('viewAny', \App\Models\User::class),
                             'route' => [
                                 'name' => 'admin.users.index',
                                 'params' => [],
