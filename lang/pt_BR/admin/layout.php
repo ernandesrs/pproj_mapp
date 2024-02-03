@@ -9,5 +9,6 @@ return [
     'setting' => 'Configuração',
     'settings' => 'Configurações',
     'profile' => 'Perfil',
-    'logout' => 'Logout'
+    'logout' => 'Logout',
+    'roles' => 'Cargos'
 ];

@@ -42,5 +42,7 @@ return [
     'empty' => 'Vazio',
     'empty_f' => 'Vazia',
     'female' => 'Feminino',
-    'male' => 'Masculino'
+    'male' => 'Masculino',
+    'role' => 'Cargo',
+    'roles' => 'Cargos'
 ];

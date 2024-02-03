@@ -152,6 +152,17 @@
                             ],
                         ],
                         [
+                            'text' => __('admin/layout.roles'),
+                            'title' => __('admin/layout.roles'),
+                            'icon' => 'person-fill-gear',
+                            'activeIn' => ['admin.roles.index', 'admin.roles.create', 'admin.roles.edit'],
+                            'show' => \Auth::user()->can('viewAny', \App\Models\Role::class),
+                            'route' => [
+                                'name' => 'admin.roles.index',
+                                'params' => [],
+                            ],
+                        ],
+                        [
                             'text' => __('admin/layout.grouping'),
                             'title' => __('admin/layout.grouping'),
                             'icon' => 'grid-fill',
