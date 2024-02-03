@@ -24,7 +24,7 @@ Route::group([
 
 Route::group([
     'prefix' => 'admin',
-    'middleware' => ['auth']
+    'middleware' => ['auth', 'admin_access']
 ], function () {
 
     Route::get('', AdminHome::class)->name('admin.home');
