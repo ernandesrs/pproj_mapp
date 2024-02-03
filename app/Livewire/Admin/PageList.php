@@ -14,12 +14,12 @@ class PageList extends PageListBase
         return ['first_name', 'last_name', 'username', 'email'];
     }
 
-    public function getPageTitle()
+    public function setPageTitle()
     {
         return __('admin/layout.users');
     }
 
-    public function getPageBreadcrumbs()
+    public function setPageBreadcrumbs()
     {
         return [
             [
@@ -30,7 +30,7 @@ class PageList extends PageListBase
         ];
     }
 
-    public function getPageActions()
+    public function setPageActions()
     {
         return [
             [

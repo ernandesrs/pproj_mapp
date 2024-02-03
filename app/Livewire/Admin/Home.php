@@ -10,7 +10,7 @@ class Home extends PageBase
 
     public $uncontained = true;
 
-    function getPageTitle()
+    function setPageTitle()
     {
         return null;
     }
@@ -20,12 +20,12 @@ class Home extends PageBase
         return __('admin/layout.overview');
     }
 
-    function getPageBreadcrumbs()
+    function setPageBreadcrumbs()
     {
         return [];
     }
 
-    function getPageActions()
+    function setPageActions()
     {
         return [];
     }

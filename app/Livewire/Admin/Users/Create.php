@@ -29,12 +29,12 @@ class Create extends PageCreateBase
         ];
     }
 
-    function getPageActions()
+    function setPageActions()
     {
         return [];
     }
 
-    function getPageBreadcrumbs()
+    function setPageBreadcrumbs()
     {
         return [
             [
@@ -49,7 +49,7 @@ class Create extends PageCreateBase
         ];
     }
 
-    function getPageTitle()
+    function setPageTitle()
     {
         return __('admin/worlds.new') . ' ' . __('admin/worlds.user');
     }

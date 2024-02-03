@@ -36,7 +36,7 @@ class Index extends PageListBase
         return ['first_name', 'last_name', 'username', 'email'];
     }
 
-    function getPageActions()
+    function setPageActions()
     {
         return [
             [
@@ -47,7 +47,7 @@ class Index extends PageListBase
         ];
     }
 
-    function getPageBreadcrumbs()
+    function setPageBreadcrumbs()
     {
         return [
             [
@@ -58,7 +58,7 @@ class Index extends PageListBase
         ];
     }
 
-    function getPageTitle()
+    function setPageTitle()
     {
         return __('admin/layout.users');
     }

@@ -40,7 +40,7 @@ class Edit extends PageEditBase
         ];
     }
 
-    function getPageActions()
+    function setPageActions()
     {
         return [
             [
@@ -51,7 +51,7 @@ class Edit extends PageEditBase
         ];
     }
 
-    function getPageBreadcrumbs()
+    function setPageBreadcrumbs()
     {
         return [
             [
@@ -66,7 +66,7 @@ class Edit extends PageEditBase
         ];
     }
 
-    function getPageTitle()
+    function setPageTitle()
     {
         return __('admin/worlds.edit') . ' ' . __('admin/worlds.user');
     }

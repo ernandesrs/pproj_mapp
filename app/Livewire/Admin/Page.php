@@ -8,12 +8,12 @@ class Page extends PageBase
 {
     public $viewContent = 'page';
 
-    function getPageTitle()
+    function setPageTitle()
     {
         return 'Page example';
     }
 
-    function getPageBreadcrumbs()
+    function setPageBreadcrumbs()
     {
         return [
             [
@@ -23,7 +23,7 @@ class Page extends PageBase
         ];
     }
 
-    function getPageActions()
+    function setPageActions()
     {
         return [];
     }

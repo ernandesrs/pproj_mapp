@@ -1,7 +1,7 @@
 @props([
-    'title' => $title ?? $this->getPageTitle(),
-    'breadcrumbs' => $breadcrumbs ?? $this->getPageBreadcrumbs(),
-    'actions' => $actions ?? $this->getPageActions(),
+    'title' => $title ?? $this->setPageTitle(),
+    'breadcrumbs' => $breadcrumbs ?? $this->setPageBreadcrumbs(),
+    'actions' => $actions ?? $this->setPageActions(),
 
     // list to get pagination
     'list' => null,
