@@ -2,6 +2,8 @@
 
 namespace App\Console\Commands;
 
+use App\Enums\Admin\RolesEnum;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Console\Command;
 
@@ -27,6 +29,7 @@ class AppDev extends Command
     public function handle()
     {
         $essentialsSeeders = [
+            'RolePermissionSeeder'
         ];
 
         if ($this->option('fresh')) {
@@ -42,11 +45,14 @@ class AppDev extends Command
         }
 
         // create super admin
-        $this->createSuperAdmin([
+        $superUser = $this->createSuperAdmin([
             'email' => 'super@mail.com',
             'password' => 'password'
         ]);
         $this->info('Super admin created!');
+
+        $adminUser = $this->createAdmin();
+        $this->info('Admin created!');
 
         // run essentials seeders
         foreach ($essentialsSeeders as $essentialSeeder) {
@@ -55,6 +61,9 @@ class AppDev extends Command
             ]);
             $this->info('Seed ' . $essentialSeeder . ' runned!');
         }
+
+        $superUser->assignRole(Role::findByName(RolesEnum::SUPER->value));
+        $adminUser->assignRole(Role::findByName(RolesEnum::ADMIN->value));
     }
 
     /**
@@ -71,6 +80,23 @@ class AppDev extends Command
             'username' => 'superadmin',
             'email' => $data['email'],
             'password' => \Hash::make($data['password']),
+            'gender' => 'n'
+        ]);
+    }
+
+    /**
+     * Create super user
+     *
+     * @return User
+     */
+    public function createAdmin()
+    {
+        return $this->createUser([
+            'first_name' => 'User',
+            'last_name' => 'Admin',
+            'username' => 'useradmin',
+            'email' => 'admin@mail.com',
+            'password' => \Hash::make('password'),
             'gender' => 'n'
         ]);
     }
