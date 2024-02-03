@@ -42,13 +42,7 @@ class Edit extends PageEditBase
 
     function setPageActions()
     {
-        return [
-            [
-                'text' => __('admin/worlds.new') . ' ' . __('admin/worlds.user'),
-                'href' => route('admin.users.create'),
-                'icon' => 'plus-lg'
-            ]
-        ];
+        return [];
     }
 
     function setPageBreadcrumbs()

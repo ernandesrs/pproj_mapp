@@ -23,4 +23,9 @@ abstract class PageBaseSimple extends PageBase
     {
         return null;
     }
+
+    function setPageCreateAction()
+    {
+        return null;
+    }
 }

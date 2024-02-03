@@ -4,7 +4,6 @@
     'actions' => $actions ?? $this->setPageActions(),
     'uncontained' => false,
 ])
-
 @php
     $showPageHeader = count($breadcrumbs) || !empty($title) ? true : false;
 
@@ -18,6 +17,12 @@
             ...$breadcrumbs,
         ];
     }
+
+    array_push($actions, $this->setPageCreateAction() ?? []);
+
+    $actions = array_filter($actions, function ($action) {
+        return count($action) && (!isset($action['show']) || $action['show']);
+    });
 @endphp
 
 <div class="flex-1 flex flex-col pb-6">

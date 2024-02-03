@@ -11,6 +11,11 @@ abstract class PageCreateBase extends PageBase
      */
     public $data = [];
 
+    function setPageCreateAction()
+    {
+        return [];
+    }
+
     /**
      * Mount
      *

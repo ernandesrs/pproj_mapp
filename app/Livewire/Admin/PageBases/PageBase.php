@@ -88,6 +88,13 @@ abstract class PageBase extends Component
     abstract function setPageActions();
 
     /**
+     * Page create action
+     *
+     * @return null|array
+     */
+    abstract function setPageCreateAction();
+
+    /**
      * Layout title
      *
      * @return null|string

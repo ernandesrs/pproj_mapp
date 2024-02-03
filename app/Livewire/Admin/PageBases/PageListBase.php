@@ -46,6 +46,22 @@ abstract class PageListBase extends PageBase
     abstract function tableColumnData();
 
     /**
+     * Page create action
+     *
+     * @return null|array
+     */
+    function setPageCreateAction()
+    {
+        return
+            [
+                'text' => __('admin/worlds.new') . ' ' . __('admin/worlds.' . $this->getModelAsParamNameToRoute()),
+                'href' => route($this->createRouteName()),
+                'icon' => 'plus-lg',
+                'show' => \Auth::user()->can('create', $this->modelClass)
+            ];
+    }
+
+    /**
      * Mount
      *
      * @return void
