@@ -4,46 +4,33 @@ namespace App\Livewire\Admin\PageBases;
 
 trait BaseTrait
 {
-
     /**
-     * Must return a valid route name to list items.
-     *
-     * @return string
-     */
-    function actionList()
-    {
-        return null;
-    }
-
-    /**
-     * Must return a valid route name to display the item. If null the button will not be displayed.
+     * Route name to list items
      *
      * @return null|string
      */
-    function actionShow()
-    {
-        return null;
-    }
+    abstract function indexRouteName();
 
     /**
-     * Must return a valid route name to create a new item.
+     * Route name to show item
      *
      * @return null|string
      */
-    function actionCreate()
-    {
-        return null;
-    }
+    abstract function showRouteName();
 
     /**
-     * Must return a valid route name to edit the item. If null the button will not be displayed.
+     * Route name to create item
      *
      * @return null|string
      */
-    function actionEdit()
-    {
-        return null;
-    }
+    abstract function createRouteName();
+
+    /**
+     * Route name to edit item
+     *
+     * @return null|string
+     */
+    abstract function editRouteName();
 
     /**
      * Defines whether or not to show the delete button by returning true or false

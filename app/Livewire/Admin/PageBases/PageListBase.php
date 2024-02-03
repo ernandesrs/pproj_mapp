@@ -89,7 +89,7 @@ abstract class PageListBase extends PageBase
     #[On('showPageItem')]
     function show(int $id)
     {
-        $this->redirect(route($this->actionShow(), [$this->getModelAsParamNameToRoute() => $id]), true);
+        $this->redirect(route($this->showRouteName(), [$this->getModelAsParamNameToRoute() => $id]), true);
     }
 
     /**
@@ -102,7 +102,7 @@ abstract class PageListBase extends PageBase
     #[On('editPageItem')]
     function edit(int $id)
     {
-        $this->redirect(route($this->actionEdit(), [$this->getModelAsParamNameToRoute() => $id]), true);
+        $this->redirect(route($this->editRouteName(), [$this->getModelAsParamNameToRoute() => $id]), true);
     }
 
     /**
@@ -179,8 +179,8 @@ abstract class PageListBase extends PageBase
                 [
                     'label' => '',
                     'actions' => [
-                        'show' => $this->actionShow() ? \Auth::user()->can('view', $model) : false,
-                        'edit' => $this->actionEdit() ? \Auth::user()->can('update', $model) : false,
+                        'show' => $this->showRouteName() ? \Auth::user()->can('view', $model) : false,
+                        'edit' => $this->editRouteName() ? \Auth::user()->can('update', $model) : false,
                         'delete' => $this->actionDelete() ? \Auth::user()->can('delete', $model) : false,
                     ]
                 ],
@@ -197,6 +197,6 @@ abstract class PageListBase extends PageBase
      */
     function showListItemActions()
     {
-        return $this->actionShow() || $this->actionEdit() || $this->actionDelete();
+        return $this->showRouteName() || $this->editRouteName() || $this->actionDelete();
     }
 }

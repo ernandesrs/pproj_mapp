@@ -2,9 +2,9 @@
 
 namespace App\Livewire\Admin;
 
-use App\Livewire\Admin\PageBases\PageBase;
+use App\Livewire\Admin\PageBases\PageBaseSimple;
 
-class Page extends PageBase
+class Page extends PageBaseSimple
 {
     public $viewContent = 'page';
 

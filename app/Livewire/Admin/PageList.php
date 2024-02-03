@@ -68,14 +68,24 @@ class PageList extends PageListBase
         ];
     }
 
-    function actionShow()
+    function indexRouteName()
     {
-        return 'null';
+        return 'admin.users.index';
     }
 
-    function actionEdit()
+    function createRouteName()
     {
-        return null;
+        return 'admin.users.create';
+    }
+
+    function showRouteName()
+    {
+        return 'admin.users.show';
+    }
+
+    function editRouteName()
+    {
+        return 'admin.users.edit';
     }
 
     function actionDelete()

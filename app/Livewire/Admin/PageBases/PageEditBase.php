@@ -19,34 +19,6 @@ abstract class PageEditBase extends PageBase
     public $data = [];
 
     /**
-     * Route name to list items
-     *
-     * @return string
-     */
-    abstract function listRouteName();
-
-    /**
-     * Route name to show item
-     *
-     * @return string
-     */
-    abstract function showRouteName();
-
-    /**
-     * Route name to create item
-     *
-     * @return string
-     */
-    abstract function createRouteName();
-
-    /**
-     * Route name to edit item
-     *
-     * @return string
-     */
-    abstract function editRouteName();
-
-    /**
      * Mount
      *
      * @param mixed ...$vars

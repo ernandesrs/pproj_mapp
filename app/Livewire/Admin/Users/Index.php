@@ -63,7 +63,22 @@ class Index extends PageListBase
         return __('admin/layout.users');
     }
 
-    function actionEdit()
+    function indexRouteName()
+    {
+        return 'admin.users.index';
+    }
+
+    function createRouteName()
+    {
+        return 'admin.users.create';
+    }
+
+    function showRouteName()
+    {
+        return 'admin.users.show';
+    }
+
+    function editRouteName()
     {
         return 'admin.users.edit';
     }
