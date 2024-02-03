@@ -25,6 +25,15 @@
             class="w-full border px-6 py-3 outline-none" type="text"
             placeholder="Senha">
 
+        <div class="flex justify-start items-center">
+            <input
+                wire:model="remember"
+                id="remember"
+                type="checkbox"
+                class="w-6 mr-2 m-0 outline-none" type="text"
+                placeholder="Senha"> <label for="remember">Remember-me</label>
+        </div>
+
         <button type="submit" wire:loading.attr="disabled" wire:loading.class="animate-pulse"
             class="px-6 py-3 bg-admin-primary-normal hover:opacity-80 duration-300 text-white">
             <span wire:loading.remove>Login</span>

@@ -96,7 +96,7 @@ class AppDev extends Command
             'last_name' => 'Admin',
             'username' => 'useradmin',
             'email' => 'admin@mail.com',
-            'password' => \Hash::make('password'),
+            'password' => 'password',
             'gender' => 'n'
         ]);
     }
