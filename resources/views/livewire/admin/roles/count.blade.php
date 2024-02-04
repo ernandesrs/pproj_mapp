@@ -1,3 +1,3 @@
 <x-admin.badge color="light">
-    {{ $this->item->users()->count() }} Lorem dolor
+    {{ $this->model->users()->count() }}
 </x-admin.badge>

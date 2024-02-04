@@ -13,6 +13,10 @@ class Index extends PageListBase
     {
         return [
             [
+                'label' => __('admin/worlds.avatar'),
+                'view' => 'livewire.admin.users.avatar'
+            ],
+            [
                 'label' => __('admin/layout.users'),
                 'key' => ['first_name', 'last_name']
             ],

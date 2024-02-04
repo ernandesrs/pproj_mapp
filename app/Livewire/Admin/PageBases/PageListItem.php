@@ -15,6 +15,18 @@ class PageListItem extends Component
     public Model $item;
 
     /**
+     * Model item instance
+     *
+     * @var Model
+     */
+    public Model $model;
+
+    function mount()
+    {
+        $this->model = $this->item;
+    }
+
+    /**
      * Item columns
      *
      * @var array

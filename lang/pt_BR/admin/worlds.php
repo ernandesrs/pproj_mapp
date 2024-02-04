@@ -50,4 +50,5 @@ return [
     'users' => 'Usuários',
     'linked' => 'Viculado',
     'linkeds' => 'Viculados',
+    'avatar' => 'Avatar',
 ];
