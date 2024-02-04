@@ -8,7 +8,7 @@
 <form
     wire:submit="{{ $action }}">
     {{-- fields --}}
-    <div>
+    <div {{ $attributes->merge(['class' => '']) }}>
         {{ $slot }}
     </div>
 
