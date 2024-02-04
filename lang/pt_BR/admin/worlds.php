@@ -46,5 +46,8 @@ return [
     'role' => 'Cargo',
     'roles' => 'Cargos',
     'permission' => 'Permissão',
-    'permissions' => 'Permissões'
+    'permissions' => 'Permissões',
+    'users' => 'Usuários',
+    'linked' => 'Viculado',
+    'linkeds' => 'Viculados',
 ];

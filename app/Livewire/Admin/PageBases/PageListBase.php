@@ -39,6 +39,8 @@ abstract class PageListBase extends PageBase
      * [
      *      'label' => 'Name',
      *      'key' => ['first_name','last_name'],
+     *      OR
+     *      'view' => 'components.count',
      * ]
      *
      * @return array

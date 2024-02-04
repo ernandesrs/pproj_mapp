@@ -95,21 +95,23 @@ class PageListItem extends Component
      */
     function getColumnContent(array $column)
     {
-        $val = '';
+        $columnContent = '';
 
         if (isset($column['key'])) {
             $colKey = $column['key'];
 
             if (is_array($column['key'])) {
                 $item = $this->item;
-                $val = implode(' ', array_map(function ($key) use ($item) {
+                $columnContent = implode(' ', array_map(function ($key) use ($item) {
                     return $item->$key;
                 }, $colKey));
             } else {
-                $val = $this->item->$colKey;
+                $columnContent = $this->item->$colKey;
             }
+        } elseif (isset($column['view'])) {
+            $columnContent = $column['view'];
         }
 
-        return $val;
+        return $columnContent;
     }
 }

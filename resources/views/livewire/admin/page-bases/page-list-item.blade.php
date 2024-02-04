@@ -19,6 +19,8 @@
                             wire:confirm="Confirm deletion" />
                     @endif
                 </x-admin.list.actions>
+            @elseif(isset($column['view']))
+                @include($column['view'])
             @else
                 {{ $this->getColumnContent($column) }}
             @endisset

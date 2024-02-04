@@ -15,6 +15,14 @@ class Index extends PageListBase
             [
                 'label' => __('admin/worlds.name'),
                 'key' => ['name']
+            ],
+            [
+                'label' => __('admin/worlds.users'),
+                'view' => 'livewire.admin.roles.count'
+            ],
+            [
+                'label' => __('admin/worlds.create_date'),
+                'key' => ['created_at']
             ]
         ];
     }
