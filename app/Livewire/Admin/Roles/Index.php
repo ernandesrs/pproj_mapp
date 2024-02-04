@@ -64,4 +64,8 @@ class Index extends PageListBase
         return null;
     }
 
+    function actionDelete()
+    {
+        return true;
+    }
 }
