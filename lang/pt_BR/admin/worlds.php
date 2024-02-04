@@ -44,5 +44,7 @@ return [
     'female' => 'Feminino',
     'male' => 'Masculino',
     'role' => 'Cargo',
-    'roles' => 'Cargos'
+    'roles' => 'Cargos',
+    'permission' => 'Permissão',
+    'permissions' => 'Permissões'
 ];
