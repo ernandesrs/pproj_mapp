@@ -10,6 +10,8 @@ class Edit extends PageEditBase
 {
     public $viewContent = 'users.edit';
 
+    public $uncontained = true;
+
     /**
      * User
      *
