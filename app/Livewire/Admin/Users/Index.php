@@ -70,7 +70,7 @@ class Index extends PageListBase
 
     function showRouteName()
     {
-        return 'admin.users.show';
+        return null;
     }
 
     function editRouteName()

@@ -77,7 +77,7 @@ class Edit extends PageEditBase
 
     function showRouteName()
     {
-        return 'admin.users.show';
+        return null;
     }
 
     function editRouteName()

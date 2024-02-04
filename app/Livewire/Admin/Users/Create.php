@@ -66,7 +66,7 @@ class Create extends PageCreateBase
 
     function showRouteName()
     {
-        return 'admin.users.show';
+        return null;
     }
 
     function editRouteName()

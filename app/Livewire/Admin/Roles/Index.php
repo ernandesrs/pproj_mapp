@@ -61,7 +61,7 @@ class Index extends PageListBase
 
     function showRouteName()
     {
-        return 'admin.roles.show';
+        return null;
     }
 
 }
