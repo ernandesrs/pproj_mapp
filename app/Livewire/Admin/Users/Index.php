@@ -26,7 +26,8 @@ class Index extends PageListBase
             ],
             [
                 'label' => __('admin/worlds.create_date'),
-                'key' => 'created_at'
+                'key' => 'created_at',
+                'type' => 'date'
             ]
         ];
     }

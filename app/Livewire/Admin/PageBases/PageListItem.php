@@ -108,6 +108,10 @@ class PageListItem extends Component
             } else {
                 $columnContent = $this->item->$colKey;
             }
+
+            if (($column['type'] ?? null) == 'date') {
+                $columnContent = \Illuminate\Support\Carbon::make($columnContent)->format('d/m/Y H:i');
+            }
         } elseif (isset($column['view'])) {
             $columnContent = $column['view'];
         }
