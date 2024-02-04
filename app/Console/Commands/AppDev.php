@@ -116,7 +116,6 @@ class AppDev extends Command
             'email' => $data['email'],
             'password' => \Hash::make($data['password']),
             'gender' => $data['gender'],
-            'avatar' => 'https://ui-avatars.com/api/?name=' . $data['first_name'] . '+' . $data['last_name'] . '&bold=true',
             'email_verified_at' => now()
         ]);
     }

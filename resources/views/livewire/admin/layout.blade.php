@@ -266,7 +266,11 @@
                                 class="font-medium text-sm">{{ substr(ucfirst(strtolower(\Auth::user()->username)), 0, 10) }}{{ strlen(\Auth::user()->username) > 10 ? '...' : '' }}</span>
 
                             {{-- avatar --}}
-                            <img class="w-10 rounded-full" src="{{ \Auth::user()->avatar }}" alt="">
+                            <x-admin.thumb
+                                size="extrasmall"
+                                type="avatar"
+                                image="{{ \Auth::user()->avatar_url }}"
+                                alternative-text="{{ \Auth::user()->username }}" />
                         </button>
                     </div>
                 </div>

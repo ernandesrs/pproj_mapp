@@ -49,4 +49,11 @@ class User extends Authenticatable
     ];
 
     public const searchableFields = ['first_name', 'last_name', 'username', 'email'];
+
+    static protected function booted()
+    {
+        static::retrieved(function ($user) {
+            $user->avatar_url = $user->avatar ? \Storage::url($user->avatar) : null;
+        });
+    }
 }

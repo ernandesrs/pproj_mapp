@@ -1,7 +1,12 @@
 <div class="grid grid-cols-12 gap-6">
     <x-admin.section
-        class="lg:col-span-4">
-        djaskl
+        class="lg:col-span-4 flex flex-wrap justify-center">
+
+        <x-admin.thumb
+            size="extralarge"
+            image="{{ $this->model->avatar_url }}"
+            alternative-text="{{ $this->model->first_name }}" />
+
     </x-admin.section>
 
     <x-admin.section

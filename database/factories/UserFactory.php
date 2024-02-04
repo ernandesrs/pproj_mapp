@@ -32,7 +32,7 @@ class UserFactory extends Factory
             'last_name' => $lastName,
             'username' => fake()->userName(),
             'gender' => ['male' => 'm', 'female' => 'f'][$gender] ?? 'n',
-            'avatar' => 'https://ui-avatars.com/api/?name=' . $firstName . '+' . $lastName . '&bold=true',
+            'avatar' => null,
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => in_array(fake()->randomDigit(), [0, 7, 9]) ? null : now(),
             'password' => static::$password ??= Hash::make('password'),

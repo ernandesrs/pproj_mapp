@@ -52,7 +52,7 @@
                 passwordFieldTypeToggle() {
                     this.type = this.type == 'password' ? 'text' : 'password';
                 }
-            }" class="flex items-center relative overflow-hidden">
+            }" class="flex items-center relative">
             <input
                 :type="type"
                 {{ $attributes->except(['class']) }}

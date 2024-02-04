@@ -1,0 +1,7 @@
+.thumbnail {
+    @apply bg-admin-light-normal border-white dark:bg-admin-dark-normal dark:border-admin-dark-light;
+}
+
+.thumbnail .alternative {
+    @apply text-admin-font-light-light dark:text-admin-font-light-muted;
+}
