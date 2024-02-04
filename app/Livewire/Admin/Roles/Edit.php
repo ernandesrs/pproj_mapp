@@ -2,26 +2,25 @@
 
 namespace App\Livewire\Admin\Roles;
 
-use App\Livewire\Admin\PageBases\PageListBase;
+use App\Livewire\Admin\PageBases\PageEditBase;
 use App\Models\Role;
 
-class Index extends PageListBase
+class Edit extends PageEditBase
 {
-    public $modelClass = Role::class;
+    public $viewContent = 'roles.edit';
 
-    function tableColumnData()
-    {
-        return [
-            [
-                'label' => __('admin/worlds.name'),
-                'key' => ['name']
-            ]
-        ];
-    }
+    /**
+     * Role
+     *
+     * @var Role
+     */
+    public $role = null;
 
-    function searchableFields()
+    function mount(...$role)
     {
-        return ['name'];
+        $this->model = $this->role = Role::where('id', $role)->firstOrFail();
+
+        return parent::mount();
     }
 
     function setPageActions()
@@ -34,7 +33,11 @@ class Index extends PageListBase
         return [
             [
                 'label' => __('admin/worlds.roles'),
-                'href' => route('admin.roles.index'),
+                'href' => route('admin.roles.index')
+            ],
+            [
+                'label' => __('admin/worlds.edit'),
+                'href' => route('admin.roles.edit', ['role' => $this->role->id]),
                 'disabled' => true
             ]
         ];
@@ -42,7 +45,7 @@ class Index extends PageListBase
 
     function setPageTitle()
     {
-        return __('admin/worlds.roles');
+        return __('admin/worlds.edit');
     }
 
     function createRouteName()
@@ -63,10 +66,5 @@ class Index extends PageListBase
     function showRouteName()
     {
         return null;
-    }
-
-    function actionDelete()
-    {
-        return true;
     }
 }

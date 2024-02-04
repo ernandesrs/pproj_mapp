@@ -2,27 +2,14 @@
 
 namespace App\Livewire\Admin\Roles;
 
-use App\Livewire\Admin\PageBases\PageListBase;
+use App\Livewire\Admin\PageBases\PageCreateBase;
 use App\Models\Role;
 
-class Index extends PageListBase
+class Create extends PageCreateBase
 {
+    public $viewContent = 'roles.create';
+
     public $modelClass = Role::class;
-
-    function tableColumnData()
-    {
-        return [
-            [
-                'label' => __('admin/worlds.name'),
-                'key' => ['name']
-            ]
-        ];
-    }
-
-    function searchableFields()
-    {
-        return ['name'];
-    }
 
     function setPageActions()
     {
@@ -34,7 +21,11 @@ class Index extends PageListBase
         return [
             [
                 'label' => __('admin/worlds.roles'),
-                'href' => route('admin.roles.index'),
+                'href' => route('admin.roles.index')
+            ],
+            [
+                'label' => __('admin/worlds.new'),
+                'href' => route('admin.roles.create'),
                 'disabled' => true
             ]
         ];
@@ -42,7 +33,7 @@ class Index extends PageListBase
 
     function setPageTitle()
     {
-        return __('admin/worlds.roles');
+        return __('admin/worlds.new') . ' ' . __('admin/worlds.role');
     }
 
     function createRouteName()
@@ -65,8 +56,4 @@ class Index extends PageListBase
         return null;
     }
 
-    function actionDelete()
-    {
-        return true;
-    }
 }
