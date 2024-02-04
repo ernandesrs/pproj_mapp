@@ -17,7 +17,7 @@ class Index extends PageListBase
                 'key' => ['name']
             ],
             [
-                'label' => __('admin/worlds.users'),
+                'label' => __('admin/worlds.users') . ' ' . strtolower(__('admin/worlds.linkeds')),
                 'view' => 'livewire.admin.roles.count'
             ],
             [
