@@ -11,6 +11,18 @@ class Create extends PageCreateBase
 
     public $modelClass = Role::class;
 
+    /**
+     * Rules
+     *
+     * @return array
+     */
+    function rules()
+    {
+        return [
+            'data.name' => ['required', 'max:255']
+        ];
+    }
+
     function setPageActions()
     {
         return [];
