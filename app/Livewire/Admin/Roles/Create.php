@@ -36,21 +36,6 @@ class Create extends PageCreateBase
         return __('admin/worlds.new') . ' ' . __('admin/worlds.role');
     }
 
-    function createRouteName()
-    {
-        return 'admin.roles.create';
-    }
-
-    function editRouteName()
-    {
-        return 'admin.roles.edit';
-    }
-
-    function indexRouteName()
-    {
-        return 'admin.roles.index';
-    }
-
     function showRouteName()
     {
         return null;

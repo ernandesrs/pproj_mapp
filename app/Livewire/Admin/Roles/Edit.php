@@ -48,21 +48,6 @@ class Edit extends PageEditBase
         return __('admin/worlds.edit');
     }
 
-    function createRouteName()
-    {
-        return 'admin.roles.create';
-    }
-
-    function editRouteName()
-    {
-        return 'admin.roles.edit';
-    }
-
-    function indexRouteName()
-    {
-        return 'admin.roles.index';
-    }
-
     function showRouteName()
     {
         return null;

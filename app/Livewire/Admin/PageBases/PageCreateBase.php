@@ -11,6 +11,11 @@ abstract class PageCreateBase extends PageBase
      */
     public $data = [];
 
+    /**
+     * Set page create action
+     *
+     * @return array
+     */
     function setPageCreateAction()
     {
         return [];

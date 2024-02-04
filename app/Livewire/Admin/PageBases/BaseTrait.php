@@ -5,32 +5,70 @@ namespace App\Livewire\Admin\PageBases;
 trait BaseTrait
 {
     /**
+     * Model plural
+     *
+     * @var string
+     */
+    public $modelName = null;
+
+    /**
+     * Model name in plural
+     *
+     * @var string
+     */
+    public $modelNamePlural = null;
+
+    /**
      * Route name to list items
      *
      * @return null|string
      */
-    abstract function indexRouteName();
+    function indexRouteName()
+    {
+        return $this->baseRouteName('index');
+    }
 
     /**
      * Route name to show item
      *
      * @return null|string
      */
-    abstract function showRouteName();
+    function showRouteName()
+    {
+        return $this->baseRouteName('show');
+    }
 
     /**
      * Route name to create item
      *
      * @return null|string
      */
-    abstract function createRouteName();
+    function createRouteName()
+    {
+        return $this->baseRouteName('create');
+    }
 
     /**
      * Route name to edit item
      *
      * @return null|string
      */
-    abstract function editRouteName();
+    function editRouteName()
+    {
+        return $this->baseRouteName('edit');
+    }
+
+    /**
+     * Base route name
+     *
+     * @param string $name
+     *
+     * @return string
+     */
+    private function baseRouteName(string $name)
+    {
+        return 'admin.' . (!empty($this->modelNamePlural) ? $this->modelNamePlural : $this->getModelAsParamNameToRoute() . 's') . '.' . $name;
+    }
 
     /**
      * Defines whether or not to show the delete button by returning true or false
