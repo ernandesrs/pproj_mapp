@@ -1,7 +1,7 @@
 @props([
     'action' => 'save',
     'submittingText' => __('admin/worlds.submitting'),
-    'submitText' => __('admin/worlds.submit')
+    'submitText' => __('admin/worlds.submit'),
 ])
 
 <form
@@ -14,6 +14,7 @@
     {{-- submit --}}
     <div class="flex justify-center mt-6">
         <button
+            wire:target="{{ $action }}"
             wire:loading.attr="disabled"
             wire:loading.class="animate-pulse"
 
@@ -21,9 +22,11 @@
             type="submit">
             <x-admin.icon name="check-lg" />
             <span
+                wire:target="{{ $action }}"
                 wire:loading
                 class="pointer-events-none ml-3">{{ $submittingText }}</span>
             <span
+                wire:target="{{ $action }}"
                 wire:loading.remove
                 class="pointer-events-none ml-3">{{ $submitText }}</span>
         </button>
