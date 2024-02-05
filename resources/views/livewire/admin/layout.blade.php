@@ -269,7 +269,7 @@
                             <x-admin.thumb
                                 size="extrasmall"
                                 type="avatar"
-                                image="{{ \Auth::user()->avatar_url }}"
+                                image="{{ \Auth::user()->avatar() }}"
                                 alternative-text="{{ \Auth::user()->username }}" />
                         </button>
                     </div>

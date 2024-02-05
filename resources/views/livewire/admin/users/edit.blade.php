@@ -4,7 +4,7 @@
 
         <x-admin.thumb
             size="extralarge"
-            image="{{ $this->model->avatar_url }}"
+            image="{{ $this->model->avatar() }}"
             alternative-text="{{ $this->model->first_name }}" />
 
         <div class="w-full mt-6 text-center">

@@ -1,4 +1,4 @@
 <x-admin.thumb
     size="small"
     alternative-text="{{ $this->model->username }}"
-    image="{{ $this->model->avatar_url }}" />
+    image="{{ $this->model->avatar() }}" />

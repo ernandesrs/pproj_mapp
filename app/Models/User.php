@@ -50,10 +50,8 @@ class User extends Authenticatable
 
     public const searchableFields = ['first_name', 'last_name', 'username', 'email'];
 
-    static protected function booted()
+    public function avatar()
     {
-        static::retrieved(function ($user) {
-            $user->avatar_url = $user->avatar ? \Storage::url($user->avatar) : null;
-        });
+        return $this->avatar ? \Storage::disk('public')->url($this->avatar) : null;
     }
 }
