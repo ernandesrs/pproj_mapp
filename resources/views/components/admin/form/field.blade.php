@@ -22,7 +22,7 @@
         $error = $errors->first($fname);
     }
 
-    $class = 'w-full rounded outline-none focus:shadow-md border px-4 py-3 dark:bg-admin-dark-light dark:bg-opacity-50 dark:shadow-admin-dark-dark dark:border-admin-dark-dark ' . ($error ? 'border-admin-danger-normal dark:border-admin-danger-dark' : '');
+    $class = 'w-full rounded outline-none focus:shadow-md border px-4 py-3 dark:bg-admin-dark-light dark:shadow-admin-dark-dark dark:border-admin-dark-dark ' . ($error ? 'border-admin-danger-normal dark:border-admin-danger-dark' : '');
 @endphp
 
 <div {{ $attributes->only(['class'])->merge(['class' => 'flex flex-col']) }}>
@@ -62,6 +62,22 @@
                     <x-admin.icon x-show="type == 'password'" name="eye" />
                     <x-admin.icon x-show="type != 'password'" name="eye-slash" />
                 </button>
+            @endif
+            @if ($type == 'file')
+                <div
+                    class="absolute w-full top-0 left-0 bg-transparent p-1 pointer-events-none">
+                    <div
+                        class="flex items-center left-0 top-0 bg-admin-light-light rounded overflow-hidden dark:bg-admin-dark-light">
+                        <div
+
+                            class="bg-admin-light-normal px-4 py-3 rounded-tl rounded-bl dark:bg-admin-dark-normal">
+                            {{ __('admin/worlds.upload') }}
+                        </div>
+                        <div class="w-full h-full flex items-center px-4">
+                            {{ empty($this->$group[$name]) ? __('admin/worlds.select_file') : __('admin/worlds.selected_file') }}
+                        </div>
+                    </div>
+                </div>
             @endif
         </div>
     @endif

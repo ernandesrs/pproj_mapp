@@ -1,11 +1,29 @@
 <div class="grid grid-cols-12 gap-6">
     <x-admin.section
-        class="lg:col-span-4 flex flex-wrap justify-center">
+        class="lg:col-span-4 flex flex-col items-center">
 
         <x-admin.thumb
             size="extralarge"
             image="{{ $this->model->avatar_url }}"
             alternative-text="{{ $this->model->first_name }}" />
+
+        <div class="w-full mt-6 text-center">
+
+            <div class="relative rounded overflow-hidden mb-3">
+                <div
+                    wire:target="savePhoto"
+                    wire:loading
+                    class="bg-white dark:bg-admin-dark-light absolute top-0 left-0 z-10 w-full h-full px-6 py-3">
+                    <span class="animate-pulse inline-block">{{ __('admin/worlds.uploading') }}...</span>
+                </div>
+                <x-admin.form.field
+                    wire:target="savePhoto"
+                    wire:loading.attr="disabled"
+                    name="photo"
+                    type="file"
+                    class="relative z-0" />
+            </div>
+        </div>
 
     </x-admin.section>
 

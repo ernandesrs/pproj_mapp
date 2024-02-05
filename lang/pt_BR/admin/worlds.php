@@ -51,4 +51,8 @@ return [
     'linked' => 'Viculado',
     'linkeds' => 'Viculados',
     'avatar' => 'Avatar',
+    'upload' => 'Upload',
+    'uploading' => 'Enviando',
+    'select_file' => 'Selecionar arquivo',
+    'selected_file' => 'Arquivo selecionado',
 ];
