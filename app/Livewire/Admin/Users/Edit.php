@@ -4,7 +4,7 @@ namespace App\Livewire\Admin\Users;
 
 use App\Livewire\Admin\PageBases\PageEditBase;
 use App\Models\User;
-use Illuminate\Validation\Rule;
+use App\Services\UserService;
 
 class Edit extends PageEditBase
 {
@@ -18,6 +18,8 @@ class Edit extends PageEditBase
      * @var User
      */
     public $user = null;
+
+    public $modelService = UserService::class;
 
     function mount(...$user)
     {
@@ -33,13 +35,7 @@ class Edit extends PageEditBase
      */
     function rules()
     {
-        return [
-            'data.first_name' => ['required', 'max:25'],
-            'data.last_name' => ['required', 'max:50'],
-            'data.username' => ['required', 'max:25'],
-            'data.gender' => ['required', Rule::in(['n', 'm', 'f'])],
-            'data.password' => ['nullable', 'confirmed', 'max:255'],
-        ];
+        return UserService::getBasicDataRules();
     }
 
     function setPageActions()

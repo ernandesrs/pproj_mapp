@@ -39,6 +39,13 @@ abstract class PageBase extends Component
     public $modelClass = null;
 
     /**
+     * Model service
+     *
+     * @var null|string
+     */
+    public $modelService = null;
+
+    /**
      * Mount
      *
      * @return void

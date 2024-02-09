@@ -79,6 +79,10 @@ abstract class PageEditBase extends PageBase
 
         $validated = $this->validate();
 
-        $this->model->update($validated['data']);
+        if ($this->modelService) {
+            $this->modelService::update($this->model, $validated['data']);
+        } else {
+            $this->model->update($validated['data']);
+        }
     }
 }

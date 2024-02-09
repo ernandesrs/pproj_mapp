@@ -61,7 +61,11 @@ abstract class PageCreateBase extends PageBase
 
         $validated = $this->validate();
 
-        $created = (new $this->modelClass())::create($validated['data']);
+        if ($this->modelService) {
+            $created = $this->modelService::create($validated['data']);
+        } else {
+            $created = (new $this->modelClass())::create($validated['data']);
+        }
 
         $this->redirect(
             route(
