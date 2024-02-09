@@ -210,8 +210,11 @@
                         [
                             'text' => __('admin/layout.profile'),
                             'icon' => 'person-fill',
-                            'activeIn' => [],
-                            'route' => [],
+                            'activeIn' => ['admin.profile'],
+                            'route' => [
+                                'name' => 'admin.profile',
+                                'params' => [],
+                            ],
                         ],
                         [
                             'text' => __('admin/layout.logout'),
