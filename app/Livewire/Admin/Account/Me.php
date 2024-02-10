@@ -42,6 +42,13 @@ class Me extends PageBase
         $this->data['avatar'] = null;
     }
 
+    function deleteAvatar()
+    {
+        UserService::deletePhoto(\Auth::user());
+
+        $this->redirect(route('admin.profile'), true);
+    }
+
     function updateData()
     {
         $validated = $this->validate(UserService::getBasicDataRules());
