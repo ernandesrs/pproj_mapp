@@ -54,25 +54,32 @@
         <div class="relative w-full">
             <input
                 type="file"
-                {{ $attributes->except(['class']) }} class="relative z-0 hidden" />
+                {{ $attributes->except(['class']) }} class="relative z-0 hidden"
+                :disabled="uploading" />
 
             {{-- custom --}}
             <div x-on:click="selectFiles"
-                class="w-full flex items-center relative top-0 left-0 border bg-admin-light-light rounded p-1 dark:bg-admin-dark-light dark:border-admin-dark-dark">
+                class="w-full flex items-center relative top-0 left-0 border bg-admin-light-light rounded p-1 dark:bg-admin-dark-light dark:border-admin-dark-dark"
+                :class="uploading ? 'animate-pulse pointer-events-none' : ''">
                 <span
                     class="inline-block bg-admin-light-normal dark:bg-admin-dark-normal px-4 py-2 rounded-tl rounded-bl">
                     {{ __('admin/worlds.upload') }}
                 </span>
                 <span class="inline-block px-3 whitespace-nowrap">
-                    @if (empty($tempFile))
-                        {{ __('admin/worlds.select_file') }}
-                    @else
-                        @if ($hasTempFileInstance)
-                            {{ \Str::substr($tempFile->getClientOriginalName(), 0, 8) }}...
-                        @else
+                    <span x-show="!uploading">
+                        @if (empty($tempFile))
                             {{ __('admin/worlds.select_file') }}
+                        @else
+                            @if ($hasTempFileInstance)
+                                {{ \Str::substr($tempFile->getClientOriginalName(), 0, 8) }}...
+                            @else
+                                {{ __('admin/worlds.select_file') }}
+                            @endif
                         @endif
-                    @endif
+                    </span>
+                    <span x-show="uploading">
+                        {{ __('admin/worlds.uploading') }}...
+                    </span>
                 </span>
             </div>
 
