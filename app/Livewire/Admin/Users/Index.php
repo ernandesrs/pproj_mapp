@@ -29,6 +29,10 @@ class Index extends PageListBase
                 'key' => 'email'
             ],
             [
+                'label' => __('admin/worlds.roles'),
+                'view' => 'livewire.admin.users.roles'
+            ],
+            [
                 'label' => __('admin/worlds.create_date'),
                 'key' => 'created_at',
                 'type' => 'date'
