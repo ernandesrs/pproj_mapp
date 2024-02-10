@@ -26,7 +26,7 @@
 @endphp
 
 <span
-    class="{{ $sizes[$size] ?? $sizes['xs'] }} px-2 py-1 {{ $circle ? 'rounded-full' : 'rounded' }} text-admin-font-dark-dark {{ $colors[$color] }}">
+    class="{{ $sizes[$size] ?? $sizes['xs'] }} px-2 py-1 {{ $circle ? 'rounded-full' : 'rounded' }} {{ $color == 'light' ? 'text-admin-font-dark-dark' : 'text-admin-font-dark-light' }} {{ $colors[$color] }}">
     @if ($icon || $prependIcon)
         <x-admin.icon name="{{ $icon ?? $prependIcon }}" class="{{ $slot ?? null ? '' : 'mr-1' }}" />
     @endif
