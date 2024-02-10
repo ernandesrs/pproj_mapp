@@ -55,4 +55,8 @@ return [
     'uploading' => 'Enviando',
     'select_file' => 'Selecionar arquivo',
     'selected_file' => 'Arquivo selecionado',
+    'details' => 'Detalhes',
+    'detail' => 'Detalhe',
+    'infos' => 'Informações',
+    'info' => 'Informação',
 ];

@@ -17,16 +17,12 @@ class Index extends PageListBase
                 'view' => 'livewire.admin.users.avatar'
             ],
             [
-                'label' => __('admin/layout.users'),
-                'key' => ['first_name', 'last_name']
+                'label' => __('admin/worlds.details'),
+                'view' => 'livewire.admin.users.details'
             ],
             [
                 'label' => __('admin/worlds.username'),
                 'key' => 'username'
-            ],
-            [
-                'label' => __('admin/worlds.email'),
-                'key' => 'email'
             ],
             [
                 'label' => __('admin/worlds.roles'),
