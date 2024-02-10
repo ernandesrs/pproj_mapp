@@ -4,9 +4,12 @@ namespace App\Livewire\Admin\Account;
 
 use App\Livewire\Admin\PageBases\PageBase;
 use App\Services\UserService;
+use Livewire\WithFileUploads;
 
 class Me extends PageBase
 {
+    use WithFileUploads;
+
     public $viewContent = 'account.me';
 
     public $uncontained = true;
@@ -27,7 +30,16 @@ class Me extends PageBase
 
     function updateAvatar()
     {
-        dump('avatar');
+        $validated = $this->validate(UserService::getPhotoDataRules());
+
+        UserService::updatePhoto(\Auth::user(), $validated['data']['avatar']);
+
+        $this->clearAvatar();
+    }
+
+    function clearAvatar()
+    {
+        $this->data['avatar'] = null;
     }
 
     function updateData()

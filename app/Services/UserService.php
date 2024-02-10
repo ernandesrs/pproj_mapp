@@ -55,13 +55,13 @@ class UserService
      */
     public static function updatePhoto(Authenticatable|User $user, mixed $photo)
     {
-        if ($oldPhoto = $user->photo) {
+        if ($oldPhoto = $user->avatar) {
             \Storage::disk('public')->delete($oldPhoto);
         }
 
         $newPhoto = $photo->store('users/avatars', 'public');
 
-        return $user->update(['photo' => $newPhoto]) ? $user->fresh() : null;
+        return $user->update(['avatar' => $newPhoto]) ? $user->fresh() : null;
     }
 
     /**
@@ -72,11 +72,11 @@ class UserService
      */
     public static function deletePhoto(Authenticatable|User $user)
     {
-        if ($oldPhoto = $user->photo) {
+        if ($oldPhoto = $user->avatar) {
             \Storage::disk('public')->delete($oldPhoto);
         }
 
-        return $user->update(['photo' => null]) ? $user->fresh() : null;
+        return $user->update(['avatar' => null]) ? $user->fresh() : null;
     }
 
     /**

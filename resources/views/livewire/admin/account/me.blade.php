@@ -1,7 +1,23 @@
 <div class="grid gap-6">
     <x-admin.section
         title="{{ __('admin/phrases.update_avatar') }}">
-        {{--  --}}
+        <div class="grid grid-cols-12 gap-6">
+            <div class="col-span-12 sm:col-span-6 md:col-span-4 flex justify-center items-center">
+                <x-admin.thumb
+                    size="extralarge"
+                    image="{{ \Auth::user()->avatar() }}"
+                    alternative-text="{{ \Auth::user()->username }}" />
+            </div>
+
+            <div class="col-span-12 sm:col-span-6 md:col-span-8">
+                <x-admin.form.file
+                    wire:model="data.avatar"
+                    action-save="updateAvatar"
+                    action-clear="clearAvatar"
+                    :temp-file="$this->data['avatar']"
+                    error="{{ $errors->first('data.avatar') }}" />
+            </div>
+        </div>
     </x-admin.section>
 
     <x-admin.section
