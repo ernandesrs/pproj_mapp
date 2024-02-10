@@ -51,7 +51,7 @@
     </x-admin.section>
 
     <x-admin.section
-        title="{{ __('admin/worlds.update_password') }}">
+        title="{{ __('admin/phrases.update_password') }}">
         <x-admin.form.base
             action="updatePassword"
             submit-text="{{ __('admin/worlds.update') }}"
