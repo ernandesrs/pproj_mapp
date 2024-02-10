@@ -13,23 +13,23 @@ class Index extends PageListBase
     {
         return [
             [
-                'label' => __('admin/worlds.avatar'),
+                'label' => __('admin/words.avatar'),
                 'view' => 'livewire.admin.users.avatar'
             ],
             [
-                'label' => __('admin/worlds.details'),
+                'label' => __('admin/words.details'),
                 'view' => 'livewire.admin.users.details'
             ],
             [
-                'label' => __('admin/worlds.username'),
+                'label' => __('admin/words.username'),
                 'key' => 'username'
             ],
             [
-                'label' => __('admin/worlds.roles'),
+                'label' => __('admin/words.roles'),
                 'view' => 'livewire.admin.users.roles'
             ],
             [
-                'label' => __('admin/worlds.create_date'),
+                'label' => __('admin/words.create_date'),
                 'key' => 'created_at',
                 'type' => 'date'
             ]

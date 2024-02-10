@@ -37,7 +37,7 @@ class Create extends PageCreateBase
                 'href' => route('admin.users.index')
             ],
             [
-                'label' => __('admin/worlds.new'),
+                'label' => __('admin/words.new'),
                 'href' => route('admin.users.create'),
                 'disabled' => true
             ]
@@ -46,7 +46,7 @@ class Create extends PageCreateBase
 
     function setPageTitle()
     {
-        return __('admin/worlds.new') . ' ' . __('admin/worlds.user');
+        return __('admin/words.new') . ' ' . __('admin/words.user');
     }
 
     function showRouteName()

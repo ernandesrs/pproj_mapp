@@ -1,8 +1,8 @@
 @props([
     'action' => 'save',
     'showSubmitButton' => true,
-    'submittingText' => __('admin/worlds.submitting'),
-    'submitText' => __('admin/worlds.submit'),
+    'submittingText' => __('admin/words.submitting'),
+    'submitText' => __('admin/words.submit'),
 ])
 
 <form

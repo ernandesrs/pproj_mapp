@@ -63,22 +63,22 @@
                 :class="uploading ? 'animate-pulse pointer-events-none' : ''">
                 <span
                     class="inline-block bg-admin-light-normal dark:bg-admin-dark-normal px-4 py-2 rounded-tl rounded-bl">
-                    {{ __('admin/worlds.upload') }}
+                    {{ __('admin/words.upload') }}
                 </span>
                 <span class="inline-block px-3 whitespace-nowrap">
                     <span x-show="!uploading">
                         @if (empty($tempFile))
-                            {{ __('admin/worlds.select_file') }}
+                            {{ __('admin/words.select_file') }}
                         @else
                             @if ($hasTempFileInstance)
                                 {{ \Str::substr($tempFile->getClientOriginalName(), 0, 8) }}...
                             @else
-                                {{ __('admin/worlds.select_file') }}
+                                {{ __('admin/words.select_file') }}
                             @endif
                         @endif
                     </span>
                     <span x-show="uploading">
-                        {{ __('admin/worlds.uploading') }}...
+                        {{ __('admin/words.uploading') }}...
                     </span>
                 </span>
             </div>

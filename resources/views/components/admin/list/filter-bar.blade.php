@@ -9,7 +9,7 @@
                     wire:transision
                     class="col-span-12 border dark:bg-admin-dark-light dark:border-admin-dark-normal dark:border-opacity-75 p-3 mb-2">
                     <span
-                        class="inline-block font-medium text-admin-font-light-muted dark:text-admin-font-dark-dark">{{ __('admin/worlds.filter') }}</span>
+                        class="inline-block font-medium text-admin-font-light-muted dark:text-admin-font-dark-dark">{{ __('admin/words.filter') }}</span>
                     <div class="py-3 grid grid-cols-12">
                         @isset($filters)
                             {{ $filters }}
@@ -32,7 +32,7 @@
                 <button
                     wire:click="filter"
                     class="bg-admin-light-normal dark:bg-admin-dark-normal dark:opacity-75 h-full px-5 py-2 flex items-center">
-                    <x-admin.icon name="search" /> <span class="ml-4">{{ __('admin/worlds.filter') }}</span>
+                    <x-admin.icon name="search" /> <span class="ml-4">{{ __('admin/words.filter') }}</span>
                 </button>
 
                 @if ($this->isFilterable())

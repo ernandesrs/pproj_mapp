@@ -19,10 +19,10 @@
                 @php
                     $id = uniqid();
                 @endphp
-                <label for="{{ $id }}">{{ __('admin/worlds.create_date') }}</label>
+                <label for="{{ $id }}">{{ __('admin/words.create_date') }}</label>
                 <select wire:model="orderBy_created_at" id="{{ $id }}">
-                    <option value="asc">{{ __('admin/worlds.oldest') }}</option>
-                    <option value="desc">{{ __('admin/worlds.newest') }}</option>
+                    <option value="asc">{{ __('admin/words.oldest') }}</option>
+                    <option value="desc">{{ __('admin/words.newest') }}</option>
                 </select>
             </div>
 

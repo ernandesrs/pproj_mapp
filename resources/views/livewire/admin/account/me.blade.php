@@ -37,13 +37,13 @@
         title="{{ __('admin/phrases.basic_data') }}">
         <x-admin.form.base
             action="updateData"
-            submit-text="{{ __('admin/worlds.update') }}"
-            submitting-text="{{ __('admin/worlds.updating') }}"
+            submit-text="{{ __('admin/words.update') }}"
+            submitting-text="{{ __('admin/words.updating') }}"
             class="grid grid-cols-12 gap-6">
             <x-admin.views.user-basic-data />
 
             <x-admin.form.field
-                label="{{ __('admin/worlds.email') }}"
+                label="{{ __('admin/words.email') }}"
                 class="col-span-12"
                 name="email"
                 disabled />
@@ -54,8 +54,8 @@
         title="{{ __('admin/phrases.update_password') }}">
         <x-admin.form.base
             action="updatePassword"
-            submit-text="{{ __('admin/worlds.update') }}"
-            submitting-text="{{ __('admin/worlds.updating') }}"
+            submit-text="{{ __('admin/words.update') }}"
+            submitting-text="{{ __('admin/words.updating') }}"
             class="grid grid-cols-12 gap-6">
             <x-admin.views.user-password />
         </x-admin.form.base>

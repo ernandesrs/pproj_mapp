@@ -1,18 +1,18 @@
 <x-admin.form.base
     action="save"
     :show-submit-button="!$this->model->isProtected()"
-    submit-text="{{ __('admin/worlds.update') }}"
-    submitting-text="{{ __('admin/worlds.updating') }}">
+    submit-text="{{ __('admin/words.update') }}"
+    submitting-text="{{ __('admin/words.updating') }}">
 
     <div class="grid grid-cols-12 gap-x-6 gap-y-3">
         <x-admin.form.field
             name='name'
             type="text"
-            label="{{ __('admin/worlds.name') }} {{ __('admin/worlds.role') }}"
+            label="{{ __('admin/words.name') }} {{ __('admin/words.role') }}"
             class="col-span-12" :disabled="$this->role->isProtected()" />
 
         <div class="col-span-12 mt-4">
-            <div class="text-xl font-semibold">{{ __('admin/worlds.permissions') }}</div>
+            <div class="text-xl font-semibold">{{ __('admin/words.permissions') }}</div>
         </div>
         @if ($this->role->isSuper())
             <div class="col-span-12">

@@ -111,7 +111,7 @@ class Edit extends PageEditBase
                 'href' => route('admin.users.index')
             ],
             [
-                'label' => __('admin/worlds.edit'),
+                'label' => __('admin/words.edit'),
                 'href' => route('admin.users.edit', ['user' => $this->user->id]),
                 'disabled' => true
             ]
@@ -120,7 +120,7 @@ class Edit extends PageEditBase
 
     function setPageTitle()
     {
-        return __('admin/worlds.edit') . ' ' . __('admin/worlds.user');
+        return __('admin/words.edit') . ' ' . __('admin/words.user');
     }
 
     function showRouteName()

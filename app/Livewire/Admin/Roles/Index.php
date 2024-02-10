@@ -13,15 +13,15 @@ class Index extends PageListBase
     {
         return [
             [
-                'label' => __('admin/worlds.name'),
+                'label' => __('admin/words.name'),
                 'key' => ['name']
             ],
             [
-                'label' => __('admin/worlds.users') . ' ' . strtolower(__('admin/worlds.linkeds')),
+                'label' => __('admin/words.users') . ' ' . strtolower(__('admin/words.linkeds')),
                 'view' => 'livewire.admin.roles.count'
             ],
             [
-                'label' => __('admin/worlds.create_date'),
+                'label' => __('admin/words.create_date'),
                 'key' => ['created_at'],
                 'type' => 'date'
             ]
@@ -42,7 +42,7 @@ class Index extends PageListBase
     {
         return [
             [
-                'label' => __('admin/worlds.roles'),
+                'label' => __('admin/words.roles'),
                 'href' => route('admin.roles.index'),
                 'disabled' => true
             ]
@@ -51,7 +51,7 @@ class Index extends PageListBase
 
     function setPageTitle()
     {
-        return __('admin/worlds.roles');
+        return __('admin/words.roles');
     }
 
     function showRouteName()

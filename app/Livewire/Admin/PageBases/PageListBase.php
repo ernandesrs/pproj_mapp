@@ -57,7 +57,7 @@ abstract class PageListBase extends PageBase
         return
             $this->createRouteName() ?
             [
-                'text' => __('admin/worlds.new') . ' ' . __('admin/worlds.' . $this->getModelAsParamNameToRoute()),
+                'text' => __('admin/words.new') . ' ' . __('admin/words.' . $this->getModelAsParamNameToRoute()),
                 'href' => route($this->createRouteName()),
                 'icon' => 'plus-lg',
                 'show' => \Auth::user()->can('create', $this->modelClass)

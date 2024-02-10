@@ -1,36 +1,36 @@
 <x-admin.form.field
     name='first_name'
     type="text"
-    label="{{ __('admin/worlds.first_name') }}"
+    label="{{ __('admin/words.first_name') }}"
     class="col-span-12 md:col-span-6" />
 
 <x-admin.form.field
     name="last_name"
     type="text"
-    label="{{ __('admin/worlds.last_name') }}"
+    label="{{ __('admin/words.last_name') }}"
     class="col-span-12 md:col-span-6" />
 
 <x-admin.form.field
     name="username"
     type="text"
-    label="{{ __('admin/worlds.username') }}"
+    label="{{ __('admin/words.username') }}"
     class="col-span-12 sm:col-span-6" />
 
 <x-admin.form.field
     name="gender"
     type="select"
-    label="{{ __('admin/worlds.gender') }}"
+    label="{{ __('admin/words.gender') }}"
     :options="[
         [
-            'label' => __('admin/worlds.none'),
+            'label' => __('admin/words.none'),
             'value' => 'n',
         ],
         [
-            'label' => __('admin/worlds.male'),
+            'label' => __('admin/words.male'),
             'value' => 'm',
         ],
         [
-            'label' => __('admin/worlds.female'),
+            'label' => __('admin/words.female'),
             'value' => 'f',
         ],
     ]"

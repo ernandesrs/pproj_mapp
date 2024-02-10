@@ -68,11 +68,11 @@ class Edit extends PageEditBase
     {
         return [
             [
-                'label' => __('admin/worlds.roles'),
+                'label' => __('admin/words.roles'),
                 'href' => route('admin.roles.index')
             ],
             [
-                'label' => __('admin/worlds.edit'),
+                'label' => __('admin/words.edit'),
                 'href' => route('admin.roles.edit', ['role' => $this->role->id]),
                 'disabled' => true
             ]
@@ -81,7 +81,7 @@ class Edit extends PageEditBase
 
     function setPageTitle()
     {
-        return __('admin/worlds.edit');
+        return __('admin/words.edit');
     }
 
     function showRouteName()

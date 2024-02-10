@@ -50,19 +50,19 @@ class PageList extends PageListBase
     {
         return [
             [
-                'label' => __('admin/worlds.name'),
+                'label' => __('admin/words.name'),
                 'key' => ['first_name', 'last_name'],
             ],
             [
-                'label' => __('admin/worlds.username'),
+                'label' => __('admin/words.username'),
                 'key' => 'username',
             ],
             [
-                'label' => __('admin/worlds.email'),
+                'label' => __('admin/words.email'),
                 'key' => 'email',
             ],
             [
-                'label' => __('admin/worlds.create_date'),
+                'label' => __('admin/words.create_date'),
                 'key' => 'created_at',
             ]
         ];

@@ -71,10 +71,10 @@
                         <div
 
                             class="bg-admin-light-normal px-4 py-3 rounded-tl rounded-bl dark:bg-admin-dark-normal">
-                            {{ __('admin/worlds.upload') }}
+                            {{ __('admin/words.upload') }}
                         </div>
                         <div class="w-full h-full flex items-center px-4">
-                            {{ empty($this->$group[$name]) ? __('admin/worlds.select_file') : __('admin/worlds.selected_file') }}
+                            {{ empty($this->$group[$name]) ? __('admin/words.select_file') : __('admin/words.selected_file') }}
                         </div>
                     </div>
                 </div>

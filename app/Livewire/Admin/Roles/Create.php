@@ -32,11 +32,11 @@ class Create extends PageCreateBase
     {
         return [
             [
-                'label' => __('admin/worlds.roles'),
+                'label' => __('admin/words.roles'),
                 'href' => route('admin.roles.index')
             ],
             [
-                'label' => __('admin/worlds.new'),
+                'label' => __('admin/words.new'),
                 'href' => route('admin.roles.create'),
                 'disabled' => true
             ]
@@ -45,7 +45,7 @@ class Create extends PageCreateBase
 
     function setPageTitle()
     {
-        return __('admin/worlds.new') . ' ' . __('admin/worlds.role');
+        return __('admin/words.new') . ' ' . __('admin/words.role');
     }
 
     function showRouteName()
