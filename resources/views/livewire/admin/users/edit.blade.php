@@ -40,17 +40,32 @@
             <x-admin.section
                 title="{{ __('admin/phrases.user_roles') }}">
 
-                @if ($this->user->roles()->count())
-                    @foreach ($this->user->roles()->get() as $role)
-                        <x-admin.badge color="success">
-                            {{ $role->name }}
-                        </x-admin.badge>
+                <div class="border py-3 px-2 flex flex-wrap justify-center gap-y-2 gap-x-3">
+                    @foreach ($this->roles as $role)
+                        <div class="flex items-center">
+                            <button
+                                wire:target="assignRole"
+                                wire:loading.class="pointer-events-none animate-pulse"
+                                wire:confirm="{{ __('admin/alerts.confirmation.assigning_role', ['role' => $role->name]) }}"
+                                wire:click="assignRole({{ $role->id }})"
+                                :disabled="{{ $this->user->hasRole($role) }}">
+                                <x-admin.badge color="{{ $this->user->hasRole($role) ? 'success' : 'light' }}">
+                                    {{ $role->name }}
+                                </x-admin.badge>
+                            </button>
+                            @if ($this->user->hasRole($role))
+                                <button
+                                    wire:target="revokeRole"
+                                    wire:loading.class="pointer-events-none animate-pulse"
+                                    wire:confirm="{{ __('admin/alerts.confirmation.removing_role', ['role' => $role->name]) }}"
+                                    wire:click="revokeRole({{ $role->id }})"
+                                    class="pl-1 text-admin-danger-normal dark:text-admin-danger-dark">
+                                    <x-admin.icon name="x-lg" />
+                                </button>
+                            @endif
+                        </div>
                     @endforeach
-                @else
-                    <span class="text-admin-font-dark-dark italic text-sm">
-                        {{ __('admin/phrases.undefined_role') }}
-                    </span>
-                @endif
+                </div>
 
             </x-admin.section>
         @endif

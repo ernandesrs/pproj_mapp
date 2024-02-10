@@ -3,6 +3,7 @@
 namespace App\Livewire\Admin\Users;
 
 use App\Livewire\Admin\PageBases\PageEditBase;
+use App\Models\Role;
 use App\Models\User;
 use App\Services\UserService;
 use Livewire\WithFileUploads;
@@ -27,9 +28,40 @@ class Edit extends PageEditBase
     function mount(...$user)
     {
         $this->model = $this->user = User::where('id', $user)->firstOrFail();
+        $this->roles = Role::all();
 
         return parent::mount();
     }
+
+    /**
+     *
+     * ROLES
+     *
+     */
+
+    function assignRole(Role $role)
+    {
+        $this->authorize('permissionEdit', $this->user);
+
+        $this->user->assignRole($role);
+
+        $this->redirect(route('admin.users.edit', ['user' => $this->user->id]), true);
+    }
+
+    function revokeRole(Role $role)
+    {
+        $this->authorize('permissionEdit', $this->user);
+
+        $this->user->removeRole($role);
+
+        $this->redirect(route('admin.users.edit', ['user' => $this->user->id]), true);
+    }
+
+    /**
+     *
+     * AVATAR
+     *
+     */
 
     function updateAvatar()
     {
