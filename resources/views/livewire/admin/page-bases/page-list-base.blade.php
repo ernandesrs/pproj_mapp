@@ -7,11 +7,11 @@
     <x-slot name="filters">
         @foreach ($this->getSortableFields() as $sortableFields)
             @isset($sortableFields['label'])
-                <div class="col-span-3 flex flex-col">
+                <div class="col-span-12 sm:col-span-6 md:col-span-3 flex flex-col">
                     <x-admin.form.field
                         wire:model="{{ $sortableFields['model'] ?? '' }}"
                         type="select"
-                        label="{{ $sortableFields['label'] }}"
+                        label="{{ $sortableFields['label'] }}({{ __('admin/words.order') }})"
                         :options="$sortableFields['options'] ?? []" />
                 </div>
             @endisset
