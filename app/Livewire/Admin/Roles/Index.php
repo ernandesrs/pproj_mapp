@@ -4,14 +4,42 @@ namespace App\Livewire\Admin\Roles;
 
 use App\Livewire\Admin\PageBases\PageListBase;
 use App\Models\Role;
+use Livewire\Attributes\Url;
 
 class Index extends PageListBase
 {
     public $modelClass = Role::class;
 
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
+    #[Url(except: '')]
+    public $orderBy_name = '';
+
     function sortableFields()
     {
-        return [];
+        return [
+            [
+                'label' => __('admin/words.name'),
+                'model' => 'orderBy_name',
+                'options' => [
+                    [
+                        'label' => __('admin/words.none'),
+                        'value' => ''
+                    ],
+                    [
+                        'label' => 'A-Z',
+                        'value' => 'asc'
+                    ],
+                    [
+                        'label' => 'Z-A',
+                        'value' => 'desc'
+                    ]
+                ]
+            ]
+        ];
     }
 
     function tableColumnData()
