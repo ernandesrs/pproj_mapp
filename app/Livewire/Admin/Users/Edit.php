@@ -23,6 +23,8 @@ class Edit extends PageEditBase
      */
     public $user = null;
 
+    public $roles=null;
+
     public $modelService = UserService::class;
 
     function mount(...$user)
