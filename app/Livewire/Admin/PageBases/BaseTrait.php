@@ -59,6 +59,16 @@ trait BaseTrait
     }
 
     /**
+     * Defines whether or not to show the delete button by returning true or false
+     *
+     * @return bool
+     */
+    function actionDelete()
+    {
+        return false;
+    }
+
+    /**
      * Base route name
      *
      * @param string $name
@@ -68,16 +78,6 @@ trait BaseTrait
     private function baseRouteName(string $name)
     {
         return 'admin.' . (!empty($this->modelNamePlural) ? $this->modelNamePlural : $this->getModelAsParamNameToRoute() . 's') . '.' . $name;
-    }
-
-    /**
-     * Defines whether or not to show the delete button by returning true or false
-     *
-     * @return bool
-     */
-    function actionDelete()
-    {
-        return false;
     }
 
     /**
