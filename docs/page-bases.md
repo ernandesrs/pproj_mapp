@@ -4,9 +4,9 @@ Para facilitar o processo de criação de páginas, algumas classes abstratas fo
 
 # Páginas bases disponíveis
 
-As páginas bases para criação de páginas administrativas estão localizados no namespace <b>\App\Livewire\Admin\PageBases</b>.
+As páginas bases para criação de páginas administrativas estão localizados no namespace <i>\App\Livewire\Admin\PageBases</i>.
 
-#### \App\Livewire\Admin\PageBases\PageBase
+### \App\Livewire\Admin\PageBases\PageBase
 
 Extender esta classe facilitará a criação de uma página, esta classe possui diversos métodos abstratos que devem ser implementados retornando seus devidos valores, veja os métodos aceitos:
 
@@ -22,15 +22,15 @@ Extender esta classe facilitará a criação de uma página, esta classe possui 
 | setPageActions()      | Obrigatório | Deve retornar um array de arrays, cada array deve conter dados de um botão de ação que será exibido no cabeçalho da página ao lado do título, pode retornar array vazio                                                      |
 | setPageCreateAction() | Obrigatório | Deve retornar um array contendo os dados do botão de criar que será exibido no cabeçalho da página ao lado do título ['text' => '', 'href' => '', 'icon' => '', 'show' => true], pode retornar nulo para não exibir o botão. |
 
-#### \App\Livewire\Admin\PageBases\PageBaseSimple
+### \App\Livewire\Admin\PageBases\PageBaseSimple
 
-Extender esta classe abstrata facilita a criação de uma página simples em que não é necessário a implementação de aluns métodos abstratos, como os métodos que retorna as rotas de listagem, criação, edição e visualização.
+Esta classe extende a classe <i>\App\Livewire\Admin\PageBases\PageBase</i>, e possui os mesmos métodos já citatos acima, no entanto esta classe já implementa os métodos <i>indexRouteName()</i>, <i>showRouteName()</i>, <i>createRouteName()</i>, <i>editRouteName()</i> e <i>actionDelete()</i> retornando null.
 
-#### \App\Livewire\Admin\PageBases\PageCreateBase
+### \App\Livewire\Admin\PageBases\PageCreateBase
 
-#### \App\Livewire\Admin\PageBases\PageEditBase
+### \App\Livewire\Admin\PageBases\PageEditBase
 
-#### \App\Livewire\Admin\PageBases\PageListBase
+### \App\Livewire\Admin\PageBases\PageListBase
 
 ```php
 
