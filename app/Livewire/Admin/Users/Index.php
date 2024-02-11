@@ -103,6 +103,11 @@ class Index extends PageListBase
     function setPageActions()
     {
         return [
+            [
+                'text' => __('admin/layout.administrators'),
+                'href' => route('admin.users.administrators'),
+                'icon' => 'shield-shaded'
+            ]
         ];
     }
 

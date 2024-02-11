@@ -49,6 +49,7 @@ Route::group([
     Route::group(['prefix' => 'users'], function () {
 
         Route::get('/', \App\Livewire\Admin\Users\Index::class)->name('admin.users.index');
+        Route::get('/administrators', \App\Livewire\Admin\Users\Administrators::class)->name('admin.users.administrators');
         Route::get('create', \App\Livewire\Admin\Users\Create::class)->name('admin.users.create');
         Route::get('{user}/edit', \App\Livewire\Admin\Users\Edit::class)->name('admin.users.edit');
 

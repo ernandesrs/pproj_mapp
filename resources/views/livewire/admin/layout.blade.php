@@ -144,11 +144,33 @@
                             'text' => __('admin/layout.users'),
                             'title' => __('admin/layout.users'),
                             'icon' => 'people-fill',
-                            'activeIn' => ['admin.users.index', 'admin.users.create', 'admin.users.edit'],
-                            'show' => \Auth::user()->can('viewAny', \App\Models\User::class),
-                            'route' => [
-                                'name' => 'admin.users.index',
-                                'params' => [],
+                            'activeIn' => [
+                                'admin.users.index',
+                                'admin.users.administrators',
+                                'admin.users.create',
+                                'admin.users.edit',
+                            ],
+                            'items' => [
+                                [
+                                    'text' => __('admin/layout.all'),
+                                    'icon' => 'people-fill',
+                                    'activeIn' => ['admin.users.index', 'admin.users.create', 'admin.users.edit'],
+                                    'show' => \Auth::user()->can('viewAny', \App\Models\User::class),
+                                    'route' => [
+                                        'name' => 'admin.users.index',
+                                        'params' => [],
+                                    ],
+                                ],
+                                [
+                                    'text' => __('admin/layout.administrators'),
+                                    'icon' => 'shield-shaded',
+                                    'activeIn' => ['admin.users.administrators'],
+                                    'show' => \Auth::user()->can('viewAny', \App\Models\User::class),
+                                    'route' => [
+                                        'name' => 'admin.users.administrators',
+                                        'params' => [],
+                                    ],
+                                ],
                             ],
                         ],
                         [

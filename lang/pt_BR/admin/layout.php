@@ -10,5 +10,7 @@ return [
     'settings' => 'Configurações',
     'profile' => 'Perfil',
     'logout' => 'Logout',
-    'roles' => 'Cargos'
+    'roles' => 'Cargos',
+    'administrators' => 'Administradores',
+    'all' => 'Todos'
 ];
