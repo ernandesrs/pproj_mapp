@@ -37,6 +37,28 @@ Esta classe extende a classe <i>\App\Livewire\Admin\PageBases\PageBase</i>, e po
 
 ## \App\Livewire\Admin\PageBases\PageCreateBase
 
+Esta classe extende a classe <i>PageBase</i> e possui os mesmos métodos. Esta classe deve ser extendida pela classe/componente Livewire de criação de um novo item(usuário por exemplo).
+
+Como esta classe possui um recurso de criação(criação de usuários por exemplo) é obrigatório o seguinte:
+
+-   O <i>model</i> precisa de um policy definido;
+-   O método rules() retornando as regras de validação é necessário;
+-
+
+### Métodos aceitos
+
+| Método  | Obrigatório | Descrição                                                                                     |
+| ------- | ----------- | --------------------------------------------------------------------------------------------- |
+| rules() | Obrigatório | Deve retornar um array com as regras de validação, exatamente como em um componente Livewire. |
+
+### Propriedades aceitas
+
+| Propriedade          | Obrigatório | Descrição                                                                                                                                  |
+| -------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| public $viewContent  | Obrigatório | Deve conter o caminho para a view contendo o formulário de criação.                                                                        |
+| public $modelClass   | Obrigatório | Deve conter a classe com namespace para o <i>model</i> que será criado.                                                                    |
+| public $modelService | Opcional    | Deve conter a classe com namespace para o <i>service</i> do <i>model</i>. Quando não informado, o <i>model</i> será utilizado diretamente. |
+
 ## \App\Livewire\Admin\PageBases\PageEditBase
 
 ## \App\Livewire\Admin\PageBases\PageListBase
