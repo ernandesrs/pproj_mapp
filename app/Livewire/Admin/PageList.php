@@ -14,6 +14,12 @@ class PageList extends PageListBase
         return ['first_name', 'last_name', 'username', 'email'];
     }
 
+    function sortableFields()
+    {
+        return [
+        ];
+    }
+
     public function setPageTitle()
     {
         return __('admin/layout.users');

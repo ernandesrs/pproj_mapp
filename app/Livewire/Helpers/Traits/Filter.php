@@ -52,6 +52,8 @@ trait Filter
      */
     abstract function searchableFields();
 
+    abstract function sortableFields();
+
     /**
      * Apply filter
      *
@@ -85,7 +87,14 @@ trait Filter
             return $modelInstance;
         }
 
-        foreach ($this->defaultSortableFields as $sf) {
+        $sortableFieldsName = [
+            ...$this->defaultSortableFields,
+            ...array_map(function ($item) {
+                return str_replace('orderBy_', '', $item['model']);
+            }, $this->sortableFields())
+        ];
+
+        foreach ($sortableFieldsName as $sf) {
             $prop = 'orderBy_' . $sf;
             if (isset($this->$prop) && !empty($this->$prop) && in_array($this->$prop, ['asc', 'desc'])) {
                 $modelInstance = $modelInstance->orderBy($sf, $this->$prop);
@@ -123,5 +132,30 @@ trait Filter
     public function isFilterable()
     {
         return true;
+    }
+
+    public function getSortableFields()
+    {
+        return [
+            [
+                'label' => __('admin/words.create_date'),
+                'model' => 'orderBy_created_at',
+                'options' => [
+                    [
+                        'label' => __('admin/words.none'),
+                        'value' => ''
+                    ],
+                    [
+                        'label' => __('admin/words.newest'),
+                        'value' => 'desc'
+                    ],
+                    [
+                        'label' => __('admin/words.oldest'),
+                        'value' => 'asc'
+                    ]
+                ]
+            ],
+            ...$this->sortableFields()
+        ];
     }
 }

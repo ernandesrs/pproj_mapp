@@ -5,17 +5,17 @@
 {{-- filter --}}
 <x-admin.list.filter-bar>
     <x-slot name="filters">
-        <div class="col-span-3 flex flex-col">
-            @php
-                $id = uniqid();
-            @endphp
-            <label for="{{ $id }}">{{ __('admin/words.create_date') }}</label>
-            <select wire:model="orderBy_created_at" id="{{ $id }}">
-                <option value="">None</option>
-                <option value="asc">{{ __('admin/words.oldest') }}</option>
-                <option value="desc">{{ __('admin/words.newest') }}</option>
-            </select>
-        </div>
+        @foreach ($this->getSortableFields() as $sortableFields)
+            @isset($sortableFields['label'])
+                <div class="col-span-3 flex flex-col">
+                    <x-admin.form.field
+                        wire:model="{{ $sortableFields['model'] ?? '' }}"
+                        type="select"
+                        label="{{ $sortableFields['label'] }}"
+                        :options="$sortableFields['options'] ?? []" />
+                </div>
+            @endisset
+        @endforeach
 
         @isset($filters)
             {{ $filters }}

@@ -4,10 +4,27 @@ namespace App\Livewire\Admin\Users;
 
 use App\Livewire\Admin\PageBases\PageListBase;
 use App\Models\User;
+use Livewire\Attributes\Url;
 
 class Index extends PageListBase
 {
     public $modelClass = User::class;
+
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
+    #[Url(except: '')]
+    public $orderBy_first_name = '';
+
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
+    #[Url(except: '')]
+    public $orderBy_username = '';
 
     function tableColumnData()
     {
@@ -39,6 +56,48 @@ class Index extends PageListBase
     function searchableFields()
     {
         return ['first_name', 'last_name', 'username', 'email'];
+    }
+
+    function sortableFields()
+    {
+        return [
+            [
+                'label' => __('admin/words.first_name'),
+                'model' => 'orderBy_first_name',
+                'options' => [
+                    [
+                        'label' => __('admin/words.none'),
+                        'value' => ''
+                    ],
+                    [
+                        'label' => 'A-Z',
+                        'value' => 'asc'
+                    ],
+                    [
+                        'label' => 'Z-A',
+                        'value' => 'desc'
+                    ]
+                ]
+            ],
+            [
+                'label' => __('admin/words.username'),
+                'model' => 'orderBy_username',
+                'options' => [
+                    [
+                        'label' => __('admin/words.none'),
+                        'value' => ''
+                    ],
+                    [
+                        'label' => 'A-Z',
+                        'value' => 'asc'
+                    ],
+                    [
+                        'label' => 'Z-A',
+                        'value' => 'desc'
+                    ]
+                ]
+            ]
+        ];
     }
 
     function setPageActions()

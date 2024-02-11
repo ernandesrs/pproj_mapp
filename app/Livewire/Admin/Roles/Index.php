@@ -9,6 +9,11 @@ class Index extends PageListBase
 {
     public $modelClass = Role::class;
 
+    function sortableFields()
+    {
+        return [];
+    }
+
     function tableColumnData()
     {
         return [
