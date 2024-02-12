@@ -48,7 +48,7 @@
                                 wire:loading.class="pointer-events-none animate-pulse"
                                 wire:confirm="{{ __('admin/alerts.confirmation.assigning_role', ['role' => $role->name]) }}"
                                 wire:click="assignRole({{ $role->id }})"
-                                :disabled="{{ $this->user->hasRole($role) }}">
+                                {{ $this->user->hasRole($role) ? 'disabled' : '' }}>
                                 <x-admin.badge color="{{ $this->user->hasRole($role) ? 'success' : 'light' }}">
                                     {{ $role->name }}
                                 </x-admin.badge>
