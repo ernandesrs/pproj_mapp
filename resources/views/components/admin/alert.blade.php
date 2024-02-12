@@ -56,12 +56,10 @@
 
             this.timerHandler = setTimeout(() => {
                 this.close();
-                console.log('close');
             }, this.data.duration);
 
             this.timerProgressHandler = setInterval(() => {
                 this.timerProgress++;
-                console.log('progress', this.timerProgress);
             }, this.data.duration / 100);
         },
         pauseTimer() {
