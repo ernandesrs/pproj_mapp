@@ -142,6 +142,8 @@ abstract class PageListBase extends PageBase
         $this->authorize('delete', $model);
 
         $model->delete();
+
+        $this->alert()->info(__('admin/alerts.success_on_delete'))->alertify();
     }
 
     /**

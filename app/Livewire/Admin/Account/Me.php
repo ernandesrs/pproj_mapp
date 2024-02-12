@@ -34,6 +34,8 @@ class Me extends PageBase
 
         UserService::updatePhoto(\Auth::user(), $validated['data']['avatar']);
 
+        $this->alert()->info(__('admin/alerts.success_on_update'))->alertify();
+
         $this->clearAvatar();
     }
 
@@ -46,6 +48,8 @@ class Me extends PageBase
     {
         UserService::deletePhoto(\Auth::user());
 
+        $this->alert()->info(__('admin/alerts.success_on_delete'))->flash();
+
         $this->redirect(route('admin.profile'), true);
     }
 
@@ -55,7 +59,7 @@ class Me extends PageBase
 
         UserService::update(\Auth::user(), $validated['data']);
 
-        $this->alert()->add('Dados salvos com sucesso', 'success')->alertify();
+        $this->alert()->success(__('admin/alerts.success_on_update'))->alertify();
     }
 
     function updatePassword()
@@ -63,6 +67,8 @@ class Me extends PageBase
         $validated = $this->validate(UserService::getPasswordDataRules());
 
         UserService::updatePassword(\Auth::user(), $validated['data']);
+
+        $this->alert()->success(__('admin/alerts.success_on_update'))->flash();
 
         $this->redirect(route('admin.profile'), true);
     }

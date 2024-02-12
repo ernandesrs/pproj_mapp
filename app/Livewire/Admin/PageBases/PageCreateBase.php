@@ -67,7 +67,7 @@ abstract class PageCreateBase extends PageBase
             $created = (new $this->modelClass())::create($validated['data']);
         }
 
-        $this->alert()->add('Criado com sucesso', 'success')->flash();
+        $this->alert()->success(__('admin/alerts.success_on_create'))->flash();
 
         $this->redirect(
             route(

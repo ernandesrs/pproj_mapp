@@ -23,7 +23,7 @@ class Edit extends PageEditBase
      */
     public $user = null;
 
-    public $roles=null;
+    public $roles = null;
 
     public $modelService = UserService::class;
 
@@ -47,6 +47,8 @@ class Edit extends PageEditBase
 
         $this->user->assignRole($role);
 
+        $this->alert()->info(__('admin/alerts.success_on_assign_role'))->flash();
+
         $this->redirect(route('admin.users.edit', ['user' => $this->user->id]), true);
     }
 
@@ -55,6 +57,8 @@ class Edit extends PageEditBase
         $this->authorize('permissionEdit', $this->user);
 
         $this->user->removeRole($role);
+
+        $this->alert()->info(__('admin/alerts.success_on_revoke_role'))->flash();
 
         $this->redirect(route('admin.users.edit', ['user' => $this->user->id]), true);
     }

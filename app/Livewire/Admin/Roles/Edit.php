@@ -54,8 +54,10 @@ class Edit extends PageEditBase
 
         if ($this->role->hasPermissionTo($permission)) {
             $this->role->revokePermissionTo($permission);
+            $this->alert()->info(__('admin/alerts.success_on_revoke_permission'))->alertify();
         } else {
             $this->role->givePermissionTo($permission);
+            $this->alert()->info(__('admin/alerts.success_on_assign_permission'))->alertify();
         }
     }
 

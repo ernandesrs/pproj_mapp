@@ -84,5 +84,7 @@ abstract class PageEditBase extends PageBase
         } else {
             $this->model->update($validated['data']);
         }
+
+        $this->alert()->success(__('admin/alerts.success_on_update'))->alertify();
     }
 }
