@@ -27,7 +27,11 @@
                         wire:target="assignRevokePermissionToRole"
                         wire:loading.class="pointer-events-none animate-pulse"
                         wire:click="assignRevokePermissionToRole({{ $permission }})"
-                        class="relative px-4 py-2 cursor-pointer overflow-hidden rounded {{ $this->role->hasPermissionTo($permission->name) ? 'bg-admin-light-dark text-admin-light-light dark:bg-admin-dark-light' : 'bg-admin-light-light text-admin-font-light-light dark:bg-admin-dark-normal' }} hover:opacity-75 dark:hover:opacity-75 duration-300">
+                        class="relative px-4 py-2 cursor-pointer overflow-hidden rounded {{ $this->role->hasPermissionTo($permission->name) ? 'bg-admin-success-normal text-admin-light-light dark:bg-admin-success-dark' : 'bg-admin-light-light text-admin-font-light-light dark:bg-admin-dark-normal' }} hover:opacity-75 dark:hover:opacity-75 duration-300">
+                        @if ($this->role->hasPermissionTo($permission->name))
+                            <x-admin.icon name="check-lg"
+                                class="mr-2 " />
+                        @endif
                         {{ $permission->name }}
                     </div>
                 @endforeach
