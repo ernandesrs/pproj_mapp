@@ -2,11 +2,12 @@
 
 namespace App\Livewire\Admin\PageBases;
 
+use App\Livewire\Helpers\Traits\AlertTrait;
 use Livewire\Component;
 
 abstract class PageBase extends Component
 {
-    use BaseTrait;
+    use BaseTrait, AlertTrait;
 
     /**
      * Fails

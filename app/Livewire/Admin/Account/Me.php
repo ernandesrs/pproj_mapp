@@ -54,6 +54,8 @@ class Me extends PageBase
         $validated = $this->validate(UserService::getBasicDataRules());
 
         UserService::update(\Auth::user(), $validated['data']);
+
+        $this->alert()->add('Dados salvos com sucesso', 'success')->alertify();
     }
 
     function updatePassword()
