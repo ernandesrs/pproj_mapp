@@ -77,6 +77,8 @@ class Edit extends PageEditBase
 
         UserService::updatePhoto($this->user, $validated['data']['avatar']);
 
+        $this->alert()->info(__('admin/alerts.success_on_update'))->flash();
+
         $this->redirect(route('admin.users.edit', ['user' => $this->user->id]), true);
     }
 
@@ -85,6 +87,8 @@ class Edit extends PageEditBase
         $this->authorize('update', $this->user);
 
         UserService::deletePhoto($this->user);
+
+        $this->alert()->info(__('admin/alerts.success_on_delete'))->flash();
 
         $this->redirect(route('admin.users.edit', ['user' => $this->user->id]), true);
     }
