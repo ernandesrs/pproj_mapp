@@ -75,7 +75,7 @@
     <div class="col-span-12 lg:col-span-8">
 
         <x-admin.section
-            title="{{ __('admin/phrases.basic_data') }}">
+            title="{{ __('admin/phrases.basic_data') }}" class="mb-6">
 
             <x-admin.form.base
                 action="save"
@@ -91,6 +91,20 @@
                     label="{{ __('admin/words.email') }}"
                     disabled
                     class="col-span-12" />
+            </x-admin.form.base>
+
+        </x-admin.section>
+
+        {{-- password --}}
+        <x-admin.section
+            title="{{ __('admin/phrases.update_password') }}">
+
+            <x-admin.form.base
+                action="updatePassword"
+                submit-text="{{ __('admin/words.update') }}"
+                submitting-text="{{ __('admin/words.updating') }}"
+                class="grid grid-cols-12 gap-6">
+                <x-admin.views.user-password />
             </x-admin.form.base>
 
         </x-admin.section>

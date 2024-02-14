@@ -35,6 +35,17 @@ class Edit extends PageEditBase
         return parent::mount();
     }
 
+    function updatePassword()
+    {
+        $validated = $this->validate(UserService::getPasswordDataRules());
+
+        UserService::updatePassword($this->user, $validated['data']);
+
+        $this->alert()->info(__('admin/alerts.success_on_update'))->flash();
+
+        $this->redirect(route('admin.users.edit', ['user' => $this->user->id]), true);
+    }
+
     /**
      *
      * ROLES
