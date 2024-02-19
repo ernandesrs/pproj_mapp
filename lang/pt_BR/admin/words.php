@@ -59,4 +59,7 @@ return [
     'detail' => 'Detalhe',
     'infos' => 'Informações',
     'info' => 'Informação',
+    'unconfirmed' => 'Não confirmado',
+    'unverified' => 'Não verificado',
+    'unused' => 'Não usado'
 ];

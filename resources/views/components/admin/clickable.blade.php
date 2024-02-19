@@ -31,13 +31,13 @@
     $isLink = $attributes->has('href');
 
     $style = [
-        'border hover:bg-opacity-75 hover:border-opacity-75 hover:text-opacity-75 duration-200 !text-admin-light-light dark:!text-admin-light-normal',
+        'border hover:bg-opacity-75 hover:border-opacity-75 hover:text-opacity-75 duration-200',
         $circle ? 'rounded-full' : 'rounded',
         [
-            'primary' => 'border-admin-primary-normal dark:border-admin-primary-dark ' . ($outlined ? 'text-admin-primary-normal dark:text-admin-primary-normal' : 'text-white bg-admin-primary-normal dark:bg-admin-primary-dark'),
-            'success' => 'border-admin-success-normal dark:border-admin-success-dark ' . ($outlined ? 'text-admin-success-normal dark:text-admin-success-dark' : 'text-white bg-admin-success-normal dark:bg-admin-success-dark'),
-            'info' => 'border-admin-info-normal dark:border-admin-info-dark ' . ($outlined ? 'text-admin-info-normal dark:text-admin-info-dark' : 'text-white bg-admin-info-normal dark:bg-admin-info-dark'),
-            'danger' => 'border-admin-danger-normal dark:border-admin-danger-dark ' . ($outlined ? 'text-admin-danger-normal dark:text-admin-danger-dark' : 'text-white bg-admin-danger-normal dark:bg-admin-danger-dark'),
+            'primary' => 'border-admin-primary-normal dark:border-admin-primary-dark ' . ($outlined ? 'text-admin-primary-normal dark:text-admin-primary-normal' : '!text-white bg-admin-primary-normal dark:bg-admin-primary-dark'),
+            'success' => 'border-admin-success-normal dark:border-admin-success-dark ' . ($outlined ? 'text-admin-success-normal dark:text-admin-success-dark' : '!text-white bg-admin-success-normal dark:bg-admin-success-dark'),
+            'info' => 'border-admin-info-normal dark:border-admin-info-dark ' . ($outlined ? 'text-admin-info-normal dark:text-admin-info-dark' : '!text-white bg-admin-info-normal dark:bg-admin-info-dark'),
+            'danger' => 'border-admin-danger-normal dark:border-admin-danger-dark ' . ($outlined ? 'text-admin-danger-normal dark:text-admin-danger-dark' : '!text-white bg-admin-danger-normal dark:bg-admin-danger-dark'),
         ][$color],
         $onlyIcon
             ? [

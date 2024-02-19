@@ -1,5 +1,6 @@
 @props([
     'size' => 'xs',
+    'text' => null,
     'color' => 'success',
     'icon' => null,
     'prependIcon' => null,
@@ -30,7 +31,13 @@
     @if ($icon || $prependIcon)
         <x-admin.icon name="{{ $icon ?? $prependIcon }}" class="{{ $slot ?? null ? '' : 'mr-1' }}" />
     @endif
-    <span>{{ $slot }}</span>
+    <span>
+        @if ($text)
+            {{ $text }}
+        @else
+            {{ $slot }}
+        @endif
+    </span>
     @if ($appendIcon)
         <x-admin.icon name="{{ $appendIcon }}" class="{{ $slot ?? null ? '' : 'ml-1' }}" />
     @endif
