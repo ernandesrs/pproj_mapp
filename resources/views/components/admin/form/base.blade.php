@@ -14,24 +14,23 @@
 
     {{-- submit --}}
     @if ($showSubmitButton)
-        <div class="flex justify-center mt-6">
-            <button
+        <div class="flex justify-center items-center gap-x-4 mt-6">
+            <x-admin.clickable
+                type="submit"
+                text="{{ $submitText }}"
+                wire:target="{{ $action }}"
+                wire:loading.remove
+                prepend-icon="check-lg" />
+
+            <x-admin.clickable
+                type="button"
+                text="{{ $submittingText }}"
                 wire:target="{{ $action }}"
                 wire:loading.attr="disabled"
                 wire:loading.class="animate-pulse"
-
-                class="px-6 py-3 border border-admin-primary-normal bg-admin-primary-normal text-white rounded dark:border-admin-primary-dark dark:bg-admin-primary-dark dark:text-admin-light-normal"
-                type="submit">
-                <x-admin.icon name="check-lg" />
-                <span
-                    wire:target="{{ $action }}"
-                    wire:loading
-                    class="pointer-events-none ml-3">{{ $submittingText }}</span>
-                <span
-                    wire:target="{{ $action }}"
-                    wire:loading.remove
-                    class="pointer-events-none ml-3">{{ $submitText }}</span>
-            </button>
+                wire:loading
+                prepend-icon="check-lg"
+                loading />
         </div>
     @endif
 </form>
