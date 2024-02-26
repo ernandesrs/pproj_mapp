@@ -68,15 +68,21 @@
 
         },
         addClickoutMonitor() {
-            console.log('Adicionar evento para monitor clique fora do modal para fecha-lo')
+            document.addEventListener('click', (event) => {
+                if (($refs.dialogContent.contains(event.target) || $refs.dialogBackdrop != event.target) || this.data.persistent)
+                    return;
+
+                this.close();
+            });
         },
         removeClickoutMonitor() {
-            console.log('Adicionar evento para monitor clique fora do modal para fecha-lo')
+            {{-- console.log('Adicionar evento para monitor clique fora do modal para fecha-lo') --}}
         }
     }"
 
     x-on:activator_to_{{ $id }}.window="activate"
     x-show="data.show"
+    x-ref="dialogBackdrop"
 
     x-transition:enter="transition ease-out duration-200"
     x-transition:enter-start="opacity-0"
