@@ -15,14 +15,14 @@
     {{-- submit --}}
     @if ($showSubmitButton)
         <div class="flex justify-center items-center gap-x-4 mt-6">
-            <x-admin.clickable
+            <x-admin.buttons.clickable
                 type="submit"
                 text="{{ $submitText }}"
                 wire:target="{{ $action }}"
                 wire:loading.remove
                 prepend-icon="check-lg" />
 
-            <x-admin.clickable
+            <x-admin.buttons.clickable
                 type="button"
                 text="{{ $submittingText }}"
                 wire:target="{{ $action }}"

@@ -95,7 +95,7 @@
         'top' => 'items-start',
         'center' => 'items-center',
         'bottom' => 'items-end',
-    ][$position] }} w-full h-screen fixed left-0 top-0 bg-black bg-opacity-75 p-6"
+    ][$position] }} w-full h-screen fixed z-40 left-0 top-0 bg-black bg-opacity-75 p-6"
     style="display: none">
 
     <div
@@ -128,7 +128,7 @@
                     </div>
                 @else
                     @if ($title)
-                        <h4 class="text-lg md:text-xl font-medium">{{ $title }}</h4>
+                        <h4 class="text-admin-font-light-normal text-lg md:text-xl font-medium">{{ $title }}</h4>
                     @endif
                 @endisset
             </div>
@@ -146,7 +146,7 @@
             @endisset
 
             @if ($closable)
-                <x-admin.clickable
+                <x-admin.buttons.clickable
                     x-on:click="close"
                     class="ml-auto"
                     size="small"

@@ -7,6 +7,8 @@ return [
 
         'assigning_role' => 'Atribuindo o cargo :role ao usuário, tem certeza?',
         'removing_role' => 'Removendo o cargo :role do usuário, tem certeza?',
+
+        'confirm' => 'Tem certeza? Confirme para continuar com esta ação.'
     ],
 
 

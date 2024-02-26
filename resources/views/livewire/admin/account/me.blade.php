@@ -9,15 +9,17 @@
                     alternative-text="{{ \Auth::user()->username }}" />
 
                 @if (\Auth::user()->avatar())
-                    <button
-                        wire:confirm="{{ __('admin/alerts.confirmation.delete') }}"
-                        wire:target="deleteAvatar"
-                        wire:click="deleteAvatar"
-                        wire:loading.attr="disabled"
-                        wire:loading.class="animate-pulse"
-                        class="w-8 h-8 bg-admin-danger-normal text-admin-font-dark-light dark:bg-admin-danger-dark absolute bottom-0 mx-auto flex justify-center items-center rounded-full">
-                        <x-admin.icon name="trash" />
-                    </button>
+                    <x-admin.buttons.confirmation
+                        color="danger"
+                        button-confirm-action="deleteAvatar"
+                        text="{{ __('admin/alerts.confirmation.delete') }}"
+                        class="absolute bottom-0 mx-auto">
+                        <x-admin.buttons.clickable
+                            prepend-icon="trash"
+                            color="danger"
+                            size="small"
+                            circle />
+                    </x-admin.buttons.confirmation>
                 @endif
             </div>
 

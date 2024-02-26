@@ -62,5 +62,6 @@ return [
     'unconfirmed' => 'Não confirmado',
     'unverified' => 'Não verificado',
     'unused' => 'Não usado',
-    'close' => 'Fechar'
+    'close' => 'Fechar',
+    'cancel' => 'Cancelar',
 ];
