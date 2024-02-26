@@ -14,7 +14,7 @@
                         alternative-text="{{ $this->model->first_name }}" />
 
                     @if ($this->user->avatar())
-                        <x-admin.buttons.confirmation
+                        <x-admin.confirmation
                             color="danger"
                             button-confirm-action="deleteAvatar"
                             text="{{ __('admin/alerts.confirmation.delete') }}"
@@ -24,7 +24,7 @@
                                 color="danger"
                                 size="small"
                                 circle />
-                        </x-admin.buttons.confirmation>
+                        </x-admin.confirmation>
                     @endif
                 </div>
                 <div class="w-full mt-6 text-center">

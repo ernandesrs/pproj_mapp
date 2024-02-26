@@ -9,7 +9,7 @@
                     alternative-text="{{ \Auth::user()->username }}" />
 
                 @if (\Auth::user()->avatar())
-                    <x-admin.buttons.confirmation
+                    <x-admin.confirmation
                         color="danger"
                         button-confirm-action="deleteAvatar"
                         text="{{ __('admin/alerts.confirmation.delete') }}"
@@ -19,7 +19,7 @@
                             color="danger"
                             size="small"
                             circle />
-                    </x-admin.buttons.confirmation>
+                    </x-admin.confirmation>
                 @endif
             </div>
 
