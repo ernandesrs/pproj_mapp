@@ -61,5 +61,6 @@ return [
     'info' => 'Informação',
     'unconfirmed' => 'Não confirmado',
     'unverified' => 'Não verificado',
-    'unused' => 'Não usado'
+    'unused' => 'Não usado',
+    'close' => 'Fechar'
 ];

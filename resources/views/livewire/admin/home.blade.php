@@ -41,25 +41,27 @@
             title="Example"
             class="col-span-12 md:col-span-4">
             <div class="flex flex-wrap gap-1">
-                <x-admin.badge
-                    color="success"
-                    text="Example badge" />
+
+                <x-admin.dialog id="modal" size="normal">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque esse quae hic quam, facilis
+                        adipisci numquam doloremque tenetur atque, maxime voluptate nostrum quos ipsam assumenda! Aut
+                        sint animi officia temporibus.
+                    </p>
+                </x-admin.dialog>
+                <x-admin.activator
+                    target="modal">
+                    <x-admin.badge
+                        color="success"
+                        text="Example badge" />
+                </x-admin.activator>
+
                 <x-admin.badge
                     color="light"
                     text="Example #2" />
             </div>
         </x-admin.cards.card>
     </div>
-
-    <x-admin.section
-        title="Section #1"
-        class="col-span-12 md:col-span-6">
-    </x-admin.section>
-
-    <x-admin.section
-        title="Section #2"
-        class="col-span-12 md:col-span-6">
-    </x-admin.section>
 
     <x-admin.section
         title="Section list"
@@ -109,6 +111,5 @@
         </x-admin.list.table.table>
 
     </x-admin.section>
-
 
 </div>
