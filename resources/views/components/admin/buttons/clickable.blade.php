@@ -18,6 +18,9 @@
     'circle' => false,
 
     //
+    'external' => false,
+
+    //
     'outlined' => false,
 
     //
@@ -52,7 +55,7 @@
             ][$size],
     ];
 
-    if ($isLink) {
+    if ($isLink && !$external) {
         $attributes = $attributes->merge([
             'wire:navigate' => true,
         ]);

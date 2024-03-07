@@ -86,9 +86,9 @@
         <x-slot name="footerAction">
             <x-admin.buttons.clickable text="Go to Google"
                 append-icon="arrow-right" size="small" href="https://google.com.br" target="_blank"
-                title="Go to Google" outlined />
+                title="Go to Google" outlined external />
             <x-admin.buttons.clickable text="{{ __('admin/words.more') }} {{ __('admin/words.details') }}"
-                append-icon="arrow-right" size="small" />
+                append-icon="arrow-right" size="small" href="{{ route('admin.roles.index') }}" />
         </x-slot>
 
         <x-admin.list.table.table>
