@@ -53,12 +53,22 @@
                     target="modal">
                     <x-admin.badge
                         color="success"
-                        text="Example badge" />
+                        text="Open a modal" />
                 </x-admin.activator>
 
-                <x-admin.badge
-                    color="light"
-                    text="Example #2" />
+                <x-admin.dialog id="modal2" size="normal" persistent>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque esse quae hic quam, facilis
+                        adipisci numquam doloremque tenetur atque, maxime voluptate nostrum quos ipsam assumenda! Aut
+                        sint animi officia temporibus.
+                    </p>
+                </x-admin.dialog>
+                <x-admin.activator
+                    target="modal2">
+                    <x-admin.badge
+                        color="light"
+                        text="Open a persistent modal" />
+                </x-admin.activator>
             </div>
         </x-admin.cards.card>
     </div>
@@ -66,6 +76,20 @@
     <x-admin.section
         title="Section list"
         class="col-span-12">
+
+        <x-slot name="headerAction">
+            <x-admin.buttons.clickable text="{{ __('admin/words.more') }}" append-icon="arrow-right" size="small"
+                outlined />
+        </x-slot>
+
+
+        <x-slot name="footerAction">
+            <x-admin.buttons.clickable text="Go to Google"
+                append-icon="arrow-right" size="small" href="https://google.com.br" target="_blank"
+                title="Go to Google" outlined />
+            <x-admin.buttons.clickable text="{{ __('admin/words.more') }} {{ __('admin/words.details') }}"
+                append-icon="arrow-right" size="small" />
+        </x-slot>
 
         <x-admin.list.table.table>
 
