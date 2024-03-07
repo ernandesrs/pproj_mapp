@@ -1,6 +1,5 @@
 @props([
     'id' => null,
-    'type' => 'bar',
 ])
 
 @php
@@ -9,17 +8,11 @@
         throw new \Exception("Needs a value to prop 'id'.");
     }
 
-    $data = [
-        'id' => $id,
-        'type' => $type,
-        'data' => $this->chartData()[$id] ?? [],
-    ];
-
 @endphp
 
 <canvas
     x-data="{
-        ...{{ json_encode($data) }},
+        ...{{ json_encode($this->chartData()[$id]->toArray()) }},
 
         init() {
             $nextTick(() => {
@@ -27,11 +20,6 @@
                     type: this.type,
                     data: this.data,
                     options: {
-                        scales: {
-                            y: {
-                                beginAtZero: true
-                            }
-                        }
                     }
                 });
             });
@@ -39,4 +27,4 @@
 
     }"
 
-    id="{{ $data['id'] }}"></canvas>
+    id="{{ $id }}"></canvas>

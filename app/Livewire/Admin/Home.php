@@ -3,9 +3,12 @@
 namespace App\Livewire\Admin;
 
 use App\Livewire\Admin\PageBases\PageBaseSimple;
+use App\Livewire\Helpers\Chart\WithChart;
 
 class Home extends PageBaseSimple
 {
+    use WithChart;
+
     public $viewContent = 'home';
 
     public $uncontained = true;
@@ -13,41 +16,16 @@ class Home extends PageBaseSimple
     function chartData()
     {
         return [
-            'homeChartBar' => [
-                'labels' => ['Red', 'Blue', 'Purple', 'Orange'],
-                'datasets' => [
-                    [
-                        'label' => '# of Votes',
-                        'data' => [12, 19, 3, 3],
-                        'borderWidth' => 1
-                    ],
-                    [
-                        'label' => '# of Votes',
-                        'data' => [12, 19, 3, 3],
-                        'borderWidth' => 1
-                    ]
-                ]
-            ],
-            'homeChartPie' => [
-                'labels' => ['Red', 'Blue', 'Purple', 'Orange'],
-                'datasets' => [
-                    [
-                        'label' => '# of Votes',
-                        'data' => [12, 19, 3, 5, 2, 3],
-                        'borderWidth' => 1
-                    ]
-                ]
-            ],
-            'homeChartDoughnut' => [
-                'labels' => ['Green', 'Purple', 'Orange'],
-                'datasets' => [
-                    [
-                        'label' => '# of Votes',
-                        'data' => [12, 19, 3, 5, 2, 3],
-                        'borderWidth' => 1
-                    ]
-                ]
-            ]
+            'homeChartBar' => $this->chartBar()
+                ->addLabels(['A', 'B', 'C', 'D'])
+                ->addDataset('Opa #1', [100, 3, 10, 213])
+                ->addDataset('Opa #2', [10, 39, 79, 99]),
+            'homeChartPie' => $this->chartPie()
+                ->addLabels(['Ab', 'Bc', 'Cd'])
+                ->addDataset('Opa #1', [50, 5, 75]),
+            'homeChartDoughnut' => $this->chartDoughnut()
+                ->addLabels(['De', 'Ef', 'Gh'])
+                ->addDataset('Opa #1', [50, 5, 75])
         ];
     }
 

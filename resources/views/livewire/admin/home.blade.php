@@ -74,32 +74,11 @@
     </div>
 
     <x-admin.section
-        title="Pie Chart"
-        class="col-span-12 lg:col-span-6">
-
-        <x-admin.charts.chart
-            id="homeChartPie"
-            type="pie" />
-
-    </x-admin.section>
-
-    <x-admin.section
-        title="Doughnut Chart"
-        class="col-span-12 lg:col-span-6">
-
-        <x-admin.charts.chart
-            id="homeChartDoughnut"
-            type="doughnut" />
-
-    </x-admin.section>
-
-    <x-admin.section
         title="Bar Chart"
         class="col-span-12 lg:col-span-7">
 
         <x-admin.charts.chart
-            id="homeChartBar"
-            type="bar" />
+            id="homeChartBar" />
 
     </x-admin.section>
 
@@ -166,4 +145,24 @@
 
     </x-admin.section>
 
+
+    <x-admin.section
+        title="Pie Chart"
+        class="col-span-12 lg:col-span-6">
+
+        <x-admin.charts.chart
+            id="homeChartPie"
+            type="pie" />
+
+    </x-admin.section>
+
+    <x-admin.section
+        title="Doughnut Chart"
+        class="col-span-12 lg:col-span-6">
+
+        <x-admin.charts.chart
+            id="homeChartDoughnut"
+            type="doughnut" />
+
+    </x-admin.section>
 </div>
