@@ -1,3 +1,5 @@
+import Chart from 'chart.js/auto'
+
 const admTheme = {
     themeKeyOnStorage: 'admin_theme',
     currentTheme: null,
@@ -23,4 +25,5 @@ const admTheme = {
 
 admTheme.start();
 
+window.Chart = Chart;
 window['adminTheme'] = admTheme;
