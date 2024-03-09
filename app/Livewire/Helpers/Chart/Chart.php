@@ -30,14 +30,14 @@ class Chart
     /**
      * Add chart dataset
      *
-     * @param string $label dataset label
+     * @param string $datasetLabel dataset label
      * @param array $data dataset data
      * @return Chart
      */
-    function addDataset(string $label, array $data = [])
+    function addDataset(string $datasetLabel, array $data = [])
     {
         $this->datasets[] = [
-            'label' => $label,
+            'label' => $datasetLabel,
             'data' => $data
         ];
         return $this;

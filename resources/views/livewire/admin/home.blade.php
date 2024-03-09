@@ -78,7 +78,8 @@
         class="col-span-12 lg:col-span-7">
 
         <x-admin.charts.chart
-            id="homeChartBar" />
+            id="homeChartBar"
+            type="bar" />
 
     </x-admin.section>
 

@@ -12,15 +12,14 @@
 
 <canvas
     x-data="{
-        ...{{ json_encode($this->chartData()[$id]->toArray()) }},
+        ...{{ json_encode($this->getChartData($id)) }},
 
         init() {
             $nextTick(() => {
                 new Chart($el, {
                     type: this.type,
                     data: this.data,
-                    options: {
-                    }
+                    options: {}
                 });
             });
         }

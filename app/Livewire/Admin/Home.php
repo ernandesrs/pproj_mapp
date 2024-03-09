@@ -13,22 +13,16 @@ class Home extends PageBaseSimple
 
     public $uncontained = true;
 
-    function chartData()
+    function setChartData()
     {
         return [
             'homeChartBar' => $this->chartBar()
-                ->addLabels(['A', 'B', 'C', 'D'])
-                ->addDataset('Opa #1', [100, 3, 10, 213])
-                ->addDataset('Opa #2', [50, 300, 30, 13])
-                ->addDataset('Opa #3', [10, 39, 79, 99]),
+                ->addLabels(['Jan', 'Fev', 'Mar'])
+                ->addDataset('Label #1', [4, 3, 33])
+                ->addDataset('Label #2', [40, 13, 73]),
             'homeChartPie' => $this->chartPie()
-                ->addLabels(['Ab', 'Bc', 'Cd'])
-                ->addDataset('Opa #1', [50, 5, 75]),
-            'homeChartDoughnut' => $this->chartDoughnut()
-                ->addLabels(['De', 'Ef', 'Gh'])
-                ->addDataset('Opa #1', [50, 5, 75])
-                ->addDataset('Opa #2', [10, 15, 35])
-                ->addDataset('Opa #3', [30, 5, 5])
+                ->addLabels(['Jan', 'Fev', 'Mar'])
+                ->addDataset('Label #1', [99, 10, 33])
         ];
     }
 
