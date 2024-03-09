@@ -83,8 +83,18 @@
     </x-admin.section>
 
     <x-admin.section
-        title="Section list"
+        title="Pie Chart"
         class="col-span-12 lg:col-span-5">
+
+        <x-admin.charts.chart
+            id="homeChartPie"
+            type="pie" />
+
+    </x-admin.section>
+
+    <x-admin.section
+        title="Section list"
+        class="col-span-12">
 
         <x-slot name="headerAction">
             <x-admin.buttons.clickable text="{{ __('admin/words.more') }}" append-icon="arrow-right" size="small"
@@ -142,27 +152,6 @@
             </x-slot>
 
         </x-admin.list.table.table>
-
-    </x-admin.section>
-
-
-    <x-admin.section
-        title="Pie Chart"
-        class="col-span-12 lg:col-span-6">
-
-        <x-admin.charts.chart
-            id="homeChartPie"
-            type="pie" />
-
-    </x-admin.section>
-
-    <x-admin.section
-        title="Doughnut Chart"
-        class="col-span-12 lg:col-span-6">
-
-        <x-admin.charts.chart
-            id="homeChartDoughnut"
-            type="doughnut" />
 
     </x-admin.section>
 </div>
