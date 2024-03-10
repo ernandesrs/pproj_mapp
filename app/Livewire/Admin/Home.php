@@ -3,6 +3,7 @@
 namespace App\Livewire\Admin;
 
 use App\Livewire\Admin\PageBases\PageBaseSimple;
+use App\Livewire\Helpers\Chart\ChartColors;
 use App\Livewire\Helpers\Chart\WithChart;
 
 class Home extends PageBaseSimple
@@ -20,12 +21,28 @@ class Home extends PageBaseSimple
         return [
             'homeChartBar' => $this->chartBar()
                 ->addLabels(['Jan', 'Fev', 'Mar'])
-                ->addDataset('Label #1', explode(",", $data->bar))
-                ->addDataset('Label #2', explode(",", $data->bar2))
-                ->addDataset('Label #3', explode(",", $data->bar3)),
+                ->addDataset('Label #1', explode(",", $data->bar), [
+                    ChartColors::ORANGE,
+                    ChartColors::ORANGE,
+                    ChartColors::ORANGE,
+                ])
+                ->addDataset('Label #2', explode(",", $data->bar2), [
+                    ChartColors::PURPLE,
+                    ChartColors::PURPLE,
+                    ChartColors::PURPLE,
+                ])
+                ->addDataset('Label #3', explode(",", $data->bar3), [
+                    ChartColors::BLUE,
+                    ChartColors::BLUE,
+                    ChartColors::BLUE,
+                ]),
             'homeChartPie' => $this->chartPie()
-                ->addLabels(['Jan', 'Fev', 'Mar', 'Abr', 'Mai'])
-                ->addDataset('Label #1', explode(",", $data->pie))
+                ->addLabels(['Jan', 'Fev', 'Mar'])
+                ->addDataset('Label #1', explode(",", $data->pie), [
+                    ChartColors::BLUE,
+                    ChartColors::GREEN,
+                    ChartColors::PURPLE
+                ])
         ];
     }
 

@@ -22,22 +22,29 @@
     x-data="{
         ...{{ json_encode($this->getChartData($id)) }},
         id: '{{ $id }}',
+        theme: 'dark',
 
         init() {
-            const config = {
-                type: this.type,
-                data: this.data,
-                options: {}
-            };
+            $nextTick(() => {
+                this.theme = window['adminTheme'].getTheme();
 
-            if (!window[this.id]) {
-                window[this.id] = new Chart($el, config);
-            } else {
-                window[this.id].destroy();
-                window[this.id] = new Chart($el, config);
-            }
+                const config = {
+                    type: this.type,
+                    data: this.data,
+                    options: {}
+                };
 
-            this.defineChartTheme();
+                config.data.datasets = this.defineDatasetsColors(config.data.datasets);
+
+                if (!window[this.id]) {
+                    window[this.id] = new Chart($el, config);
+                } else {
+                    window[this.id].destroy();
+                    window[this.id] = new Chart($el, config);
+                }
+
+                this.defineChartTheme();
+            });
         },
         defineChartTheme() {
             this.updateAndRender();
@@ -59,7 +66,13 @@
             window[this.id].update(updating ? 'none' : 'show');
             window[this.id].render();
         },
+        defineDatasetsColors(datasets) {
+            for (let i = 0; i < datasets.length; i++) {
+                datasets[i].backgroundColor = datasets[i].colors.map((color) => { return color[this.theme == 'light' ? 0 : 1] });
+            }
 
+            return datasets;
+        }
     }"
 
     {{ $attributes }}></canvas>

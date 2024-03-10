@@ -32,13 +32,15 @@ class Chart
      *
      * @param string $datasetLabel dataset label
      * @param array $data dataset data
+     * @param array $colors array with the color for each data in the dataset
      * @return Chart
      */
-    function addDataset(string $datasetLabel, array $data = [])
+    function addDataset(string $datasetLabel, array $data = [], array $colors)
     {
         $this->datasets[] = [
             'label' => $datasetLabel,
-            'data' => $data
+            'data' => $data,
+            'colors' => $colors
         ];
         return $this;
     }
@@ -56,24 +58,6 @@ class Chart
                 'labels' => $this->labels,
                 'datasets' => $this->datasets
             ]
-        ];
-    }
-
-    /**
-     * Define chart colors
-     *
-     * @return array
-     */
-    static function colors()
-    {
-        return [
-            'blue' => '#fefeff',
-            'red' => '#ff6384',
-            'green' => '#4ac1c0',
-            'orange' => '#ff9e41',
-            'purple' => '#9867ff',
-            'yellow' => '#fecd57',
-            'gray' => '#c8cbce',
         ];
     }
 }
