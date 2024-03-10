@@ -75,7 +75,7 @@
 
     <x-admin.section
         title="Pie Chart"
-        class="col-span-12 lg:col-span-5">
+        class="col-span-12 md:col-span-5 lg:col-span-4">
 
         <x-admin.charts.chart
             live-update="5"
@@ -85,11 +85,21 @@
 
     <x-admin.section
         title="Bar Chart"
-        class="col-span-12 lg:col-span-7">
+        class="col-span-12 md:col-span-7 lg:col-span-8">
 
         <x-admin.charts.chart
             live-update="10"
             id="homeChartBar" />
+
+    </x-admin.section>
+
+    <x-admin.section
+        title="Line Chart"
+        class="col-span-12">
+
+        <x-admin.charts.chart
+            live-update="5"
+            id="homeChartLine" />
 
     </x-admin.section>
 

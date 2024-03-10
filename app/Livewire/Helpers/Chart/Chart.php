@@ -4,6 +4,8 @@ namespace App\Livewire\Helpers\Chart;
 
 class Chart
 {
+    const ALLOWED_TYPES = ['pie', 'bar', 'doughnut', 'line'];
+
     /**
      * Constructor
      *
@@ -11,8 +13,24 @@ class Chart
      * @param array $labels
      * @param array $datasets
      */
-    function __construct(public string $type, public array $labels = [], public array $datasets = [])
+    function __construct(public string $type = 'bar', public array $labels = [], public array $datasets = [])
     {
+    }
+
+    /**
+     * Define chart type
+     *
+     * @param string $type
+     * @return Chart
+     */
+    function addType(string $type = 'bar')
+    {
+        if (!in_array($type, self::ALLOWED_TYPES)) {
+            throw new \Exception("Type '{$type}' is not allowed. Allowed types: " . implode(', ', self::ALLOWED_TYPES));
+        }
+
+        $this->type = $type;
+        return $this;
     }
 
     /**
@@ -45,7 +63,9 @@ class Chart
             'label' => $datasetLabel,
             'data' => $data,
             'colors' => $colors,
-            'borderColors' => ChartColors::BORDER
+            'borderColors' => ChartColors::BORDER,
+            'tension' => 0.4,
+            'hoverOffset' => 10
         ];
         return $this;
     }

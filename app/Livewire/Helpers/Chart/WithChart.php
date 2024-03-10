@@ -25,9 +25,17 @@ trait WithChart
     #[\Livewire\Attributes\Renderless]
     function getChartData(string $chartId, bool $updating = false)
     {
-        $chartData = static::setChartData()[$chartId] ?? null;
+        $callable = static::setChartData()[$chartId] ?? null;
 
-        return $chartData ? $updating ? $this->emit($chartData->toArray(), $chartId) : $chartData->toArray() : null;
+        if (!$callable) {
+            return null;
+        }
+
+        if (!is_callable($callable)) {
+            throw new \Exception("'{$chartId}' needs to be a callable.");
+        }
+
+        return $updating ? $this->emit($callable(new Chart())->toArray(), $chartId) : $callable(new Chart())->toArray();
     }
 
     /**
@@ -43,35 +51,5 @@ trait WithChart
             'id' => $chartId,
             'datasets' => $data['data']['datasets']
         ]);
-    }
-
-    /**
-     * Chart of type 'bar'
-     *
-     * @return Chart
-     */
-    function chartBar()
-    {
-        return new Chart('bar');
-    }
-
-    /**
-     * Chart of type pie
-     *
-     * @return Chart
-     */
-    function chartPie()
-    {
-        return new Chart('pie');
-    }
-
-    /**
-     * Chart of type doughnut
-     *
-     * @return Chart
-     */
-    function chartDoughnut()
-    {
-        return new Chart('doughnut');
     }
 }

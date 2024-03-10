@@ -79,9 +79,14 @@
         // Define datasets colors
         defineDatasetsColors(datasets) {
             for (let i = 0; i < datasets.length; i++) {
-                datasets[i].backgroundColor = datasets[i].colors.map((color) => { return color[this.theme == 'light' ? 0 : 1] });
+                if (this.type == 'line') {
+                    datasets[i].borderColor = datasets[i].colors.map((color) => { return color[this.theme == 'light' ? 0 : 1] });
 
-                datasets[i].borderColor = datasets[i].borderColors[this.theme == 'light' ? 0 : 1];
+                } else {
+                    datasets[i].backgroundColor = datasets[i].colors.map((color) => { return color[this.theme == 'light' ? 0 : 1] });
+
+                    datasets[i].borderColor = datasets[i].borderColors[this.theme == 'light' ? 0 : 1];
+                }
             }
 
             return datasets;
