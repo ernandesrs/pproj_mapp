@@ -38,4 +38,9 @@ class ChartColors
         '#c8cbce',
         '#c8cbce',
     ];
+
+    const PINK = [
+        '#E87CE1',
+        '#E87CE1',
+    ];
 }
