@@ -19,12 +19,30 @@ trait WithChart
      * Get chart data
      *
      * @param string $chartId
+     * @param bool $updating
      * @return null|array
      */
-    function getChartData(string $chartId)
+    #[\Livewire\Attributes\Renderless]
+    function getChartData(string $chartId, bool $updating = false)
     {
         $chartData = static::setChartData()[$chartId] ?? null;
-        return $chartData ? $chartData->toArray() : null;
+
+        return $chartData ? $updating ? $this->emit($chartData->toArray(), $chartId) : $chartData->toArray() : null;
+    }
+
+    /**
+     * Emit event with updated chart data
+     *
+     * @param array $data
+     * @param string $chartId
+     * @return void
+     */
+    private function emit(array $data, string $chartId)
+    {
+        $this->dispatch('chart_data_updated', [
+            'id' => $chartId,
+            'datasets' => $data['data']['datasets']
+        ]);
     }
 
     /**

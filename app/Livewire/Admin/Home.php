@@ -15,14 +15,17 @@ class Home extends PageBaseSimple
 
     function setChartData()
     {
+        $data = json_decode(file_get_contents(base_path() . '/data.json'));
+
         return [
             'homeChartBar' => $this->chartBar()
                 ->addLabels(['Jan', 'Fev', 'Mar'])
-                ->addDataset('Label #1', [4, 3, 33])
-                ->addDataset('Label #2', [40, 13, 73]),
+                ->addDataset('Label #1', explode(",", $data->bar))
+                ->addDataset('Label #2', explode(",", $data->bar2))
+                ->addDataset('Label #3', explode(",", $data->bar3)),
             'homeChartPie' => $this->chartPie()
-                ->addLabels(['Jan', 'Fev', 'Mar'])
-                ->addDataset('Label #1', [99, 10, 33])
+                ->addLabels(['Jan', 'Fev', 'Mar', 'Abr', 'Mai'])
+                ->addDataset('Label #1', explode(",", $data->pie))
         ];
     }
 

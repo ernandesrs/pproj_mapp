@@ -74,22 +74,22 @@
     </div>
 
     <x-admin.section
-        title="Bar Chart"
-        class="col-span-12 lg:col-span-7">
-
-        <x-admin.charts.chart
-            id="homeChartBar"
-            type="bar" />
-
-    </x-admin.section>
-
-    <x-admin.section
         title="Pie Chart"
         class="col-span-12 lg:col-span-5">
 
         <x-admin.charts.chart
-            id="homeChartPie"
-            type="pie" />
+            live-update="5"
+            id="homeChartPie" />
+
+    </x-admin.section>
+
+    <x-admin.section
+        title="Bar Chart"
+        class="col-span-12 lg:col-span-7">
+
+        <x-admin.charts.chart
+            live-update="10"
+            id="homeChartBar" />
 
     </x-admin.section>
 
