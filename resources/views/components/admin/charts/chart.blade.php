@@ -18,6 +18,7 @@
 @endphp
 
 <canvas
+    @admin_theme_has_change.window="themeChangeHandler"
     @chart_data_updated.window="chartUpdatedHandler"
     x-data="{
         ...{{ json_encode($this->getChartData($id)) }},
@@ -43,12 +44,11 @@
                     window[this.id] = new Chart($el, config);
                 }
 
-                this.defineChartTheme();
+                this.updateAndRender();
             });
         },
-        defineChartTheme() {
-            this.updateAndRender();
-        },
+
+        // To chart update event
         chartUpdatedHandler(e) {
             if (e.detail[0]?.id != this.id) {
                 return;
@@ -62,17 +62,30 @@
 
             this.updateAndRender(true);
         },
+
+        // To admin theme change event(to change chart colors)
+        themeChangeHandler(e) {
+            this.theme = window.adminTheme.getTheme();
+            window[this.id].config.data.datasets = this.defineDatasetsColors(window[this.id].config.data.datasets);
+            this.updateAndRender(true);
+        },
+
+        // Update chart and render
         updateAndRender(updating = false) {
             window[this.id].update(updating ? 'none' : 'show');
             window[this.id].render();
         },
+
+        // Define datasets colors
         defineDatasetsColors(datasets) {
             for (let i = 0; i < datasets.length; i++) {
                 datasets[i].backgroundColor = datasets[i].colors.map((color) => { return color[this.theme == 'light' ? 0 : 1] });
+
+                datasets[i].borderColor = datasets[i].borderColors[this.theme == 'light' ? 0 : 1];
             }
 
             return datasets;
-        }
+        },
     }"
 
     {{ $attributes }}></canvas>

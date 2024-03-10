@@ -32,7 +32,11 @@ class Chart
      *
      * @param string $datasetLabel dataset label
      * @param array $data dataset data
-     * @param array $colors array with the color for each data in the dataset
+     * @param array<array> $colors array with the color for each data in the dataset, something like:
+     * [
+     *      ChartColors::BLUE,
+     *      ChartColors::GREEN
+     * ]
      * @return Chart
      */
     function addDataset(string $datasetLabel, array $data = [], array $colors)
@@ -40,7 +44,8 @@ class Chart
         $this->datasets[] = [
             'label' => $datasetLabel,
             'data' => $data,
-            'colors' => $colors
+            'colors' => $colors,
+            'borderColors' => ChartColors::BORDER
         ];
         return $this;
     }

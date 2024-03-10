@@ -9,7 +9,7 @@ const admTheme = {
     },
     toggle() {
         this.setTheme(this.currentTheme == 'light' ? 'dark' : 'light');
-
+        dispatchEvent((new Event('admin_theme_has_change')));
         return this.currentTheme;
     },
     getTheme() {
