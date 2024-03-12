@@ -16,7 +16,7 @@
                     @if ($column['actions']['delete'])
                         <x-admin.list.actions.delete
                             wire:click="delete"
-                            wire:confirm="Confirm deletion" />
+                            wire:confirm="{{ __('admin/alerts.confirmation.delete') }}" />
                     @endif
                 </x-admin.list.actions>
             @elseif(isset($column['view']))
